@@ -238,8 +238,8 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 //Same thing but for rotations
 /obj/vehicle/multitile/root/cm_armored/try_rotate(var/deg, var/mob/user, var/force = 0)
 	if(world.time < next_move && !force) return
-
-	if(hardpoints[HDPT_TREADS] && hardpoints[HDPT_TREADS].obj_integrity > 0)	//same goes for turning
+	var/obj/item/hardpoint/HP = hardpoints[HDPT_TREADS]
+	if(HP && HP.obj_integrity > 0)	//same goes for turning
 		next_move = world.time + src.speed * (force ? 2 : 3) //3 for a 3 point turn, idk
 	else
 		next_move = world.time + move_delay * (force ? 2 : 3)
@@ -979,12 +979,12 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	//Somehow we will deal no damage on this attack
 	if(!damage)
 		playsound(M.loc, 'sound/weapons/alien_claw_swipe.ogg', 25, 1)
-		M.animation_attack_on(src)
+		M.do_attack_animation(src)
 		M.visible_message("<span class='danger'>\The [M] lunges at [src]!</span>", \
 		"<span class='danger'>You lunge at [src]!</span>")
 		return FALSE
 
-	M.animation_attack_on(src)
+	M.do_attack_animation(src)
 	playsound(M.loc, pick('sound/weapons/alien_claw_metal1.ogg', 'sound/weapons/alien_claw_metal2.ogg', 'sound/weapons/alien_claw_metal3.ogg'), 25, 1)
 	M.visible_message("<span class='danger'>\The [M] slashes [src]!</span>", \
 	"<span class='danger'>You slash [src]!</span>")
