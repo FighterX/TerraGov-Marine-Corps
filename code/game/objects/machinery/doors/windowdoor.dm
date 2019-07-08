@@ -1,7 +1,7 @@
 /obj/machinery/door/window
 	name = "interior door"
 	desc = "A strong door."
-	icon = 'RU-TGMC/icons/obj/doors/windoor.dmi'
+	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "left"
 	layer = ABOVE_WINDOW_LAYER
 	resistance_flags = XENO_DAMAGEABLE
