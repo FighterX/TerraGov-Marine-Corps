@@ -170,7 +170,7 @@ var/list/apc_dmg_distributions = list(
 
 	var/list/slots = get_activatable_hardpoints()
 
-	if(!slots.len)
+	if(!length(slots))
 		to_chat(usr, "<span class='warning'>All of the modules can't be activated or are broken.</span>")
 		return
 
@@ -241,17 +241,19 @@ var/list/apc_dmg_distributions = list(
 	if(HP4 == null || HP4.obj_integrity <= 0)
 		to_chat(usr, "<span class='warning'>Primary weapon: Unavailable.</span>")
 	else
-		if(HP4.clips.len <= 0)
+		if(length(HP4.clips) <= 0)
 			to_chat(usr, "<span class='warning'>Primary weapon: [HP4.name]. Ammo: 0/0. 0/0 spare magazines available.</span>")
 		else
-			to_chat(usr, "<span class='warning'>Primary weapon: [HP4.name]. Ammo: [HP4.clips[1].current_rounds]/[HP4.clips[1].max_rounds]. [HP4.clips.len - 1]/[HP4.max_clips - 1] spare magazines available.</span>")
+			var/obj/item/ammo_magazine/ammo = HP4.clips[1]
+			to_chat(usr, "<span class='warning'>Primary weapon: [HP4.name]. Ammo: [ammo.current_rounds]/[ammo.max_rounds]. [length(HP4.clips) - 1]/[HP4.max_clips - 1] spare magazines available.</span>")
 	if(HP3 == null || HP3.obj_integrity <= 0)
 		to_chat(usr, "<span class='warning'>Secondary weapon: Unavailable.</span>")
 	else
-		if(HP3.clips.len <= 0)
+		if(length(HP3.clips) <= 0)
 			to_chat(usr, "<span class='warning'>Secondary weapon: [HP3.name]. Ammo: 0/0. 0/0 spare magazines available.</span>")
 		else
-			to_chat(usr, "<span class='warning'>Secondary weapon: [HP3.name]. Ammo: [HP3.clips[1].current_rounds]/[HP3.clips[1].max_rounds]. [HP3.clips.len - 1]/[HP3.max_clips - 1] spare magazines available.</span><br>")
+			var/obj/item/ammo_magazine/ammo = HP3.clips[1]
+			to_chat(usr, "<span class='warning'>Secondary weapon: [HP3.name]. Ammo: [ammo.current_rounds]/[ammo.max_rounds]. [length(HP3.clips) - 1]/[HP3.max_clips - 1] spare magazines available.</span><br>")
 
 /obj/vehicle/multitile/root/cm_transport/verb/reload_hp()
 	set name = "W Reload Weapon"
@@ -263,7 +265,7 @@ var/list/apc_dmg_distributions = list(
 	//TODO: make this a proc so I don't keep repeating this code
 	var/list/slots = get_activatable_hardpoints()
 
-	if(!slots.len)
+	if(!length(slots))
 		to_chat(usr, "<span class='warning'>All of the modules can't be reloaded or are broken.</span>")
 		return
 
@@ -274,7 +276,7 @@ var/list/apc_dmg_distributions = list(
 	var/slot = input("Select a slot.") in slots
 
 	var/obj/item/hardpoint/apc/HP = hardpoints[slot]
-	if(HP.clips.len < 1)
+	if(length(HP.clips) < 1)
 		to_chat(usr, "<span class='warning'>[HP.name] has no clips left in it!</span>")
 		return
 
@@ -282,10 +284,10 @@ var/list/apc_dmg_distributions = list(
 
 	sleep(20)
 	var/obj/item/ammo_magazine/A = HP.clips[1]
-	HP.clips[1].Move(entrance.loc)	//LISTS START AT 1 REEEEEEEEEEEE
-	HP.clips[1].update_icon()
+	A.Move(entrance.loc)	//LISTS START AT 1 REEEEEEEEEEEE
+	A.update_icon()
 	HP.clips.Remove(A)
-	if(HP.clips.len > 0)
+	if(length(HP.clips) > 0)
 		to_chat(usr, "<span class='notice'>You reload the [HP.name].</span>")
 	else
 		to_chat(usr, "<span class='notice'>You empty the [HP.name].</span>")
@@ -293,7 +295,7 @@ var/list/apc_dmg_distributions = list(
 
 /obj/vehicle/multitile/root/cm_transport/proc/get_activatable_hardpoints()
 	var/list/slots = list()
-	if(hardpoints.len)
+	if(length(hardpoints))
 		for(var/slot in hardpoints)
 			var/obj/item/hardpoint/apc/HP = hardpoints[slot]
 			if(!HP) continue
@@ -824,8 +826,9 @@ var/list/apc_dmg_distributions = list(
 	for(var/obj/item/clothing/mask/facehugger/FG in get_turf(src))
 		FG.Die()
 	for(var/obj/effect/xenomorph/spray/SR in get_turf(src))
-		if(istype(CA.hardpoints[HDPT_WHEELS], /obj/item/hardpoint/apc/wheels) && CA.hardpoints[HDPT_WHEELS].obj_integrity > 0)
-			CA.hardpoints[HDPT_WHEELS].obj_integrity -= 10
+		var/obj/item/hardpoint/HP = CA.hardpoints[HDPT_WHEELS]
+		if(istype(HP, /obj/item/hardpoint/apc/wheels) && HP.obj_integrity > 0)
+			HP.obj_integrity -= 10
 			healthcheck()
 
 	. = ..()
@@ -1098,7 +1101,7 @@ var/list/apc_dmg_distributions = list(
 		to_chat(user, "<span class='warning'>You don't know what to do with [O] on [src].</span>")
 		return
 
-	if(!damaged_hps.len)
+	if(!length(damaged_hps))
 		to_chat(user, "<span class='notice'>All of the hardpoints are in working order.</span>")
 		return
 
@@ -1261,13 +1264,13 @@ var/list/apc_dmg_distributions = list(
 		return
 
 	if((old == hardpoints[HDPT_PRIMARY] || old == hardpoints[HDPT_SECDGUN]) && old.obj_integrity > 0)
-		if(old.clips.len > 0)
+		if(length(old.clips) > 0)
 			var i
 			var/obj/item/ammo_magazine/A
-			for(i = 0; i <= old.clips.len; i++)
+			for(i = 0; i <= length(old.clips); i++)
 				A = old.clips[1]
-				old.clips[1].Move(entrance.loc)
-				old.clips[1].update_icon()
+				A.Move(entrance.loc)
+				A.update_icon()
 				old.clips.Remove(A)
 			user.visible_message("<span class='notice'>[user] removes ammunition from \the [old].</span>", "<span class='notice'>You remove ammunition from \the [old].</span>")
 
