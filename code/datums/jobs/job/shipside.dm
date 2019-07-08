@@ -37,7 +37,7 @@ Godspeed, captain! And remember, you are not above the law."})
 	jobtype = /datum/job/command/captain
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/storage/belt/gun/mateba/cmateba/full
+	belt = /obj/item/storage/belt/gun/mateba/captain/full
 	ears = /obj/item/radio/headset/almayer/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/command
 	shoes = /obj/item/clothing/shoes/marinechief/captain
@@ -69,7 +69,7 @@ Godspeed, captain! And remember, you are not above the law."})
 /datum/job/command/fieldcommander/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"You are charged with overseeing the operation on the ground, and are the highest-ranked deployed marine.
-Your dutiesare to ensure marines hold when ordered, and push when they are cowering behind barricades.
+Your duties are to ensure marines hold when ordered, and push when they are cowering behind barricades.
 Do not ask your men to do anything you would not do side by side with them.
 Make the TGMC proud!"})
 
@@ -118,7 +118,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	jobtype = /datum/job/command/intelligenceofficer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/gun/m4a3/captain
+	belt = /obj/item/storage/belt/gun/m4a3/officer
 	ears = /obj/item/radio/headset/almayer/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/bridge
 	shoes = /obj/item/clothing/shoes/marine

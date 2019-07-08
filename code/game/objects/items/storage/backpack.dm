@@ -10,7 +10,7 @@
 	flags_equip_slot = ITEM_SLOT_BACK	//ERROOOOO
 	max_w_class = 3
 	storage_slots = null
-	max_storage_space = 30
+	max_storage_space = 24
 	var/worn_accessible = FALSE //whether you can access its content while worn on the back
 	var/list/uniform_restricted //Need to wear this uniform to equip this
 
@@ -473,7 +473,7 @@
 	if (M.smokecloaked)
 		M.smokecloaked = FALSE
 	else
-		var/datum/atom_hud/security/advanced/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
+		var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 		SA.remove_from_hud(M)
 		var/datum/atom_hud/simple/basic = GLOB.huds[DATA_HUD_BASIC]
 		basic.remove_from_hud(M)
@@ -517,7 +517,7 @@
 	playsound(user.loc,'sound/effects/cloak_scout_off.ogg', 15, 1)
 	user.alpha = initial(user.alpha)
 
-	var/datum/atom_hud/security/advanced/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
+	var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
 	SA.add_to_hud(user)
 	var/datum/atom_hud/simple/basic = GLOB.huds[DATA_HUD_BASIC]
 	basic.add_to_hud(user)
