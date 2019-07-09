@@ -1,33 +1,32 @@
-/*/obj/vehicle/powerloader
-	name = "\improper RPL-Y Cargo Loader"
-	icon = 'icons/obj/powerloader.dmi'
-	desc = "The RPL-Y Cargo Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects. An old but trusted design used in warehouses, constructions and military ships everywhere."
+/obj/vehicle/powerloader
+	name = "Caterpillar P-5000 Work Loader"
+	icon = 'RU-TGMC/icons/obj/powerloader.dmi'
+	desc = "The Caterpillar P-5000 Work Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects, first designed in January 29, 2025 by Weyland Corporation. An old but trusted design used in warehouses, constructions and military ships everywhere."
 	icon_state = "powerloader_open"
 	layer = POWERLOADER_LAYER //so the top appears above windows and wall mounts
-	anchored = TRUE
-	density = TRUE
+	anchored = 1
+	density = 1
+	luminosity = 5
 	move_delay = 8
+	buckling_y = 9
 	max_integrity = 200
-	var/panel_open = FALSE
+	pixel_x = -16
+	pixel_y = -2
 
-/obj/vehicle/powerloader/New()
-	. = ..()
-	cell = new /obj/item/cell/apc(src)
-	for(var/i = 1, i <= 2, i++)
-		var/obj/item/powerloader_clamp/PC = new(src)
-		PC.linked_powerloader = src
+	Initialize()
+		..()
+		cell = new /obj/item/cell/apc
+		for(var/i = 1, i <= 2, i++)
+			var/obj/item/powerloader_clamp/PC = new(src)
+			PC.linked_powerloader = src
 
 /obj/vehicle/powerloader/relaymove(mob/user, direction)
-	if(user.incapacitated())
-		return
-	if(direction in GLOB.diagonals)
-		return
-	if(!direction)
-		return
+	if(user.incapacitated()) return
 	if(world.time > last_move_time + move_delay)
 		if(dir != direction)
 			last_move_time = world.time
-			setDir(direction)
+			dir = direction
+			handle_rotation()
 			pick(playsound(src.loc, 'sound/mecha/powerloader_turn.ogg', 25, 1), playsound(src.loc, 'sound/mecha/powerloader_turn2.ogg', 25, 1))
 			. = TRUE
 		else
@@ -36,63 +35,24 @@
 				pick(playsound(loc, 'sound/mecha/powerloader_step.ogg', 25), playsound(loc, 'sound/mecha/powerloader_step2.ogg', 25))
 
 /obj/vehicle/powerloader/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
 	if(buckled_mob && user != buckled_mob)
 		buckled_mob.visible_message("<span class='warning'>[user] tries to move [buckled_mob] out of [src].</span>",\
 		"<span class='danger'>[user] tries to move you out of [src]!</span>")
+		var/oldloc = loc
 		var/olddir = dir
 		var/old_buckled_mob = buckled_mob
-		if(do_after(user, 30, TRUE, src, BUSY_ICON_HOSTILE) && dir == olddir && buckled_mob == old_buckled_mob)
+		if(do_after(user, 30, TRUE, 5, BUSY_ICON_HOSTILE) && dir == olddir && loc == oldloc && buckled_mob == old_buckled_mob)
 			manual_unbuckle(user)
 			playsound(loc, 'sound/mecha/powerloader_unbuckle.ogg', 25)
-	if(panel_open)
-		if(cell)
-			usr.put_in_hands(cell)
-			playsound(src,'sound/machines/click.ogg', 25, 1)
-			to_chat(usr, "You take out the [cell] out of the [src].")
-			cell = null
-		else
-			to_chat(usr, "There is no cell in the [src].")
 
-
-/obj/vehicle/powerloader/attackby(obj/item/I, mob/user, params)
+/obj/vehicle/powerloader/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/powerloader_clamp))
+		var/obj/item/powerloader_clamp/PC = W
+		if(PC.linked_powerloader == src)
+			unbuckle() //clicking the powerloader with its own clamp unbuckles the pilot.
+			playsound(loc, 'sound/mecha/powerloader_unbuckle.ogg', 25)
+			return 1
 	. = ..()
-
-	if(istype(I, /obj/item/powerloader_clamp))
-		var/obj/item/powerloader_clamp/PC = I
-		if(PC.linked_powerloader != src)
-			return
-		
-		unbuckle() //clicking the powerloader with its own clamp unbuckles the pilot.
-		playsound(loc, 'sound/mecha/powerloader_unbuckle.ogg', 25)
-		return TRUE
-
-	else if(isscrewdriver(I))
-		to_chat(user, "<span class='notice'>You screw the panel [panel_open ? "closed" : "open"].</span>")
-		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-		panel_open = !panel_open
-
-	else if(istype(I, /obj/item/cell) && panel_open)
-		var/obj/item/cell/C = I
-
-		if(cell)
-			to_chat(user, "There already is a power cell in the [src].")
-			return
-
-		cell = C
-		C.forceMove(src)
-		visible_message("[user] puts a new power cell in the [src].")
-		to_chat(user, "You put a new cell in the [src] containing [cell.charge] charge.")
-		playsound(src,'sound/machines/click.ogg', 25, 1)
-
-/obj/vehicle/powerloader/examine(mob/user)
-	. = ..()
-	if(cell)
-		to_chat(user, "There is a [cell] in the [src] containing [cell.charge] charge.")
-	else
-		to_chat(user, "There is no power cell in the [src].")
 
 /obj/vehicle/powerloader/afterbuckle(mob/M)
 	. = ..()
@@ -105,10 +65,8 @@
 			move_delay = max(4, move_delay - M.mind.cm_skills.powerloader)
 		var/clamp_equipped = 0
 		for(var/obj/item/powerloader_clamp/PC in contents)
-			if(!M.put_in_hands(PC))
-				PC.forceMove(src)
-			else
-				clamp_equipped++
+			if(!M.put_in_hands(PC)) PC.forceMove(src)
+			else clamp_equipped++
 		if(clamp_equipped != 2) unbuckle() //can't use the powerloader without both clamps equipped
 	else
 		move_delay = initial(move_delay)
@@ -116,11 +74,12 @@
 		M.drop_all_held_items() //drop the clamp when unbuckling
 
 /obj/vehicle/powerloader/buckle_mob(mob/M, mob/user)
-	if(M != user)
-		return
-	if(!ishuman(M))
-		return
+	if(M != user) return
+	if(!ishuman(M))	return
 	var/mob/living/carbon/human/H = M
+	if(H.mind && user.mind.cm_skills && !user.mind.cm_skills.powerloader)
+		to_chat(H, "<span class='warning'>You don't seem to know how to operate [src].</span>")
+		return
 	if(H.r_hand || H.l_hand)
 		to_chat(H, "<span class='warning'>You need your two hands to use [src].</span>")
 		return
@@ -133,10 +92,14 @@
 
 	buckle_mob(M, usr)
 
-/obj/vehicle/powerloader/setDir(newdir)
-	. = ..()
-	if(buckled_mob?.dir != dir)
-		buckled_mob.setDir(dir)
+/obj/vehicle/powerloader/handle_rotation()
+
+	if(buckled_mob)
+		buckled_mob.dir = dir
+		switch(dir)
+			if(EAST) buckled_mob.pixel_x = 7
+			if(WEST) buckled_mob.pixel_x = -7
+			else buckled_mob.pixel_x = 0
 
 /obj/vehicle/powerloader/explode()
 	new /obj/structure/powerloader_wreckage(loc)
@@ -144,8 +107,8 @@
 	..()
 
 /obj/item/powerloader_clamp
-	icon = 'icons/obj/powerloader.dmi'
-	name = "\improper RPL-Y Cargo Loader Hydraulic Claw"
+	name = "Caterpillar P-5000 Work Loader Hydraulic Claw"
+	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "loader_clamp"
 	force = 20
 	flags_item = ITEM_ABSTRACT //to prevent placing the item on a table/closet.
@@ -165,7 +128,7 @@
 	if(M == linked_powerloader.buckled_mob)
 		unbuckle() //if the pilot clicks themself with the clamp, it unbuckles them.
 		return 1
-	else if(isxeno(M) && user.a_intent == INTENT_HELP)
+	else if(isxeno(M) && user.a_intent == "help")
 		var/mob/living/carbon/xenomorph/X = M
 		if(X.stat == DEAD)
 			if(!X.anchored)
@@ -218,20 +181,20 @@
 
 	else if(istype(target, /obj/structure/closet/crate))
 		var/obj/structure/closet/crate/C = target
-		if(C.mob_size_counter)
-			to_chat(user, "<span class='warning'>Can't grab [loaded], it has a creature inside!</span>")
-			return
-		if(C.anchored)
+		if(!C.anchored && !C.mob_size_counter)
+			for(var/X in C)
+				if(ismob(X)) //just in case.
+					to_chat(user, "<span class='warning'>Can't grab [loaded], it has a creature inside!</span>")
+					return
+			if(linked_powerloader)
+				C.forceMove(linked_powerloader)
+				loaded = C
+				playsound(src, 'sound/machines/hydraulics_2.ogg', 40, 1)
+				update_icon()
+				user.visible_message("<span class='notice'>[user] grabs [loaded] with [src].</span>",
+				"<span class='notice'>You grab [loaded] with [src].</span>")
+		else
 			to_chat(user, "<span class='warning'>Can't grab [loaded].</span>")
-			return
-		if(!linked_powerloader)
-			CRASH("[src] called afterattack on [C] without a linked_powerloader")
-		C.forceMove(linked_powerloader)
-		loaded = C
-		playsound(src, 'sound/machines/hydraulics_2.ogg', 40, 1)
-		update_icon()
-		user.visible_message("<span class='notice'>[user] grabs [loaded] with [src].</span>",
-		"<span class='notice'>You grab [loaded] with [src].</span>")
 
 	else if(istype(target, /obj/structure/largecrate))
 		var/obj/structure/largecrate/LC = target
@@ -247,31 +210,20 @@
 			to_chat(user, "<span class='warning'>Can't grab [loaded].</span>")
 
 /obj/item/powerloader_clamp/update_icon()
-	if(loaded)
-		icon_state = "loader_clamp_full"
-	else
-		icon_state = "loader_clamp"
+	if(loaded) icon_state = "loader_clamp_full"
+	else icon_state = "loader_clamp"
 
 /obj/item/powerloader_clamp/attack_self(mob/user)
 	if(linked_powerloader)
 		linked_powerloader.unbuckle()
 
 /obj/structure/powerloader_wreckage
-	name = "\improper RPL-Y Cargo Loader wreckage"
-	desc = "Remains of some unfortunate Cargo Loader. Completely unrepairable."
-	icon = 'icons/obj/powerloader.dmi'
+	name = "Caterpillar P-5000 Work Loader wreckage"
+	desc = "Remains of some unfortunate Power Loader. Completely unrepairable."
+	icon = 'RU-TGMC/icons/obj/powerloader.dmi'
 	icon_state = "wreck"
-	density = TRUE
-	anchored = FALSE
-	opacity = FALSE
-
-
-/obj/structure/powerloader_wreckage/attack_alien(mob/living/carbon/xenomorph/X)
-	if(X.a_intent == INTENT_HARM)
-		X.do_attack_animation(src)
-		X.flick_attack_overlay(src, "slash")
-		playsound(loc, "alien_claw_metal", 25, 1)
-		X.visible_message("<span class='danger'>[X] slashes [src].</span>", "<span class='danger'>You slash [src].</span>")
-		take_damage(rand(X.xeno_caste.melee_damage_lower, X.xeno_caste.melee_damage_upper))
-	else
-		attack_hand(X)*/
+	density = 1
+	anchored = 0
+	opacity = 0
+	pixel_x = -18
+	pixel_y = -5
