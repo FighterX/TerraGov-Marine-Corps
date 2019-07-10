@@ -3464,7 +3464,6 @@
 /turf/open/floor/carpet,
 /area/almayer/command/corporateliaison)
 "aiO" = (
-/obj/item/storage/lockbox/loyalty,
 /obj/item/weapon/gun/pistol/vp70,
 /obj/item/ammo_magazine/pistol/vp70,
 /obj/structure/closet/cabinet,
@@ -13944,7 +13943,6 @@
 	req_one_access_txt = "22;2;7"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-redfull";
 	icon_state = "redfull"
 	},
 /area/almayer/hallways/exoarmor)
@@ -13995,7 +13993,6 @@
 	dir = 1
 	},
 /turf/open/floor/almayer{
-	tag = "icon-redfull";
 	icon_state = "redfull"
 	},
 /area/almayer/hallways/exoarmor)
@@ -17637,7 +17634,6 @@
 	icon_state = "rwindow"
 	},
 /obj/machinery/shower{
-	tag = "icon-shower (EAST)";
 	icon_state = "shower";
 	dir = 4
 	},
@@ -21286,7 +21282,6 @@
 /area/almayer/hallways/exoarmor)
 "aUE" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-N";
 	icon_state = "N"
 	},
 /turf/open/floor/plating/almayer,
@@ -21342,7 +21337,6 @@
 	name = "\improper Armory Shutters"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -21466,7 +21460,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -21492,7 +21486,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -21533,13 +21527,13 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -21681,7 +21675,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -21694,7 +21688,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -21787,7 +21781,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -21805,7 +21799,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -21832,8 +21826,7 @@
 	dir = 8;
 	icon_state = "camera";
 	name = "ship-grade camera";
-	network = list("almayer");
-	tag = "icon-camera (EAST)"
+	network = list("almayer")
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -21891,8 +21884,7 @@
 	dir = 1;
 	icon_state = "camera";
 	name = "ship-grade camera";
-	network = list("almayer");
-	tag = "icon-camera (NORTH)"
+	network = list("almayer")
 	},
 /turf/open/floor/almayer{
 	icon_regular_floor = "mono";
@@ -22310,7 +22302,6 @@
 /area/almayer/squads/alpha)
 "aXg" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-SE-out";
 	icon_state = "SE-out"
 	},
 /turf/open/floor/almayer,
@@ -22329,7 +22320,6 @@
 /area/almayer/hallways/starboard_hallway)
 "aXk" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-S";
 	icon_state = "S"
 	},
 /turf/open/floor/almayer,
@@ -22391,7 +22381,6 @@
 /area/almayer/hull/lower_hull)
 "aXv" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-S";
 	icon_state = "S"
 	},
 /obj/structure/cable{
@@ -22411,8 +22400,7 @@
 	dir = 1;
 	icon_state = "camera";
 	name = "ship-grade camera";
-	network = list("almayer");
-	tag = "icon-camera (NORTH)"
+	network = list("almayer")
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
@@ -22569,7 +22557,6 @@
 /area/almayer/hallways/hangar)
 "aXR" = (
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/hangar)
@@ -22582,7 +22569,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/hangar)
@@ -23259,13 +23245,11 @@
 /area/almayer/squads/alpha)
 "aZs" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-SE-out";
 	icon_state = "SE-out"
 	},
 /obj/machinery/door_control{
 	id = "garage_walker";
 	name = "Walker Bay";
-	pixel_x = 0;
 	pixel_y = -25;
 	req_one_access_txt = "3;7;28";
 	throw_range = 15
@@ -23348,7 +23332,6 @@
 /area/almayer/hallways/starboard_umbilical)
 "aZz" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-S";
 	icon_state = "S"
 	},
 /turf/open/floor/almayer{
@@ -23464,7 +23447,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/warning_stripes{
-	tag = "icon-S";
 	icon_state = "S"
 	},
 /turf/open/floor/almayer{
@@ -23479,7 +23461,6 @@
 /area/almayer/squads/alpha)
 "aZP" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-SW-out";
 	icon_state = "SW-out"
 	},
 /turf/open/floor/almayer{
@@ -23829,13 +23810,11 @@
 /obj/machinery/door_control{
 	id = "garage1";
 	name = "Vehicle Garage";
-	pixel_x = 0;
 	pixel_y = -25;
 	req_access_txt = "0";
 	req_one_access_txt = "3;7;27"
 	},
 /obj/effect/decal/warning_stripes{
-	tag = "icon-SE-out";
 	icon_state = "SE-out"
 	},
 /turf/open/floor/almayer{
@@ -24008,7 +23987,6 @@
 	name = "\improper Walker Bay"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -24027,7 +24005,6 @@
 	name = "\improper Tank Garage"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -24073,7 +24050,6 @@
 /area/almayer/living/cafeteria_starboard)
 "bbk" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-N";
 	icon_state = "N"
 	},
 /turf/open/floor/almayer{
@@ -24157,17 +24133,14 @@
 /obj/machinery/door_control{
 	id = "garage1";
 	name = "Vehicle Garage";
-	pixel_x = 0;
 	pixel_y = 30;
 	req_one_access_txt = "0";
 	throw_range = 15
 	},
 /obj/effect/decal/warning_stripes{
-	icon_state = "NE-out";
-	tag = "icon-NE-out"
+	icon_state = "NE-out"
 	},
 /obj/effect/decal/warning_stripes{
-	tag = "icon-W";
 	icon_state = "W"
 	},
 /turf/open/floor/almayer{
@@ -24210,7 +24183,6 @@
 /area/almayer/hallways/starboard_umbilical)
 "bbB" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-N";
 	icon_state = "N"
 	},
 /obj/structure/cable{
@@ -24225,7 +24197,6 @@
 /area/almayer/hallways/exoarmor)
 "bbC" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-NW-out";
 	icon_state = "NW-out"
 	},
 /turf/open/floor/almayer{
@@ -24245,14 +24216,12 @@
 /area/almayer/hallways/exoarmor)
 "bbE" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-E";
 	icon_state = "E"
 	},
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -24310,14 +24279,12 @@
 /area/almayer/hallways/exoarmor)
 "bbL" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-N";
 	icon_state = "N"
 	},
 /turf/open/floor/almayer,
 /area/almayer/hallways/exoarmor)
 "bbM" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-NW-out";
 	icon_state = "NW-out"
 	},
 /turf/open/floor/almayer,
@@ -24331,7 +24298,6 @@
 /area/almayer/hallways/exoarmor)
 "bbO" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-W";
 	icon_state = "W"
 	},
 /turf/open/floor/almayer{
@@ -24498,11 +24464,9 @@
 /area/almayer/living/chapel)
 "bcn" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-E";
 	icon_state = "E"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -24686,7 +24650,6 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
-	pixel_y = 0
 	},
 /turf/open/floor/almayer{
 	icon_regular_floor = "mono";
@@ -24780,13 +24743,11 @@
 "bcQ" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
 "bcR" = (
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -24795,11 +24756,9 @@
 	dir = 8;
 	icon_state = "camera";
 	name = "ship-grade camera";
-	network = list("almayer");
-	tag = "icon-camera (EAST)"
+	network = list("almayer")
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -25005,7 +24964,6 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
-	pixel_y = 0
 	},
 /turf/open/floor/almayer{
 	icon_regular_floor = "mono";
@@ -25132,7 +25090,6 @@
 /area/almayer/hallways/exoarmor)
 "bdM" = (
 /turf/open/floor/almayer{
-	tag = "icon-test_floor5";
 	icon_state = "test_floor5"
 	},
 /area/almayer/hallways/exoarmor)
@@ -25141,10 +25098,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /obj/effect/decal/warning_stripes{
-	tag = "icon-W";
 	icon_state = "W"
 	},
 /turf/open/floor/almayer{
@@ -25158,7 +25114,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
-	pixel_x = 0
+	
 	},
 /turf/open/floor/almayer{
 	icon_state = "cargo"
@@ -25168,8 +25124,7 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	tag = ""
+	icon_state = "1-8"
 	},
 /turf/open/floor/almayer{
 	icon_regular_floor = "mono";
@@ -25189,14 +25144,12 @@
 	icon_state = "dropship2"
 	},
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
 "bdS" = (
 /obj/machinery/light,
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -25522,12 +25475,10 @@
 /area/almayer/hallways/starboard_umbilical)
 "beL" = (
 /obj/effect/decal/warning_stripes{
-	tag = "icon-E";
 	icon_state = "E"
 	},
 /obj/machinery/light,
 /turf/open/floor/almayer{
-	tag = "icon-test_floor4";
 	icon_state = "test_floor4"
 	},
 /area/almayer/hallways/exoarmor)
@@ -26829,11 +26780,6 @@
 	icon_state = "hull3"
 	},
 /area/vehicle_interior/apc_1)
-"bia" = (
-/turf/open/floor/almayer{
-	icon_state = "test_floor4"
-	},
-/area/almayer/hallways/hangar)
 "bib" = (
 /obj/structure/bed/chair/dropship/passenger,
 /turf/open/shuttle/dropship,
@@ -28845,8 +28791,7 @@
 	dir = 8;
 	icon_state = "camera";
 	name = "military-grade camera";
-	network = list("apc_1");
-	tag = "icon-camera (EAST)"
+	network = list("apc_1")
 	},
 /turf/open/shuttle/dropship,
 /area/vehicle_interior/apc_1)
@@ -28903,8 +28848,7 @@
 	dir = 8;
 	icon_state = "camera";
 	name = "military-grade camera";
-	network = list("apc_2");
-	tag = "icon-camera (EAST)"
+	network = list("apc_2")
 	},
 /turf/open/shuttle/dropship,
 /area/vehicle_interior/apc_2)
@@ -28936,8 +28880,7 @@
 	dir = 8;
 	icon_state = "camera";
 	name = "military-grade camera";
-	network = list("apc_3");
-	tag = "icon-camera (EAST)"
+	network = list("apc_3")
 	},
 /turf/open/shuttle/dropship,
 /area/vehicle_interior/apc_3)
@@ -70778,7 +70721,7 @@ bdY
 beU
 bgc
 aTs
-bia
+aXR
 biK
 bPS
 bla
@@ -71035,7 +70978,7 @@ bdY
 beU
 bgc
 aTs
-bia
+aXR
 biK
 bPS
 bkX
