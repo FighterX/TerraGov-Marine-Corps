@@ -2877,6 +2877,20 @@
 /obj/structure/jungle/plantbot1/alien,
 /turf/open/ground/river,
 /area/lv624/ground/river3)
+"akx" = (
+/obj/machinery/door/window,
+/obj/machinery/shower{
+	dir = 4;
+	pixel_y = -10
+	},
+/obj/structure/window/reinforced/almayer1{
+	dir = 1;
+	icon_state = "fwindow";
+	layer = 2.79
+	},
+/obj/structure/window/reinforced/almayer1,
+/turf/open/floor/tile/white,
+/area/lv624/lazarus/medbay)
 "aky" = (
 /obj/structure/inflatable,
 /turf/open/floor/plating/ground/dirt,
@@ -2971,6 +2985,38 @@
 	dir = 4
 	},
 /area/lv624/ground/river3)
+"akR" = (
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/machinery/shower{
+	dir = 8;
+	pixel_y = -10
+	},
+/obj/structure/window/reinforced/almayer1,
+/obj/structure/window/reinforced/almayer1{
+	dir = 1;
+	icon_state = "fwindow";
+	layer = 2.79
+	},
+/turf/open/floor/tile/white,
+/area/lv624/lazarus/medbay)
+"akS" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_y = 6
+	},
+/obj/item/tool/pen{
+	pixel_y = 7
+	},
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "twindow";
+	layer = 4.1
+	},
+/turf/open/floor/tile/blue/whitebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/medbay)
 "akT" = (
 /obj/structure/jungle/vines,
 /obj/structure/jungle/plantbot1/alien,
@@ -3181,6 +3227,17 @@
 /obj/item/ammo_casing,
 /turf/open/floor,
 /area/lv624/ground/sand8)
+"alD" = (
+/obj/item/trash/cheesie,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "alE" = (
 /turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand8)
@@ -3191,6 +3248,17 @@
 	dir = 6
 	},
 /area/lv624/ground/river2)
+"alG" = (
+/obj/structure/bed/roller,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "alH" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/tile/vault{
@@ -3229,6 +3297,17 @@
 /obj/effect/landmark/start/surv_spawn,
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
+"alO" = (
+/obj/structure/bed,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "alP" = (
 /obj/effect/alien/weeds/node,
 /turf/open/floor/tile/red/yellowfull,
@@ -3252,6 +3331,18 @@
 "alS" = (
 /turf/closed/wall,
 /area/lv624/ground/river2)
+"alT" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "alU" = (
 /obj/structure/fence,
 /turf/open/floor/plating,
@@ -3363,6 +3454,17 @@
 /obj/structure/catwalk,
 /turf/open/ground/river,
 /area/lv624/ground/river3)
+"amm" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
 "amn" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -3525,19 +3627,16 @@
 	},
 /area/lv624/lazarus/medbay)
 "amN" = (
-/obj/structure/window/reinforced/tinted{
-	dir = 1
+/obj/structure/bed,
+/obj/item/bedsheet/purple,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
 	},
-/obj/structure/window/reinforced/tinted,
-/obj/machinery/door/window{
-	dir = 8
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
 	},
-/obj/machinery/shower{
-	dir = 8;
-	pixel_y = -10
-	},
-/turf/open/floor/tile/white,
-/area/lv624/lazarus/medbay)
+/area/lv624/lazarus/sleep_female)
 "amO" = (
 /obj/structure/catwalk,
 /turf/open/ground/coast{
@@ -3545,17 +3644,16 @@
 	},
 /area/lv624/ground/river2)
 "amP" = (
-/obj/structure/table,
-/obj/item/paper_bin{
-	pixel_y = 6
+/obj/structure/bed,
+/obj/machinery/light,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
 	},
-/obj/item/tool/pen{
-	pixel_y = 7
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
 	},
-/turf/open/floor/tile/blue/whitebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/medbay)
+/area/lv624/lazarus/sleep_female)
 "amQ" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -3600,12 +3698,34 @@
 	},
 /turf/open/floor/plating,
 /area/lv624/ground/sand8)
+"amW" = (
+/obj/structure/bed,
+/obj/item/bedsheet/mime,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
 "amX" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor,
 /area/lv624/ground/sand8)
+"amY" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "amZ" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
@@ -3726,9 +3846,35 @@
 	dir = 2
 	},
 /area/lv624/lazarus/atmos)
+"anq" = (
+/obj/structure/closet,
+/obj/item/tool/crowbar,
+/obj/item/clothing/gloves/yellow,
+/obj/item/stack/medical/bruise_pack,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "anr" = (
 /turf/closed/gm/dense,
 /area/lv624/ground/jungle8)
+"ans" = (
+/obj/structure/closet/open,
+/obj/item/clothing/under/colonist,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "ant" = (
 /turf/open/ground/grass/beach/corner{
 	dir = 8
@@ -4004,6 +4150,17 @@
 	dir = 2
 	},
 /area/lv624/ground/sand9)
+"aok" = (
+/obj/structure/closet,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "aol" = (
 /turf/closed/wall,
 /area/lv624/ground/sand9)
@@ -4147,6 +4304,18 @@
 "aoJ" = (
 /turf/open/floor/plating,
 /area/lv624/ground/jungle7)
+"aoK" = (
+/obj/structure/closet,
+/obj/item/clothing/glasses/sunglasses,
+/obj/structure/window/reinforced/almayer1{
+	dir = 4;
+	icon_state = "fwindow";
+	layer = 3.31
+	},
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "aoL" = (
 /turf/open/floor/plating/warning{
 	dir = 4
@@ -4220,6 +4389,30 @@
 /obj/structure/jungle/vines,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle8)
+"apa" = (
+/obj/structure/closet,
+/obj/item/clothing/under/blackskirt,
+/obj/item/stack/medical/advanced/ointment,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
+"apb" = (
+/obj/structure/closet/open,
+/obj/item/flashlight,
+/obj/item/clothing/under/colonist,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
 "apc" = (
 /obj/effect/decal/mecha_wreckage/ripley/lv624,
 /turf/open/floor/plating/ground/dirt,
@@ -4326,6 +4519,28 @@
 "apv" = (
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle8)
+"apw" = (
+/obj/structure/closet,
+/obj/item/healthanalyzer,
+/obj/item/clothing/shoes/centcom,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
+"apx" = (
+/obj/structure/closet,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
 "apy" = (
 /obj/item/analyzer,
 /turf/open/floor/plating/ground/dirt,
@@ -4418,6 +4633,28 @@
 	dir = 8
 	},
 /area/lv624/ground/jungle8)
+"apL" = (
+/obj/structure/closet,
+/obj/item/clothing/shoes/mime,
+/obj/structure/window/reinforced/almayer1{
+	icon_state = "window";
+	dir = 4
+	},
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
+"apM" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 4;
+	on = 1
+	},
+/obj/effect/landmark/random_item/crap,
+/obj/structure/window/reinforced/almayer1{
+	layer = 4.1
+	},
+/turf/open/floor/freezer,
+/area/lv624/lazarus/toilet)
 "apN" = (
 /turf/open/ground/coast/corner,
 /area/lv624/ground/sand4)
@@ -4455,6 +4692,15 @@
 	dir = 1
 	},
 /area/lv624/ground/jungle8)
+"apW" = (
+/obj/structure/table,
+/obj/structure/window/reinforced/almayer1{
+	dir = 8;
+	icon_state = "twindow";
+	layer = 3.3
+	},
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "apX" = (
 /turf/open/ground/coast{
 	dir = 4
@@ -4485,6 +4731,16 @@
 	dir = 1
 	},
 /area/lv624/ground/jungle8)
+"aqe" = (
+/obj/machinery/door/window,
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/window/reinforced/almayer1{
+	layer = 4.1
+	},
+/turf/open/floor/freezer,
+/area/lv624/lazarus/toilet)
 "aqf" = (
 /turf/open/ground/coast{
 	dir = 1
@@ -4523,12 +4779,35 @@
 	},
 /turf/open/ground/river,
 /area/lv624/ground/river2)
+"aqn" = (
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/window/reinforced/almayer1{
+	layer = 4.1
+	},
+/turf/open/floor/freezer,
+/area/lv624/lazarus/toilet)
 "aqo" = (
 /obj/structure/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 1
 	},
 /area/lv624/ground/jungle8)
+"aqp" = (
+/obj/structure/computerframe{
+	anchored = 1
+	},
+/obj/structure/window/reinforced/almayer1{
+	dir = 8;
+	icon_state = "twindow";
+	layer = 3.3
+	},
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "aqq" = (
 /obj/structure/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirtgrassborder2/corner,
@@ -4547,6 +4826,14 @@
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/open/ground/river,
 /area/lv624/ground/river2)
+"aqt" = (
+/obj/structure/window/reinforced/almayer1{
+	dir = 8;
+	icon_state = "twindow";
+	layer = 3.3
+	},
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "aqu" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/ground/river,
@@ -4581,6 +4868,15 @@
 /obj/structure/jungle/vines,
 /turf/closed/wall/wood,
 /area/lv624/ground/jungle8)
+"aqB" = (
+/obj/machinery/recharge_station,
+/obj/structure/window/reinforced/almayer1{
+	dir = 8;
+	icon_state = "twindow";
+	layer = 3.3
+	},
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "aqC" = (
 /obj/effect/alien/weeds/node,
 /turf/closed/mineral,
@@ -4616,6 +4912,9 @@
 	dir = 1
 	},
 /area/lv624/ground/river2)
+"aqK" = (
+/turf/open/space/basic,
+/area/space)
 "aqM" = (
 /turf/open/ground/coast{
 	dir = 5
@@ -6358,18 +6657,6 @@
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
 	},
-/area/lv624/lazarus/medbay)
-"axB" = (
-/obj/structure/window/reinforced/tinted{
-	dir = 1
-	},
-/obj/structure/window/reinforced/tinted,
-/obj/machinery/door/window,
-/obj/machinery/shower{
-	dir = 4;
-	pixel_y = -10
-	},
-/turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "axC" = (
 /obj/structure/fence,
@@ -12130,43 +12417,6 @@
 	dir = 2
 	},
 /area/lv624/lazarus/sleep_male)
-"aSk" = (
-/obj/item/trash/cheesie,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSl" = (
-/obj/structure/bed/roller,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSm" = (
-/obj/structure/bed,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSn" = (
-/obj/structure/bed,
-/obj/item/bedsheet/blue,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
 "aSo" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
@@ -12184,46 +12434,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
-"aSq" = (
-/obj/structure/bed,
-/obj/item/bedsheet/hos,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aSr" = (
-/obj/structure/bed,
-/obj/item/bedsheet/purple,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aSs" = (
-/obj/structure/bed,
-/obj/machinery/light,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aSt" = (
-/obj/structure/bed,
-/obj/item/bedsheet/mime,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
 "aSu" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/open/floor/tile/purple/taupepurple{
@@ -12364,56 +12574,6 @@
 	dir = 2
 	},
 /area/lv624/lazarus/sleep_male)
-"aSV" = (
-/obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSW" = (
-/obj/structure/closet,
-/obj/item/tool/crowbar,
-/obj/item/clothing/gloves/yellow,
-/obj/item/stack/medical/bruise_pack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSX" = (
-/obj/structure/closet/open,
-/obj/item/clothing/under/colonist,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSY" = (
-/obj/structure/closet,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
-"aSZ" = (
-/obj/structure/closet,
-/obj/item/clothing/glasses/sunglasses,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/blue/taupebluecorner{
-	dir = 2
-	},
-/area/lv624/lazarus/sleep_male)
 "aTa" = (
 /obj/structure/closet,
 /obj/item/storage/fancy/cigarettes/dromedaryco,
@@ -12435,58 +12595,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
-"aTd" = (
-/obj/structure/closet,
-/obj/item/clothing/under/blackskirt,
-/obj/item/stack/medical/advanced/ointment,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aTe" = (
-/obj/structure/closet/open,
-/obj/item/flashlight,
-/obj/item/clothing/under/colonist,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aTf" = (
-/obj/structure/closet,
-/obj/item/healthanalyzer,
-/obj/item/clothing/shoes/centcom,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aTg" = (
-/obj/structure/closet,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
-"aTh" = (
-/obj/structure/closet,
-/obj/item/clothing/shoes/mime,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/tile/purple/taupepurple{
-	dir = 9
-	},
-/area/lv624/lazarus/sleep_female)
 "aTi" = (
 /obj/structure/table,
 /turf/open/floor/tile/purple/taupepurple{
@@ -12735,15 +12843,6 @@
 	},
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
-"aUh" = (
-/obj/structure/window/reinforced/tinted,
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 4;
-	on = 1
-	},
-/obj/effect/landmark/random_item/crap,
-/turf/open/floor/freezer,
-/area/lv624/lazarus/toilet)
 "aUi" = (
 /obj/machinery/shower{
 	dir = 4
@@ -12817,13 +12916,6 @@
 /area/lv624/lazarus/quart)
 "aUt" = (
 /obj/structure/largecrate/random,
-/turf/open/floor/tile/whiteyellow/full,
-/area/lv624/lazarus/quart)
-"aUu" = (
-/obj/structure/table,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "aUw" = (
@@ -12909,25 +13001,7 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/shuttle/drop2/lz2)
-"aUL" = (
-/obj/structure/window/reinforced/tinted,
-/obj/machinery/door/window,
-/obj/structure/toilet{
-	dir = 4
-	},
-/turf/open/floor/freezer,
-/area/lv624/lazarus/toilet)
 "aUM" = (
-/turf/open/floor/freezer,
-/area/lv624/lazarus/toilet)
-"aUN" = (
-/obj/structure/window/reinforced/tinted,
-/obj/machinery/door/window{
-	dir = 8
-	},
-/obj/structure/toilet{
-	dir = 8
-	},
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
 "aUO" = (
@@ -12996,15 +13070,6 @@
 	on = 0
 	},
 /obj/effect/decal/cleanable/blood/oil,
-/turf/open/floor/tile/whiteyellow/full,
-/area/lv624/lazarus/quart)
-"aUZ" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/computerframe{
-	anchored = 1
-	},
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "aVa" = (
@@ -13514,12 +13579,6 @@
 	dir = 8
 	},
 /area/lv624/lazarus/main_hall)
-"aWR" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/tile/whiteyellow/full,
-/area/lv624/lazarus/quart)
 "aWS" = (
 /obj/machinery/door/airlock/almayer/engineering{
 	density = 0;
@@ -13692,13 +13751,6 @@
 	dir = 5
 	},
 /area/lv624/lazarus/main_hall)
-"aXw" = (
-/obj/machinery/recharge_station,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/tile/whiteyellow/full,
-/area/lv624/lazarus/quart)
 "aXx" = (
 /obj/structure/rack,
 /obj/machinery/light,
@@ -40736,7 +40788,7 @@ avV
 awm
 awK
 axg
-axB
+akx
 axU
 ayv
 awn
@@ -41000,7 +41052,7 @@ azc
 awn
 awn
 aAL
-amP
+akS
 aBT
 aCx
 aCY
@@ -41250,7 +41302,7 @@ avV
 awm
 awL
 axf
-amN
+akR
 axU
 awn
 awn
@@ -46428,8 +46480,8 @@ aFB
 aTG
 aTG
 aTG
-aUL
-aUL
+aqe
+aqe
 aTH
 aXV
 aNC
@@ -46683,8 +46735,8 @@ aFB
 aSS
 aTG
 aTG
-aUL
-aUL
+aqe
+aqe
 aWa
 aUM
 aTH
@@ -47196,10 +47248,10 @@ aQg
 aMA
 aST
 aTH
-aUh
-aUN
-aUN
-aUN
+apM
+aqn
+aqn
+aqn
 aWI
 aXk
 aTH
@@ -48221,8 +48273,8 @@ aPi
 aQh
 aQj
 aRE
-aSk
-aSV
+alD
+amY
 aTH
 aTH
 aTI
@@ -48478,8 +48530,8 @@ aPj
 aPl
 aQX
 aPl
-aSl
-aSW
+alG
+anq
 aNy
 aUk
 aUQ
@@ -48735,8 +48787,8 @@ afI
 aQi
 aQY
 aPl
-aSm
-aSX
+alO
+ans
 aNy
 aUl
 aUR
@@ -48992,8 +49044,8 @@ aPl
 aQj
 aQZ
 aRF
-aSn
-aSY
+alT
+aok
 aNy
 aUm
 aUS
@@ -49249,8 +49301,8 @@ aNy
 aQk
 aRa
 aRF
-aSm
-aSX
+alO
+ans
 aNy
 aUn
 aUT
@@ -49506,8 +49558,8 @@ aPm
 aQl
 aPl
 aPl
-aSn
-aSZ
+alT
+aoK
 aNy
 agc
 aUU
@@ -52333,8 +52385,8 @@ aPp
 aQp
 aRf
 aPr
-aSq
-aTd
+amm
+apa
 aTL
 aUs
 aUX
@@ -52590,8 +52642,8 @@ aPq
 aQq
 aRg
 aPr
-aSr
-aTe
+amN
+apb
 aTL
 aUt
 aUY
@@ -52847,15 +52899,15 @@ aND
 aQr
 aRh
 aPr
-aSs
-aTf
+amP
+apw
 aTL
-aUu
-aUZ
+apW
+aqp
 aAx
 aWk
-aWR
-aXw
+aqt
+aqB
 aTL
 aNz
 aZH
@@ -53104,8 +53156,8 @@ aPr
 aQs
 aRi
 aQq
-aSr
-aTg
+amN
+apx
 aTL
 ahe
 aVa
@@ -53361,8 +53413,8 @@ aPs
 aQs
 aRi
 aPr
-aSt
-aTh
+amW
+apL
 aTL
 aUt
 aVb
@@ -53618,8 +53670,8 @@ aPt
 aQs
 aRi
 aPr
-aSs
-aTg
+amP
+apx
 aTL
 aUt
 aVc
@@ -66492,7 +66544,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aqK
 aaa
 aaa
 aaa

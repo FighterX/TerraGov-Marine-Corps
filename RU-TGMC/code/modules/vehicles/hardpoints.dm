@@ -7,8 +7,7 @@ All of the hardpoints, for the tank and APC
 	icon = 'icons/obj/hardpoint_modules.dmi'
 	icon_state = "tires" //Placeholder
 
-	max_integrity = 0
-	obj_integrity = 0
+	max_integrity = 100
 	w_class = 15
 
 	//If we use ammo, put it here
@@ -25,13 +24,30 @@ All of the hardpoints, for the tank and APC
 	var/point_cost = 0
 
 	var/list/clips = list()
-	var/cur_ammo_type = 1
-	var/cur_clips = 0
 	var/max_clips = 1
+	var/cur_clips = 0
+	var/cur_ammo_type = 1
 
 //changed how ammo works. No more AMMO obj, we take what we need straight from first obj in CLIPS list (ex-backup_clips) and work with it.
 //Every ammo mag now has CURRENT_AMMO value, also it is possible now to unload ALL mags from the gun, not only backup clips.
 
+/obj/item/hardpoint/examine(mob/user)
+	. = ..()
+	var/status = obj_integrity <= 0.1 ? "broken" : "functional"
+	var/span_class = obj_integrity <= 0.1 ? "<span class = 'danger'>" : "<span class = 'notice'>"
+	if((user?.mind?.cm_skills && user.mind.cm_skills.engineer >= SKILL_ENGINEER_METAL) || isobserver(user))
+		switch(PERCENT(obj_integrity / max_integrity))
+			if(0.1 to 33)
+				status = "heavily damaged"
+				span_class = "<span class = 'warning'>"
+			if(33.1 to 66)
+				status = "damaged"
+				span_class = "<span class = 'warning'>"
+			if(66.1 to 90)
+				status = "slighty damaged"
+			if(90.1 to 100)
+				status = "intact"
+	to_chat(user, "[span_class]It's [status].</span>")
 
 /obj/item/hardpoint/tank
 
@@ -75,27 +91,27 @@ All of the hardpoints, for the tank and APC
 
 //If our cooldown has elapsed
 /obj/item/hardpoint/tank/proc/is_ready()
-	if(owner.z == 2 || owner.z == 3)
-		to_chat(usr, "<span class='warning'>Don't fire here, you'll blow a hole in the ship!</span>")
-		return 0
-	return 1
+	if(world.time < next_use)
+		to_chat(usr, "<span class='warning'>This module is not ready to be used yet.</span>")
+		return FALSE
+	if(!obj_integrity)
+		to_chat(usr, "<span class='warning'>This module is too broken to be used.</span>")
+		return FALSE
+	return TRUE
 
 /obj/item/hardpoint/tank/proc/try_add_clip(var/obj/item/ammo_magazine/tank/A, var/mob/user)
 
 	if(A.loc != user)
 		return 0
-
-	if(max_clips == 0)
+	if(!max_clips)
 		to_chat(user, "<span class='warning'>This module does not have room for additional ammo.</span>")
-		return 0
-
-	if(cur_clips >= max_clips)
+		return FALSE
+	else if(length(clips) >= max_clips)
 		to_chat(user, "<span class='warning'>The reloader is full.</span>")
-		return 0
-
-	if(!istype(src, A.gun_type))
+		return FALSE
+	else if(!istype(A, cur_ammo_type))
 		to_chat(user, "<span class='warning'>That is the wrong ammo type.</span>")
-		return 0
+		return FALSE
 
 	to_chat(user, "<span class='notice'>Loading \the [A] in \the [owner].</span>")
 
@@ -112,7 +128,7 @@ All of the hardpoints, for the tank and APC
 	else
 		playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
 
-	for(var/j = 1; j <= clips.len; j++)
+	for(var/j = 1; j <= length(clips); j++)
 		if(A.ammo_tag == clips[j][1])
 			clips[j] += A
 			cur_clips ++
@@ -159,14 +175,14 @@ All of the hardpoints, for the tank and APC
 	is_activatable = 1
 
 	remove_buff(var/mob/user)
-		for(var/i in 1 to clips.len)
+		for(var/i in 1 to length(clips))
 			var/list/ammo_type = clips[i]
-			if(ammo_type.len > 1)
+			if(length(ammo_type) > 1)
 				var/obj/item/ammo_magazine/A
-				for(var/j = 2; j <= ammo_type.len; j++)
+				for(var/j = 2; j <= length(ammo_type); j++)
 					A = ammo_type[j]
-					ammo_type[j].Move(owner.entrance.loc)
-					ammo_type[j].update_icon()
+					A.Move(owner.entrance.loc)
+					A.update_icon()
 					ammo_type.Remove(A)
 				user.visible_message("<span class='notice'>[user] removes [ammo_type[1]] ammunition from \the [src].</span>", "<span class='notice'>You remove [ammo_type[1]] ammunition from \the [src].</span>")
 
@@ -174,9 +190,11 @@ All of the hardpoints, for the tank and APC
 		to_chat(user, "<span class='notice'>Unloading [clips[mag_type][1]] magazine.</span>")
 		var /obj/item/ammo_magazine/tank/A = clips[mag_type][2]
 		sleep(10)
-		clips[mag_type][2].Move(owner.entrance.loc)
-		clips[mag_type][2].update_icon()
-		clips[mag_type].Remove(A)
+		A.Move(owner.entrance.loc)
+		A.update_icon()
+		var/list/list_mag_type = clips[mag_type]
+		list_mag_type.Remove(A)
+		clips[mag_type] = list_mag_type
 		cur_clips--
 		playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 
@@ -192,10 +210,10 @@ All of the hardpoints, for the tank and APC
 
 //this will switch to any ammo that's left after unloading last mag
 	proc/change_ammo_left(var/mob/user)
-		if(clips[cur_ammo_type].len == 1)
+		if(length(clips[cur_ammo_type]) == 1)
 			to_chat(user, "<span class='warning'>Warning! No [clips[cur_ammo_type][1]] ammo left.</span>")
-		for(var/i = 1; i <= clips.len; i++)
-			if(clips[i].len > 1)
+		for(var/i = 1; i <= length(clips); i++)
+			if(length(clips[i]) > 1)
 				cur_ammo_type = i
 				to_chat(user, "<span class='notice'>Switching to [clips[cur_ammo_type][1]]. Rearming will take 6 seconds.</span>")
 				return
@@ -208,14 +226,14 @@ All of the hardpoints, for the tank and APC
 	is_activatable = 1
 
 	remove_buff(var/mob/user)
-		for(var/i in 1 to clips.len)
+		for(var/i in 1 to length(clips))
 			var/list/ammo_type = clips[i]
-			if(ammo_type.len > 1)
+			if(length(ammo_type) > 1)
 				var/obj/item/ammo_magazine/A
-				for(var/j = 2; j <= ammo_type.len; j++)
+				for(var/j = 2; j <= length(ammo_type); j++)
 					A = ammo_type[j]
-					ammo_type[j].Move(owner.entrance.loc)
-					ammo_type[j].update_icon()
+					A.Move(owner.entrance.loc)
+					A.update_icon()
 					ammo_type.Remove(A)
 				user.visible_message("<span class='notice'>[user] removes [ammo_type[1]] ammunition from \the [src].</span>", "<span class='notice'>You remove [ammo_type[1]] ammunition from \the [src].</span>")
 
@@ -223,9 +241,11 @@ All of the hardpoints, for the tank and APC
 		to_chat(user, "<span class='notice'>Unloading [clips[mag_type][1]] magazine.</span>")
 		var /obj/item/ammo_magazine/tank/A = clips[mag_type][2]
 		sleep(10)
-		clips[mag_type][2].Move(owner.entrance.loc)
-		clips[mag_type][2].update_icon()
-		clips[mag_type].Remove(A)
+		A.Move(owner.entrance.loc)
+		A.update_icon()
+		var/list/list_mag_type = clips[mag_type]
+		list_mag_type.Remove(A)
+		clips[mag_type] = list_mag_type
 		cur_clips--
 		playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 
@@ -241,10 +261,10 @@ All of the hardpoints, for the tank and APC
 
 //this will switch to any ammo that's left after unloading last mag
 	proc/change_ammo_left(var/mob/user)
-		if(clips[cur_ammo_type].len == 1)
+		if(length(clips[cur_ammo_type]) == 1)
 			to_chat(user, "<span class='warning'>Warning! No [clips[cur_ammo_type][1]] ammo left.</span>")
-		for(var/i = 1; i <= clips.len; i++)
-			if(clips[i].len > 1)
+		for(var/i = 1; i <= length(clips); i++)
+			if(length(clips[i]) > 1)
 				cur_ammo_type = i
 				to_chat(user, "<span class='notice'>Switching to [clips[cur_ammo_type][1]]. Rearming will take 6 seconds.</span>")
 				return
@@ -281,7 +301,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A primary 86mm cannon for tank."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 100
 	hp_weight = 2
 	icon_state = "ltb_cannon"
@@ -331,9 +350,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading magazine.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -343,7 +363,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A primary light autocannon for tank. Designed for light scout tank. Shoots 30mm light HE rounds. Fire rate was reduced with adding IFF support."
 
 	max_integrity = 400
-	obj_integrity = 400
 	point_cost = 100
 	hp_weight = 1
 
@@ -391,9 +410,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading magazine.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -403,7 +423,6 @@ All of the hardpoints, for the tank and APC
 	desc = "It's a minigun, what is not clear? Just go pew-pew-pew."
 
 	max_integrity = 350
-	obj_integrity = 350
 	point_cost = 100
 	hp_weight = 3
 
@@ -466,7 +485,7 @@ All of the hardpoints, for the tank and APC
 			S = 'sound/weapons/tank_minigun_stop.ogg'
 		if(chained <= 0) chained = 1
 
-		next_use = world.time + (chained > chain_delays.len ? 0.5 : chain_delays[chained]) * owner.misc_ratios["prim_cool"]
+		next_use = world.time + (chained > length(chain_delays) ? 0.5 : chain_delays[chained]) * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
 		var/obj/item/projectile/P = new
@@ -478,9 +497,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading magazine.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -516,9 +536,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading magazine.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -548,9 +569,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading magazine.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -570,7 +592,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A secondary weapon for tank. Don't let it fool you, it's not your ordinary flamer, this thing literally shoots fireballs. No kidding."
 
 	max_integrity = 300
-	obj_integrity = 300
 	point_cost = 100
 	hp_weight = 2
 
@@ -618,9 +639,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Fuel tank emptied, unloading fuel tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -630,7 +652,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A secondary weapon for tank that shoots powerful AP rockets. Deals heavy damage, but only on direct hits."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 100
 	hp_weight = 2
 
@@ -677,9 +698,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -689,7 +711,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A secondary weapon for tank. Refitted M56 has higher accuracy and rate of fire. Compatible with IFF system."
 
 	max_integrity = 350
-	obj_integrity = 350
 	point_cost = 100
 	hp_weight = 2
 	var/burst_amount = 3
@@ -745,9 +766,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -757,7 +779,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A secondary weapon for tank that shoots HEDP grenades further than you see. No, seriously, that's how it works."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 100
 	hp_weight = 2
 
@@ -804,9 +825,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -843,9 +865,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Fuel tank emptied, unloading fuel tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -875,9 +898,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -908,9 +932,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -940,9 +965,10 @@ All of the hardpoints, for the tank and APC
 		if(!A.current_rounds)
 			to_chat(usr, "<span class='notice'>Magazine emptied, unloading tank.</span>")
 			sleep(10)
-			clips[cur_ammo_type][2].Move(owner.entrance.loc)
-			clips[cur_ammo_type][2].update_icon()
-			clips[cur_ammo_type].Remove(A)
+			A.Move(owner.entrance.loc)
+			A.update_icon()
+			var/list/list_cur_type = clips[cur_ammo_type]
+			list_cur_type.Remove(A)
 			cur_clips--
 			playsound(owner, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 			change_ammo_left(usr)
@@ -962,7 +988,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Launches smoke forward to obscure vision."
 
 	max_integrity = 300
-	obj_integrity = 300
 	point_cost = 0
 	hp_weight = 1
 
@@ -1018,7 +1043,7 @@ All of the hardpoints, for the tank and APC
 		else if(new_dir in list(EAST, WEST))
 			icon_suffix = "EW"
 
-		var /obj/item/ammo_magazine/tank/tank_slauncher/A = clips[cur_ammo_type][2]
+		var/obj/item/ammo_magazine/tank/tank_slauncher/A = clips[cur_ammo_type][2]
 		if(obj_integrity <= 0) icon_state_suffix = "1"
 		else if(A.current_rounds <= 0) icon_state_suffix = "2"
 
@@ -1029,7 +1054,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Improves the accuracy and fire rate of all installed weapons. Actually more useful than you may think."
 
 	max_integrity = 250
-	obj_integrity = 250
 	point_cost = 100
 	hp_weight = 1
 
@@ -1061,7 +1085,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Pimp your ride. Increases the movement and turn speed of the vehicle it's attached to."
 
 	max_integrity = 250
-	obj_integrity = 250
 	point_cost = 100
 	hp_weight = 1
 
@@ -1081,7 +1104,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A bunch of enhanced optics and targeting computers. Greatly increases range of view of a gunner. Also adds structures visibility even in complete darkness."
 
 	max_integrity = 250
-	obj_integrity = 250
 	point_cost = 100
 	is_activatable = 1
 	var/is_active = 0
@@ -1172,7 +1194,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Standard tank armor. Middle ground in everything, from damage resistance to weight."
 
 	max_integrity = 800
-	obj_integrity = 800
 	point_cost = 100
 	hp_weight = 7
 
@@ -1200,7 +1221,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Special set of tank armor. Purpose: reduce vehicle parts degradation in hostile surroundings on planets with unstable and highly corrosive atmosphere."
 
 	max_integrity = 700
-	obj_integrity = 700
 	point_cost = 100
 	hp_weight = 5
 
@@ -1226,7 +1246,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Light armor, designed for recon type of tank loadouts. Offers less protection in exchange for better maneuverability. After initial tests resistance to blunt damage was increased due to drivers driving into walls."
 
 	max_integrity = 600
-	obj_integrity = 600
 
 	point_cost = 100
 	hp_weight = 3
@@ -1255,7 +1274,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Heavy armor for heavy tank. Converts your tank into what an essentially is a slowly moving bunker. High resistance to almost all types of damage."
 
 	max_integrity = 1000
-	obj_integrity = 1000
 	point_cost = 100
 	hp_weight = 10
 
@@ -1283,7 +1301,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Special set of tank armor, equipped with multipurpose front \"snowplow\". Designed to remove snow and demine minefields. As a result armor has high explosion damage resistance in front, while offering low protection from other types of damage."
 
 	max_integrity = 700
-	obj_integrity = 700
 	point_cost = 100
 	hp_weight = 4
 
@@ -1326,7 +1343,6 @@ All of the hardpoints, for the tank and APC
 	color = "#c2b678"
 
 	max_integrity = 900
-	obj_integrity = 900
 
 	apply_buff()
 		owner.dmg_multipliers["acid"] = 0.8
@@ -1348,7 +1364,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Standard tank treads. Suprisingly, greatly improves vehicle moving speed."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 25
 	hp_weight = 1
 
@@ -1366,7 +1381,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Heavily reinforced tank treads. Three times heavier but can endure more damage. Has special protective layer akin to M70 armor."
 
 	max_integrity = 750
-	obj_integrity = 750
 	point_cost = 25
 	hp_weight = 3
 
@@ -1428,7 +1442,6 @@ All of the hardpoints, for the tank and APC
 	color = "#c2b678"
 
 	max_integrity = 650
-	obj_integrity = 650
 
 /////////////////
 // TREAD SLOTS // END
@@ -1440,6 +1453,7 @@ All of the hardpoints, for the tank and APC
 
 //Special ammo magazines for hardpoint modules. Some aren't here since you can use normal magazines on them
 /obj/item/ammo_magazine/tank
+	icon = 'RU-TGMC/icons/obj/items/ammo.dmi'
 	flags_magazine = 0 //No refilling
 	var/point_cost = 0
 	var/ammo_tag = null
@@ -1751,7 +1765,7 @@ All of the hardpoints, for the tank and APC
 	if(max_clips == 0)
 		to_chat(user, "<span class='warning'>This module does not have room for additional ammo.</span>")
 		return 0
-	else if(clips.len >= max_clips)
+	else if(length(clips) >= max_clips)
 		to_chat(user, "<span class='warning'>The reloader is full.</span>")
 		return 0
 	else if(!istype(A, ammo_type.type))
@@ -1767,7 +1781,7 @@ All of the hardpoints, for the tank and APC
 	user.temporarilyRemoveItemFromInventory(A, 0)
 	user.visible_message("<span class='notice'>[user] installs [A] into [owner].</span>",
 		"<span class='notice'>You install \the [A] in \the [owner].</span>")
-	if (clips.len == 0)
+	if (length(clips) == 0)
 		user.visible_message("<span class='notice'>You hear clanking as \the [A] is getting automatically loaded into \the weapon.</span>")
 		playsound(src, 'sound/weapons/gun_mortar_unpack.ogg', 40, 1)
 	else
@@ -1854,7 +1868,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A primary 45mm dual cannon for APC."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 100
 
 	icon_state = "dual_cannon"
@@ -1937,7 +1950,6 @@ All of the hardpoints, for the tank and APC
 	desc = "A secondary frontal cannon for APC."
 
 	max_integrity = 300
-	obj_integrity = 300
 	point_cost = 100
 
 	icon_state = "front_cannon"
@@ -2039,7 +2051,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Launches flares forward light up the area."
 
 	max_integrity = 300
-	obj_integrity = 300
 	point_cost = 100
 
 	icon_state = "flare_launcher"
@@ -2193,7 +2204,6 @@ All of the hardpoints, for the tank and APC
 	desc = "Standard armored APC wheels. Suprisingly, greatly improves vehicle moving speed."
 
 	max_integrity = 500
-	obj_integrity = 500
 	point_cost = 25
 
 	icon_state = "wheels"
@@ -2259,6 +2269,7 @@ All of the hardpoints, for the tank and APC
 
 //Special ammo magazines for hardpoint modules. Some aren't here since you can use normal magazines on them
 /obj/item/ammo_magazine/apc
+	icon = 'RU-TGMC/icons/obj/items/ammo.dmi'
 	flags_magazine = 0 //No refilling
 	var/point_cost = 0
 
@@ -2350,6 +2361,7 @@ All of the hardpoints, for the tank and APC
 // AMMO MAGS // END
 ///////////////
 // APC HARDPOINTS // END
+
 ///////////////
 
 ////////////////
@@ -2665,3 +2677,5 @@ All of the hardpoints, for the tank and APC
 ////////////////
 // MEGALODON HARDPOINTS // END
 ////////////////
+=======
+///////////////
