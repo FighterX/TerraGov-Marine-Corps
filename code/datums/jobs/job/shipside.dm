@@ -648,7 +648,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	exp_type = EXP_TYPE_REGULAR_ALL
 
 
-/datum/job/civilian/synthetic/assign(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, latejoin = FALSE, datum/outfit/outfit_override = null, client/preference_source)	
+/datum/job/civilian/synthetic/assign(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, latejoin = FALSE, datum/outfit/outfit_override = null, client/preference_source)
 	if(!H)
 		return FALSE
 

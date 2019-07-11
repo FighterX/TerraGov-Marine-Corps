@@ -1370,7 +1370,9 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 #include "RU-TGMC\code\__HELPERS\text.dm"
+#include "RU-TGMC\code\datums\skills.dm"
 #include "RU-TGMC\code\datums\suplypacks.dm"
+#include "RU-TGMC\code\datums\jobs\job\shipside.dm"
 #include "RU-TGMC\code\game\almayer.dm"
 #include "RU-TGMC\code\game\objects\items\manual.dm"
 #include "RU-TGMC\code\game\objects\structures\window.dm"
@@ -1389,4 +1391,6 @@
 #include "RU-TGMC\code\modules\vehicles\tankvendor.dm"
 #include "RU-TGMC\code\modules\vehicles\vehicle_interior.dm"
 #include "RU-TGMC\code\modules\vehicles\vehicle_ui.dm"
+#include "RU-TGMC\code\modules\vehicles\walker.dm"
+#include "RU-TGMC\code\modules\vehicles\walker_vendor.dm"
 // END_INCLUDE
