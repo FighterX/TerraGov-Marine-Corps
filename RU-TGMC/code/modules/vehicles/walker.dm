@@ -13,7 +13,7 @@
 	layer = ABOVE_LYING_MOB_LAYER
 	opacity = TRUE
 	can_buckle = FALSE
-	move_delay = 4
+	move_delay = 6
 
 	var/lights = FALSE
 	var/lights_power = 8
@@ -22,8 +22,9 @@
 
 	pixel_x = -18
 
-	obj_integrity = 1200
-	max_integrity = 1200
+	obj_integrity = 700
+	max_integrity = 700
+	var/repair = FALSE
 
 	var/mob/pilot = null
 
@@ -513,6 +514,10 @@
 	if(obj_integrity >= max_integrity)
 		to_chat(user, "Armor seems fully intact.")
 		return
+	if(repair)
+		to_chat(user, "Someone already reparing this vehicle.")
+		return
+	repair = TRUE
 	var/repair_time = 1000
 	if(user.mind && user.mind.cm_skills && user.mind.cm_skills.engineer > SKILL_ENGINEER_DEFAULT)		//NO DIVIDING BY ZERO
 		/*
@@ -540,7 +545,7 @@
 		return
 	else
 		to_chat(user, "Repair has been interrupted.")
-
+	repair = FALSE
 
 
 /////////
