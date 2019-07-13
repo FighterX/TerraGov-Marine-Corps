@@ -2377,22 +2377,20 @@ All of the hardpoints, for the tank and APC
 	var/obj/item/ammo_magazine/walker/ammo = null
 	var/fire_sound = "gun_smartgun"
 	var/fire_delay = 0
-	var/can_fire = TRUE
+	var/last_fire = 0
 	var/burst = 1
 
 	w_class = 12.0
 
 	var/muzzle_flash 	= "muzzle_flash"
 	var/muzzle_flash_lum = 3 //muzzle flash brightness
+	var/muzzle_flash_lum_power = 2 //muzzle flash brightness
 
 /obj/item/walker_gun/proc/get_icon_image(var/hardpoint)
 	if(!owner)
 		return
 
 	return image(owner.icon, equip_state + hardpoint)
-
-/obj/item/walker_gun/proc/handle_delay()
-	can_fire = TRUE
 
 /obj/item/walker_gun/proc/active_effect(var/atom/target)
 	if(ammo.current_rounds <= 0 || !ammo)
@@ -2402,12 +2400,10 @@ All of the hardpoints, for the tank and APC
 			ammo = null
 			visible_message("[owner.name]'s systems deployed used magazine.","")
 		return
-	if(!can_fire)
+	if(world.time < last_fire + fire_delay)
 		to_chat(owner.pilot, "<span class='warning'>WARNING! System report: weapon is not ready to fire again!</span>")
 		return
-	if(fire_delay)
-		can_fire = FALSE
-		addtimer(CALLBACK(src, .proc/handle_delay), fire_delay)
+	last_fire = world.time
 	var/obj/item/projectile/P
 	for(var/i = 1 to burst)
 		if(!owner.firing_arc(target))
@@ -2433,7 +2429,7 @@ All of the hardpoints, for the tank and APC
 	visible_message("<span class='danger'>[owner.name] fires from [name]!</span>", "<span class='warning'>You hear [istype(P.ammo, /datum/ammo/bullet) ? "gunshot" : "blast"]!</span>")
 
 	var/angle = round(Get_Angle(owner,target))
-	muzzle_flash(angle,owner)
+	muzzle_flash(angle)
 
 	if(ammo.current_rounds <= 0)
 		ammo.loc = owner.loc
@@ -2447,10 +2443,10 @@ All of the hardpoints, for the tank and APC
 	if(!istype(owner) || !istype(owner.loc,/turf))
 		return
 
-	if(owner.luminosity <= muzzle_flash_lum)
-		owner.set_light(luminosity - muzzle_flash_lum, luminosity - muzzle_flash_lum)
+	if(owner.light_power <= muzzle_flash_lum_power)
+		owner.set_light(light_range + muzzle_flash_lum, light_power + muzzle_flash_lum_power)
 		spawn(10)
-			owner.set_light(luminosity - muzzle_flash_lum, luminosity - muzzle_flash_lum)
+			owner.set_light(light_range - muzzle_flash_lum, light_power - muzzle_flash_lum_power)
 
 	if(prob(65)) //Not all the time.
 		var/image_layer = (owner && owner.dir == SOUTH) ? MOB_LAYER+0.1 : MOB_LAYER-0.1
@@ -2521,12 +2517,10 @@ All of the hardpoints, for the tank and APC
 			ammo = null
 			visible_message("[owner.name]'s systems deployed used magazine.","")
 		return
-	if(!can_fire)
+	if(world.time < last_fire + fire_delay)
 		to_chat(owner.pilot, "<span class='warning'>WARNING! System report: weapon is not ready to fire again!</span>")
 		return
-	if(fire_delay)
-		can_fire = FALSE
-		addtimer(CALLBACK(src, .proc/handle_delay), fire_delay)
+	last_fire = world.time
 	var/list/turf/turfs = getline(owner, target)
 	playsound(owner, fire_sound, 50, 1)
 	ammo.current_rounds--
@@ -2646,12 +2640,30 @@ All of the hardpoints, for the tank and APC
 	w_class = 12.0
 
 /obj/item/ammo_magazine/walker/smartgun
-	name = "M56 Double-Barrel Magazine"
+	name = "M56 Double-Barrel Magazine (Standart)"
 	desc = "A armament MG magazine"
 	caliber = "10x28mm" //Correlates to smartguns
 	icon_state = "big_ammo_box"
-	default_ammo = /datum/ammo/bullet/smartgun
+	default_ammo = /datum/ammo/bullet/smartgun/walker
 	max_rounds = 700
+	gun_type = /obj/item/walker_gun/smartgun
+
+/obj/item/ammo_magazine/walker/smartgun/ap
+	name = "M56 Double-Barrel Magazine (AP)"
+	desc = "A armament MG magazine"
+	caliber = "10x28mm" //Correlates to smartguns
+	icon_state = "big_ammo_box_ap"
+	default_ammo = /datum/ammo/bullet/smartgun/walker/ap
+	max_rounds = 500
+	gun_type = /obj/item/walker_gun/smartgun
+
+/obj/item/ammo_magazine/walker/smartgun/incendiary
+	name = "M56 Double-Barrel \"Scorcher\" Magazine"
+	desc = "A armament MG magazine"
+	caliber = "10x28mm" //Correlates to smartguns
+	icon_state = "ammoboxslug"
+	default_ammo = /datum/ammo/bullet/smartgun/walker/incendiary
+	max_rounds = 500
 	gun_type = /obj/item/walker_gun/smartgun
 
 /obj/item/ammo_magazine/walker/hmg
@@ -2659,7 +2671,7 @@ All of the hardpoints, for the tank and APC
 	desc = "A armament M30 magazine"
 	icon_state = "ua571c"
 	max_rounds = 300
-	default_ammo = /datum/ammo/bullet/machinegun
+	default_ammo = /datum/ammo/bullet/machinegun/walker
 	gun_type = /obj/item/walker_gun/hmg
 
 /obj/item/ammo_magazine/walker/flamer
