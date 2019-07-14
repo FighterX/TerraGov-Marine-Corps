@@ -14985,18 +14985,13 @@
 	},
 /area/almayer/medical/medical_science)
 "aGG" = (
-/obj/structure/table/almayer,
-/obj/machinery/computer/camera_advanced/overwatch/main,
-/obj/structure/window/reinforced/almayer1{
-	icon_state = "fwindow";
-	dir = 4
+/obj/item/radio/intercom/general,
+/obj/machinery/chem_dispenser,
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "sterile_green_side"
 	},
-/obj/structure/window/reinforced/almayer1{
-	icon_state = "twindow";
-	layer = 4.1
-	},
-/turf/open/floor/plating/almayer,
-/area/almayer/command/cic)
+/area/almayer/medical/medical_science)
 "aGH" = (
 /obj/machinery/alarm,
 /turf/open/floor/almayer{
