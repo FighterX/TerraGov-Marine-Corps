@@ -1,4 +1,4 @@
-/*/obj/vehicle/powerloader
+/obj/vehicle/powerloader
 	name = "\improper RPL-Y Cargo Loader"
 	icon = 'icons/obj/powerloader.dmi'
 	desc = "The RPL-Y Cargo Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects. An old but trusted design used in warehouses, constructions and military ships everywhere."
@@ -291,4 +291,3 @@
 		take_damage(rand(X.xeno_caste.melee_damage_lower, X.xeno_caste.melee_damage_upper))
 	else
 		attack_hand(X)
-*/
