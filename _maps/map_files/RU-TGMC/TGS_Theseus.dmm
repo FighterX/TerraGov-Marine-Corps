@@ -21992,8 +21992,6 @@
 	name = "ship-grade camera";
 	icon_state = "camera";
 	dir = 2;
-	step_x = 19;
-	step_y = 14;
 	network = list("almayer")
 	},
 /turf/open/floor/mainship{
