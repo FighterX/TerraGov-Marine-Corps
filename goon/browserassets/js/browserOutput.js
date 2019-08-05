@@ -572,6 +572,13 @@ function ehjaxCallback(data) {
 			document.body.appendChild(firebugEl);
 		} else if (data.emoji){
 			emojiList = data.emoji;
+		} else if (data.clientCSS) {
+			var css = data.clientCSS.replace(/\;/g, "").replace(/\|{2}/g, ";");
+			var $clientCSS = $('style#client-css');
+			if (!$clientCSS) {
+				return;
+			$clientCSS.text(css);
+			}
 		} else if (data.adminMusic) {
 			if (typeof data.adminMusic === 'string') {
 				var adminMusic = byondDecode(data.adminMusic);
