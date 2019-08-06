@@ -11,6 +11,7 @@
 	outfit = /datum/outfit/job/command/walker
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
+	min_players = 30
 
 
 /datum/job/command/walker/radio_help_message(mob/M)
