@@ -1,6 +1,8 @@
 #define GUN_RIGHT 0
 #define GUN_LEFT 1
 
+#define DAMAGE_THRESHOLD_STANDART 15
+
 /////////////////
 // Walker
 /////////////////
@@ -29,6 +31,12 @@
 	var/mob/pilot = null
 
 	var/acid_process_cooldown = null
+	var/list/damage_threshold = list(
+		"face" = 30,
+		"faceflank" = 15,
+		"flank" = 0,
+		"behind" = -15
+		)
 	var/list/dmg_multipliers = list(
 		"all" = 1.0, //for when you want to make it invincible
 		"acid" = 0.9,
@@ -558,7 +566,7 @@
 		playsound(loc, "alien_claw_metal", 25, 1)
 		M.flick_attack_overlay(src, "slash")
 		M.visible_message("<span class='danger'>[M] slashes [src].</span>","<span class='danger'>You slash [src].</span>", null, 5)
-		take_damage(rand(M.xeno_caste.melee_damage_lower, M.xeno_caste.melee_damage_upper), "slash")
+		take_damage(rand(M.xeno_caste.melee_damage_lower, M.xeno_caste.melee_damage_upper), "slash", M.dir)
 	else
 		attack_hand(M)
 
@@ -579,24 +587,26 @@
 	switch(Proj.ammo.damage_type)
 		if(BRUTE)
 			if(Proj.ammo.flags_ammo_behavior & AMMO_ROCKET)
-				take_damage(Proj.damage, "explosive")
+				take_damage(Proj.damage, "explosive", Proj.dir)
 			else
-				take_damage(Proj.damage, "bullet")
+				take_damage(Proj.damage, "bullet", Proj.dir)
 		if(BURN)
 			if(Proj.ammo.flags_ammo_behavior & AMMO_XENO_ACID)
-				take_damage(Proj.damage, "acid")
+				take_damage(Proj.damage, "acid", Proj.dir)
 			else
-				take_damage(Proj.damage, "energy")
+				take_damage(Proj.damage, "energy", Proj.dir)
 		if(TOX, OXY, CLONE)
 			return
 
-/obj/vehicle/walker/proc/take_damage(dam, damtype = "blunt")
+/obj/vehicle/walker/proc/take_damage(dam, damtype = "blunt", hit_dir)
 	if(!dam || dam <= 0)
 		return
 	if(!(damtype in list("explosive", "acid", "energy", "blunt", "slash", "bullet", "all", "abstract")))
 		return
-	var/damage = dam * dmg_multipliers[damtype]
-	if(damage <= 10)
+	// Applying multiplier and then substract theshold
+	// Attacking from behind add damage
+	var/damage = dam * dmg_multipliers[damtype] - get_damage_threshold(hit_dir)
+	if(damage <= 0)
 		to_chat(pilot, "<span class='danger'>ALERT! Hostile incursion detected. Deflected.</span>")
 		return
 
@@ -606,7 +616,54 @@
 		pilot << sound('sound/mecha/critdestrsyndi.ogg',volume=50)
 	healthcheck()
 
+/obj/vehicle/walker/proc/get_damage_threshold(hit_dir)
+	if(!(hit_dir in CARDINAL_ALL_DIRS))
+		return DAMAGE_THRESHOLD_STANDART
 
+	var/list/faceflank
+	var/list/flank
+	var/list/back
+
+	switch(dir)
+		if(NORTH)
+			if(hit_dir == SOUTH)
+				return damage_threshold["face"]
+			faceflank = list(SOUTHEAST, SOUTHWEST)
+			flank = list(WEST,EAST)
+			back = list(NORTHEAST, NORTHWEST, NORTH)
+
+		if(SOUTH)
+			if(hit_dir == NORTH)
+				return damage_threshold["face"]
+			faceflank = list(NORTHEAST, NORTHWEST)
+			flank = list(WEST,EAST)
+			back = list(SOUTHEAST, SOUTHWEST, SOUTH)
+
+		if(EAST)
+			if(hit_dir == WEST)
+				return damage_threshold["face"]
+			faceflank = list(NORTHWEST, SOUTHWEST)
+			flank = list(NORTH, SOUTH)
+			back = list(NORTHEAST, SOUTHEAST, EAST)
+
+		if(WEST)
+			if(hit_dir == EAST)
+				return damage_threshold["face"]
+			faceflank = list(NORTHEAST, SOUTHEAST)
+			flank = list(NORTH, SOUTH)
+			back = list(NORTHWEST, SOUTHWEST, WEST)
+
+	if(hit_dir in faceflank)
+		return damage_threshold["faceflank"]
+	if(hit_dir in flank)
+		return damage_threshold["flank"]
+	if(hit_dir in back)
+		return damage_threshold["back"]
+
+#undef GUN_RIGHT
+#undef GUN_LEFT
+
+#undef DAMAGE_THRESHOLD_STANDART
 
 /obj/structure/walker_wreckage
 	name = "CW13 wreckage"
