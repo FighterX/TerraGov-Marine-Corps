@@ -328,10 +328,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["primary"] = 200
 		owner.accuracies["primary"] = 0.97
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 	remove_buff()
-		owner.tower_delay -= 10
+		owner.tower_delay -= 3
 
 	is_ready()
 		if(world.time < next_use)
@@ -393,10 +393,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["primary"] = 5
 		owner.accuracies["primary"] = 0.97
-		owner.tower_delay += 5
+		owner.tower_delay += 2
 
 	remove_buff()
-		owner.tower_delay -= 5
+		owner.tower_delay -= 2
 
 	is_ready()
 		if(world.time < next_use)
@@ -472,10 +472,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["primary"] = 60 //will be overridden, please ignore
 		owner.accuracies["primary"] = 0.33
-		owner.tower_delay += 15
+		owner.tower_delay += 4
 
 	remove_buff()
-		owner.tower_delay -= 15
+		owner.tower_delay -= 4
 
 	is_ready()
 		if(world.time < next_use)
@@ -628,10 +628,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["secondary"] = 20
 		owner.accuracies["secondary"] = 0.5
-		owner.tower_delay += 5
+		owner.tower_delay += 2
 
 	remove_buff()
-		owner.tower_delay -= 5
+		owner.tower_delay -= 2
 
 
 	is_ready()
@@ -693,10 +693,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["secondary"] = 150
 		owner.accuracies["secondary"] = 0.97
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 	remove_buff()
-		owner.tower_delay -= 10
+		owner.tower_delay -= 3
 
 	is_ready()
 		if(world.time < next_use)
@@ -758,10 +758,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["secondary"] = 8
 		owner.accuracies["secondary"] = 0.8
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 	remove_buff()
-		owner.tower_delay -= 10
+		owner.tower_delay -= 3
 
 
 	is_ready()
@@ -829,10 +829,10 @@ All of the hardpoints, for the tank and APC
 	apply_buff()
 		owner.cooldowns["secondary"] = 7
 		owner.accuracies["secondary"] = 0.8
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 	remove_buff()
-		owner.tower_delay -= 10
+		owner.tower_delay -= 3
 
 
 	is_ready()
@@ -1325,7 +1325,7 @@ All of the hardpoints, for the tank and APC
 		owner.dmg_multipliers["explosive"] = 0.4
 		owner.dmg_multipliers["blunt"] = 0.4
 		owner.dmg_multipliers["bullet"] = 0.05 //juggernaut is not meant to be just shot, fuck off
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 
 	remove_buff()
@@ -1334,7 +1334,7 @@ All of the hardpoints, for the tank and APC
 		owner.dmg_multipliers["explosive"] = 1.0
 		owner.dmg_multipliers["blunt"] = 0.9
 		owner.dmg_multipliers["bullet"] = 0.67
-		owner.tower_delay += 10
+		owner.tower_delay += 3
 
 /obj/item/hardpoint/tank/armor/snowplow
 	name = "M37 \"Snowplow\" Armor"

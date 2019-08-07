@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	//Tower
 	var/tower_dir
 	var/next_move_tower = 0
-	var/tower_delay = 0
+	var/tower_delay = 2
 	var/tower_fixed = FALSE
 	var/last_dir
 	var/rotate_tower_TF = FALSE

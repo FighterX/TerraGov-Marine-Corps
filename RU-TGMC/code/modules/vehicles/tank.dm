@@ -521,6 +521,21 @@
 
 //No one but the driver can drive
 /obj/vehicle/multitile/root/cm_armored/tank/relaymove(mob/user, direction)
+	if(user == gunner)
+		if(world.time < next_move_tower) return
+		next_move_tower = world.time + tower_delay
+		switch(direction)
+			if(WEST)
+				rotate_tower_TF = TRUE
+				rotate_tower(0)
+				rotate_tower_TF = FALSE
+				return
+			if(EAST)
+				rotate_tower_TF = TRUE
+				rotate_tower(1)
+				rotate_tower_TF = FALSE
+				return
+
 	if(user != driver || user.incapacitated()) return
 
 	. = ..(user, direction)
