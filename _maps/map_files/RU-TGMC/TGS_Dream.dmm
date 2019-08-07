@@ -7927,9 +7927,7 @@
 /area/mainship/medical/operating_room_one)
 "uv" = (
 /obj/structure/bed/chair/office/dark,
-/obj/machinery/chem_dispenser{
-	step_x = 31
-	},
+/obj/machinery/chem_dispenser,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
