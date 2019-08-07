@@ -40,7 +40,7 @@
 	var/obj/vehicle/multitile/root/cm_armored/tank/R = new(src.loc)
 	R.setDir(WEST)
 	R.tower_dir = R.dir
-	R.last_dir = R.dir
+	R.last_dir  = R.dir
 
 	var/datum/coords/dimensions = new
 	dimensions.x_pos = width
@@ -61,8 +61,10 @@
 		hardpoint_path = spawn_hardpoints[slot]
 		R.add_hardpoint(new hardpoint_path)
 	R.damaged_hps = damaged_hps
-
+	
+	R.rotate_tower_TF = TRUE
 	R.update_icon()
+	R.rotate_tower_TF = FALSE
 
 	R.camera = new /obj/machinery/camera(R)
 	R.camera.network = list("almayer")	//changed network from military to almayer,because Cams computers on Almayer have this network
@@ -160,7 +162,9 @@
 	set src = usr.loc
 
 	if(usr != gunner) return
+	rotate_tower_TF = TRUE
 	rotate_tower(0)
+	rotate_tower_TF = FALSE
 
 /obj/vehicle/multitile/root/cm_armored/tank/verb/rotate_right_tower()
 	set name = "G Rotate Tower right"
@@ -168,7 +172,9 @@
 	set src = usr.loc
 
 	if(usr != gunner) return
+	rotate_tower_TF = TRUE
 	rotate_tower(1)
+	rotate_tower_TF = FALSE
 
 /obj/vehicle/multitile/root/cm_armored/tank/verb/unfix_tower()
 	set name = "G Unfix/Fix Tower"

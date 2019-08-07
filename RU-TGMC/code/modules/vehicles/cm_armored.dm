@@ -48,6 +48,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	var/tower_delay = 0
 	var/tower_fixed = FALSE
 	var/last_dir
+	var/rotate_tower_TF = FALSE
 
 	var/icon_tower = 'RU-TGMC/icons/obj/vehicles/tower.dmi'
 	var/icon_state_tower = "tower_base"
@@ -673,7 +674,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	if(updates_icon)
 		update_icon()
 
-/obj/vehicle/multitile/root/cm_armored/proc/get_dir_tower(last_dir)
+/obj/vehicle/multitile/root/cm_armored/proc/get_dir_tower()
 	switch(last_dir)
 		if(EAST)
 			switch(dir)
@@ -765,11 +766,11 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 /obj/vehicle/multitile/root/cm_armored/update_icon()
 
 	overlays.Cut()
-	if(!tower_fixed && last_dir != dir)
-		var/K = get_dir_tower(last_dir)
+	if(!tower_fixed && !rotate_tower_TF)
+		var/K = get_dir_tower()
 		rotate_tower(K, FALSE)
-	last_dir = dir
-
+	if(!rotate_tower_TF)
+		last_dir = dir
 	//Assuming 3x3 with half block overlaps in the tank's direction
 	if(dir in list(NORTH, SOUTH))
 		pixel_x = -32
@@ -834,12 +835,15 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 //Tramplin' time, but other than that identical
 /obj/vehicle/multitile/hitbox/cm_armored/Bump(atom/A)
 	. = ..()
+	var/obj/vehicle/multitile/root/cm_armored/CA = root
+	CA.rotate_tower_TF = TRUE
 	var/facing = get_dir(src, A)
 	var/turf/temp = loc
 	var/turf/T = loc
 	A.tank_collision(src, facing, T, temp)
 	if(isliving(A))
 		log_attack("[get_driver()] drove over [A] with [root]")
+	CA.rotate_tower_TF = FALSE
 
 /obj/vehicle/multitile/hitbox/cm_armored/proc/get_driver()
 	return "Someone"
@@ -1451,7 +1455,9 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	hardpoints[HP.slot] = HP
 
+	rotate_tower_TF = TRUE
 	update_icon()
+	rotate_tower_TF = FALSE
 
 //General proc for taking off hardpoints
 //ALWAYS CALL THIS WHEN REMOVING HARDPOINTS
@@ -1469,7 +1475,9 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	//	cdel(old)
 
 	hardpoints[old.slot] = null
+	rotate_tower_TF = TRUE
 	update_icon()
+	rotate_tower_TF = FALSE
 
 /obj/vehicle/multitile/root/cm_armored/contents_explosion(severity, target)
 	return
