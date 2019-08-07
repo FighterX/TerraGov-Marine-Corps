@@ -93,6 +93,9 @@ GLOBAL_VAR_INIT(emojiJson, file2text("goon/browserassets/js/emojiList.json"))
 	if(loaded)
 		return
 
+	if(!owner)
+		return FALSE
+
 	loaded = TRUE
 	showChat()
 
