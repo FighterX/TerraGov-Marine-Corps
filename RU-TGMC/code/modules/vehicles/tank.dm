@@ -33,6 +33,7 @@
 	spawn_dir = EAST
 	var/list/spawn_hardpoints = list()
 	var/list/damaged_hps = list()
+	var/list/network = list()
 
 /obj/effect/multitile_spawner/cm_armored/tank/Initialize()
 	. = ..()
@@ -61,13 +62,10 @@
 		hardpoint_path = spawn_hardpoints[slot]
 		R.add_hardpoint(new hardpoint_path)
 	R.damaged_hps = damaged_hps
-	
-	R.rotate_tower_TF = TRUE
-	R.update_icon()
-	R.rotate_tower_TF = FALSE
+	R.healthcheck()
 
 	R.camera = new /obj/machinery/camera(R)
-	R.camera.network = list("almayer")	//changed network from military to almayer,because Cams computers on Almayer have this network
+	R.camera.network = network	//changed network from military to almayer,because Cams computers on Almayer have this network
 	R.camera.c_tag = "Armored Vehicle #[rand(1,10)]" //ARMORED VEHICLE to be at the start of cams list, numbers in case of events with multiple tanks and for APC
 
 	return INITIALIZE_HINT_QDEL
@@ -78,6 +76,7 @@
 				HDPT_SUPPORT,
 				HDPT_ARMOR,
 				HDPT_TREADS)
+	network = list("almayer")
 
 /obj/effect/multitile_spawner/cm_armored/tank/fixed
 	spawn_hardpoints = list(HDPT_PRIMARY = /obj/item/hardpoint/tank/primary/cannon,
@@ -85,6 +84,7 @@
 							HDPT_SUPPORT = /obj/item/hardpoint/tank/support/smoke_launcher,
 							HDPT_ARMOR = /obj/item/hardpoint/tank/armor/ballistic,
 							HDPT_TREADS = /obj/item/hardpoint/tank/treads/standard)
+	network = list("almayer")
 
 /obj/vehicle/multitile/root/cm_armored/tank/Destroy()
 	if(gunner)
@@ -129,16 +129,20 @@
 				to_chat(driver, "<span class='danger'>You cannot breath in all the smoke inside the vehicle and back hatch is blocked, so you get out through an auxiliary top hatch and jump off the tank!</span>")
 				driver = null
 	else
-		to_chat(driver, "<span class='danger'>You cannot breath in all the smoke inside the vehicle so you dismount!</span>")
-		gunner.Move(T)
-		to_chat(driver, "<span class='danger'>You cannot breath in all the smoke inside the vehicle so you dismount!</span>")
-		driver.Move(T)
-	if(gunner.client)
-		gunner.client.mouse_pointer_icon = initial(gunner.client.mouse_pointer_icon)
-	gunner.unset_interaction()
-	gunner = null
-	driver.unset_interaction()
-	driver = null
+		if(gunner)
+			to_chat(driver, "<span class='danger'>You cannot breath in all the smoke inside the vehicle so you dismount!</span>")
+			gunner.Move(T)
+		if(driver)
+			to_chat(driver, "<span class='danger'>You cannot breath in all the smoke inside the vehicle so you dismount!</span>")
+			driver.Move(T)
+	if(gunner)
+		if(gunner.client)
+			gunner.client.mouse_pointer_icon = initial(gunner.client.mouse_pointer_icon)
+		gunner.unset_interaction()
+		gunner = null
+	if(driver)
+		driver.unset_interaction()
+		driver = null
 	swap_seat = null
 
 /obj/vehicle/multitile/root/cm_armored/tank/remove_all_players()
@@ -521,22 +525,18 @@
 
 //No one but the driver can drive
 /obj/vehicle/multitile/root/cm_armored/tank/relaymove(mob/user, direction)
+	if(user.incapacitated()) return
 	if(user == gunner)
-		if(world.time < next_move_tower) return
-		next_move_tower = world.time + tower_delay
 		switch(direction)
 			if(WEST)
 				rotate_tower_TF = TRUE
 				rotate_tower(0)
 				rotate_tower_TF = FALSE
-				return
 			if(EAST)
 				rotate_tower_TF = TRUE
 				rotate_tower(1)
 				rotate_tower_TF = FALSE
-				return
-
-	if(user != driver || user.incapacitated()) return
+		return
 
 	. = ..(user, direction)
 

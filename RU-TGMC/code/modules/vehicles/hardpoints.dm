@@ -1080,9 +1080,10 @@ All of the hardpoints, for the tank and APC
 		else if(new_dir in list(EAST, WEST))
 			icon_suffix = "EW"
 
-		var/obj/item/ammo_magazine/tank/tank_slauncher/A = clips[cur_ammo_type][2]
 		if(obj_integrity <= 0) icon_state_suffix = "1"
-		else if(A.current_rounds <= 0) icon_state_suffix = "2"
+		else 
+			var/obj/item/ammo_magazine/tank/tank_slauncher/A = clips[cur_ammo_type][2]
+			if(A.current_rounds <= 0) icon_state_suffix = "2"
 
 		return image(icon = "[disp_icon]_[icon_suffix]", icon_state = "[disp_icon_state]_[icon_state_suffix]", pixel_x = x_offset, pixel_y = y_offset)
 

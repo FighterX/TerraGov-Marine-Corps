@@ -38,6 +38,8 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	//What slots the vehicle can have
 	var/list/hardpoints = list(HDPT_SUPPORT, HDPT_TREADS, HDPT_ARMOR, HDPT_SECDGUN, HDPT_PRIMARY)
+	var/list/hardpoints_tower = list(HDPT_ARMOR, HDPT_SECDGUN, HDPT_PRIMARY)
+	var/list/hardpoints_body = list(HDPT_SUPPORT, HDPT_TREADS, HDPT_ARMOR)
 
 	//The next world.time when the tank can move
 	var/next_move = 0
@@ -642,8 +644,9 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	if(remove_person)
 		handle_all_modules_broken()
-
+	rotate_tower_TF = TRUE
 	update_icon()
+	rotate_tower_TF = FALSE
 
 
 //Since the vics are 3x4 we need to swap between the two files with different dimensions
@@ -781,38 +784,39 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		pixel_x = -48
 		pixel_y = -32
 		icon = 'RU-TGMC/icons/obj/vehicles/tank_EW.dmi'
-	update_icon_tower()
 	//Basic iteration that snags the overlay from the hardpoint module object
 	var/i
-	for(i in hardpoints)
-		var/obj/item/hardpoint/tank/H = hardpoints[i]
+	var/obj/item/hardpoint/tank/H
+	for(i in hardpoints_body)
+		H = hardpoints[i]
 
 		if(i == HDPT_TREADS && (!H || !H.obj_integrity)) //Treads not installed or broken
 			var/image/I = image(icon, icon_state = "damaged_hardpt_[i]")
 			overlays += I
 			continue
 
-		if(H && !(i in list(HDPT_PRIMARY, HDPT_SECDGUN)))
+		if(H)
 			var/image/I = H.get_icon_image(0, 0, dir)
 			overlays += I
 
-		if(H && i in list(HDPT_PRIMARY, HDPT_SECDGUN, HDPT_ARMOR))
+		if(damaged_hps.Find(i))
+			var/image/I = image(icon, icon_state = "damaged_hardpt_[i]")
+			overlays += I
+	update_icon_tower()
+	for(i in hardpoints_tower)
+		H = hardpoints[i]
+		if(H)
 			var/icon_state_suffix = "0"
 			var/icon_state_module = H.disp_icon_state
 			if(H.obj_integrity <= 0)
 				icon_state_suffix = "1"
 			var/image/I = image(icon = icon_tower, icon_state = "[icon_state_module]_[icon_state_suffix]", dir = tower_dir, pixel_x = pixel_x_tower, pixel_y = pixel_y_tower)
 			overlays += I
-
-		if(damaged_hps.Find(i) && i in list(HDPT_PRIMARY, HDPT_SECDGUN))
+		
+		if(damaged_hps.Find(i))
 			var/image/I = image(icon_tower, icon_state = "damaged_hardpt_[i]", dir = tower_dir)
 			I.pixel_x = pixel_x_tower
 			I.pixel_y = pixel_y_tower
-			overlays += I
-			continue
-
-		if(damaged_hps.Find(i))
-			var/image/I = image(icon, icon_state = "damaged_hardpt_[i]")
 			overlays += I
 
 //Hitboxes but with new names
@@ -1337,7 +1341,9 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 	damaged_hps -= slot //We repaired it, good job
 
+	rotate_tower_TF = TRUE
 	update_icon()
+	rotate_tower_TF = FALSE
 
 //Relaoding stuff, pretty bare-bones and basic
 /obj/vehicle/multitile/root/cm_armored/proc/handle_ammomag_attackby(var/obj/item/ammo_magazine/AM, var/mob/user)
