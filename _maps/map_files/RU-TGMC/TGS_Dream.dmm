@@ -451,12 +451,13 @@
 /turf/open/floor/mainship,
 /area/mainship/living/starboard_emb)
 "bw" = (
-/obj/machinery/botany/extractor,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/components/unary/cryo_cell,
 /turf/open/floor/mainship{
 	dir = 1;
 	icon_state = "sterile_green_side"
 	},
-/area/mainship/medical/medical_science)
+/area/mainship/medical/surgery_hallway)
 "bx" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -632,7 +633,7 @@
 /turf/open/floor/mainship,
 /area/mainship/command/cic)
 "cd" = (
-/obj/structure/table/woodentable,
+/obj/structure/closet/secure_closet/CMO,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "ce" = (
@@ -769,6 +770,9 @@
 /area/mainship/medical/upper_medical)
 "cs" = (
 /obj/structure/closet/cabinet,
+/obj/item/clothing/under/marine/officer,
+/obj/item/clothing/under/rank/medical/blue,
+/obj/item/clothing/under/rank/medical/purple,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
 "ct" = (
@@ -936,6 +940,12 @@
 /area/mainship/medical/upper_medical)
 "cS" = (
 /obj/machinery/autolathe,
+/obj/item/stack/sheet/glass{
+	amount = 20
+	},
+/obj/item/stack/sheet/metal{
+	amount = 30
+	},
 /turf/open/floor/mainship{
 	icon_state = "sterile_green_corner";
 	dir = 1
@@ -1092,12 +1102,8 @@
 /area/mainship/medical/medical_science)
 "dp" = (
 /obj/structure/table/mainship,
-/obj/item/stack/sheet/metal{
-	amount = 30
-	},
-/obj/item/stack/sheet/glass{
-	amount = 20
-	},
+/obj/machinery/reagentgrinder,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
 /turf/open/floor/mainship{
 	dir = 4;
 	icon_state = "sterile_green_side"
@@ -1791,6 +1797,8 @@
 "fh" = (
 /obj/structure/closet/cabinet,
 /obj/item/radio,
+/obj/item/whistle,
+/obj/item/clothing/under/spec_operative,
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
 "fi" = (
@@ -1801,6 +1809,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/tie,
 /obj/item/radio,
+/obj/item/whistle,
 /turf/open/floor/wood,
 /area/mainship/living/numbertwobunks)
 "fk" = (
@@ -2045,7 +2054,6 @@
 /area/mainship/command/corporateliaison)
 "fQ" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/corporateliaison)
@@ -3953,6 +3961,7 @@
 /obj/item/binoculars/tactical{
 	pixel_y = 4
 	},
+/obj/item/whistle,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -4553,6 +4562,9 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/roller,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/bodybag/cryobag,
 /turf/open/floor/mainship{
 	dir = 4;
 	icon_state = "sterile_green_side"
@@ -4665,9 +4677,9 @@
 /area/mainship/living/grunt_rnr)
 "lQ" = (
 /obj/structure/closet/secure_closet/medical2,
-/obj/item/storage/box/gloves,
 /obj/item/reagent_container/spray/cleaner,
 /obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
 /turf/open/floor/mainship{
 	dir = 8;
 	icon_state = "sterile_green_side"
@@ -5099,6 +5111,11 @@
 /obj/item/storage/box/pillbottles,
 /obj/item/storage/box/pillbottles,
 /obj/item/tool/hand_labeler,
+/obj/item/storage/box/beakers,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
 /turf/open/floor/mainship{
 	icon_state = "sterile_green_corner";
 	dir = 1
@@ -5156,9 +5173,9 @@
 /area/mainship/medical/surgery_hallway)
 "ni" = (
 /obj/structure/closet/secure_closet/medical2,
-/obj/item/storage/box/gloves,
 /obj/item/reagent_container/spray/cleaner,
 /obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
 /turf/open/floor/mainship{
 	dir = 8;
 	icon_state = "sterile_green_side"
@@ -5166,15 +5183,19 @@
 /area/mainship/medical/operating_room_two)
 "nj" = (
 /obj/structure/table/mainship,
-/obj/item/storage/box/beakers,
+/obj/machinery/reagentgrinder,
+/obj/item/stack/sheet/mineral/phoron/medium_stack,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
 	},
 /area/mainship/medical/chemistry)
 "nk" = (
-/obj/structure/table/mainship,
-/obj/machinery/reagentgrinder,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/mainship{
 	dir = 2;
 	icon_state = "sterile_green_corner"
@@ -5404,6 +5425,13 @@
 /area/mainship/medical/lower_medical)
 "nR" = (
 /obj/structure/closet/secure_closet/medical_doctor,
+/obj/item/storage/pouch/medkit/full,
+/obj/item/storage/pouch/medkit/full,
+/obj/item/storage/pouch/medical/full,
+/obj/item/storage/pouch/medical/full,
+/obj/item/storage/pouch/syringe,
+/obj/item/storage/pouch/autoinjector,
+/obj/item/storage/pouch/autoinjector,
 /turf/open/floor/mainship{
 	icon_state = "sterile_green"
 	},
@@ -5563,11 +5591,19 @@
 	},
 /area/mainship/hallways/hangar)
 "oq" = (
+/obj/structure/closet/secure_closet/medical_doctor,
+/obj/item/storage/pouch/medkit/full,
+/obj/item/storage/pouch/medkit/full,
+/obj/item/storage/pouch/medical/full,
+/obj/item/storage/pouch/medical/full,
+/obj/item/storage/pouch/syringe,
+/obj/item/storage/pouch/syringe,
+/obj/item/storage/pouch/autoinjector,
+/obj/item/storage/pouch/autoinjector,
 /turf/open/floor/mainship{
-	icon_state = "test_floor4";
-	tag = ""
+	icon_state = "sterile_green"
 	},
-/area/space)
+/area/mainship/medical/lower_medical)
 "or" = (
 /turf/open/floor/mainship{
 	dir = 4;
@@ -7359,7 +7395,6 @@
 /area/mainship/living/briefing)
 "tf" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship,
 /area/mainship/engineering/ce_room)
@@ -7921,13 +7956,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship{
 	icon_state = "sterile_green"
 	},
 /area/mainship/medical/operating_room_one)
 "uv" = (
 /obj/structure/bed/chair/office/dark,
-/obj/machinery/chem_dispenser,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -7935,6 +7970,7 @@
 /area/mainship/medical/chemistry)
 "uw" = (
 /obj/item/reagent_container/glass/beaker/bluespace,
+/obj/machinery/chem_dispenser,
 /turf/open/floor/mainship{
 	icon_state = "sterile_green_corner";
 	dir = 4
@@ -8140,7 +8176,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "uY" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/spec_operative,
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
 "uZ" = (
@@ -8292,7 +8329,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 1;
@@ -8372,7 +8408,6 @@
 /area/mainship/hallways/starboard_hallway)
 "vE" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 9;
@@ -8999,11 +9034,15 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
 	},
-/area/mainship/medical/surgery_hallway)
+/area/mainship/medical/chemistry)
 "wT" = (
 /obj/machinery/light{
 	dir = 4
@@ -9062,7 +9101,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -9793,7 +9832,6 @@
 /area/mainship/shipboard/brig)
 "zc" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 8;
@@ -10088,6 +10126,7 @@
 /area/mainship/medical/surgery_hallway)
 "zO" = (
 /obj/machinery/optable,
+/obj/item/tank/anesthetic,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -10107,6 +10146,7 @@
 /area/mainship/medical/operating_room_two)
 "zQ" = (
 /obj/machinery/optable,
+/obj/item/tank/anesthetic,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -10998,9 +11038,10 @@
 /obj/item/clothing/head/caphat,
 /obj/item/clothing/head/admiral,
 /obj/item/clothing/head/white_dress,
-/obj/item/clothing/suit/officer_cloak_red,
-/obj/item/clothing/suit/officer_cloak,
 /obj/item/clothing/suit/captunic/capjacket,
+/obj/item/clothing/under/marine/officer/admiral,
+/obj/item/clothing/suit/captunic,
+/obj/item/clothing/under/rank/captain,
 /turf/open/floor/wood,
 /area/mainship/living/captain_mess)
 "Bx" = (
@@ -11150,12 +11191,12 @@
 /area/mainship/command/cic)
 "BP" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /obj/item/clipboard{
 	pixel_x = 6
 	},
 /obj/machinery/light,
+/obj/item/whistle,
 /turf/open/floor/mainship{
 	icon_state = "blue";
 	tag = ""
@@ -11256,7 +11297,6 @@
 /area/mainship/living/captain_mess)
 "Cd" = (
 /obj/structure/table/woodentable,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/carpet,
 /area/mainship/living/captain_mess)
@@ -12484,6 +12524,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/light,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -12512,6 +12553,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/light,
 /turf/open/floor/mainship{
 	icon_state = "dark_sterile";
 	tag = ""
@@ -12805,6 +12847,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/mainship{
 	icon_state = "sterile_green"
@@ -13127,7 +13172,6 @@
 	dir = 1
 	},
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	icon_state = "ai_floors";
@@ -14641,7 +14685,6 @@
 /area/mainship/living/tankerbunks)
 "JZ" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
@@ -14902,7 +14945,6 @@
 /area/mainship/squads/alpha)
 "KC" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/briefing)
@@ -15208,12 +15250,10 @@
 /area/mainship/medical/lower_medical)
 "Ll" = (
 /obj/structure/table/mainship,
-/obj/item/storage/pouch/medkit/full,
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/item/storage/pouch/medkit/full,
 /turf/open/floor/mainship{
 	dir = 1;
 	icon_state = "sterile_green_side"
@@ -15301,12 +15341,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
 "Lw" = (
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "sterile_green_side"
-	},
-/area/mainship/medical/surgery_hallway)
+/obj/structure/closet/cabinet,
+/obj/item/weapon/combat_knife,
+/turf/open/floor/wood,
+/area/mainship/living/tankerbunks)
 "Lx" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -16577,7 +16615,6 @@
 /area/mainship/squads/req)
 "Ot" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -17964,11 +18001,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
-"Rp" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/obj/item/weapon/combat_knife,
-/turf/open/floor/wood,
-/area/mainship/living/tankerbunks)
 "Rq" = (
 /obj/machinery/vending/uniform_supply,
 /turf/open/floor/plating/mainship,
@@ -18065,12 +18097,19 @@
 /turf/open/floor/freezer,
 /area/mainship/shipboard/chief_mp_office)
 "RF" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/mainship{
-	dir = 2;
-	icon_state = "silver";
+	icon_state = "dark_sterile";
 	tag = ""
 	},
-/area/mainship/living/cryo_cells)
+/area/mainship/medical/surgery_hallway)
 "RG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -18398,6 +18437,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/exoarmor)
+"St" = (
+/turf/open/floor/mainship{
+	dir = 2;
+	icon_state = "silver";
+	tag = ""
+	},
+/area/mainship/living/cryo_cells)
 "Su" = (
 /obj/machinery/processor,
 /turf/open/floor/prison/kitchen,
@@ -18476,6 +18522,23 @@
 	icon_state = "test_floor4"
 	},
 /area/mainship/squads/alpha)
+"SI" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	icon_state = "dark_sterile";
+	tag = ""
+	},
+/area/mainship/medical/operating_room_one)
+"SJ" = (
+/obj/structure/disposalpipe/segment,
+/turf/closed/wall/mainship/white,
+/area/mainship/hull/lower_hull)
 
 (1,1,1) = {"
 aa
@@ -37168,7 +37231,7 @@ sI
 ve
 ve
 sI
-Rp
+Lw
 vl
 sI
 oh
@@ -48333,9 +48396,9 @@ II
 dI
 as
 as
-as
-as
-as
+bM
+bM
+bM
 bM
 cO
 dk
@@ -48591,8 +48654,8 @@ dI
 dI
 as
 bM
-bM
-bM
+cs
+cr
 bM
 cQ
 dl
@@ -49106,7 +49169,7 @@ dI
 as
 bM
 cd
-cs
+cr
 bM
 cR
 dn
@@ -50001,7 +50064,7 @@ Ir
 nh
 mZ
 nk
-wM
+wS
 uw
 xg
 ln
@@ -50131,7 +50194,7 @@ II
 II
 II
 ey
-bw
+bt
 bT
 bT
 cw
@@ -50261,7 +50324,7 @@ mZ
 FB
 mZ
 mZ
-no
+lp
 Fx
 bx
 Fx
@@ -50515,10 +50578,10 @@ wZ
 nh
 wY
 mp
-wS
+RF
 wU
 wY
-lp
+no
 Fz
 bx
 Fx
@@ -50772,10 +50835,10 @@ xb
 wY
 wY
 pe
-wS
+RF
 mv
 wY
-ln
+lp
 Fx
 bx
 Fx
@@ -51279,8 +51342,8 @@ II
 II
 lU
 Lp
-Lu
-Lw
+SJ
+bw
 lx
 mn
 mY
@@ -52055,7 +52118,7 @@ mA
 mv
 mH
 uu
-mC
+SI
 wF
 mC
 EN
@@ -52582,7 +52645,7 @@ KZ
 Fz
 Fx
 nl
-nR
+oq
 aA
 cx
 OH
@@ -54535,7 +54598,7 @@ hB
 II
 II
 II
-oq
+II
 II
 II
 II
@@ -64421,7 +64484,7 @@ nf
 nf
 nf
 nf
-RF
+St
 nf
 uR
 KD
@@ -64678,7 +64741,7 @@ nf
 nf
 nf
 nf
-RF
+St
 Ok
 DK
 nf
@@ -64935,7 +64998,7 @@ nf
 nf
 nf
 nf
-RF
+St
 nf
 uS
 uU
