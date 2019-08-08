@@ -178,6 +178,7 @@ If you are not piloting, there is an autopilot fallback for command, but don't l
 	outfit = /datum/outfit/job/command/tank_crew
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
+	min_players = 35
 
 
 /datum/job/command/tank_crew/radio_help_message(mob/M)
