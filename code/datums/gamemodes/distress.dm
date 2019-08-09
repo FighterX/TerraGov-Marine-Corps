@@ -189,7 +189,7 @@
 		if(current_smartgunners >= maximum_smartgunners)
 			S.max_smartgun = 0
 		else
-			S.max_smartgun = 2
+			S.max_smartgun = 1
 			current_smartgunners++
 
 

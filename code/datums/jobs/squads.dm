@@ -10,7 +10,7 @@
 
 	var/max_engineers = 3
 	var/max_medics = 4
-	var/max_smartgun = 2
+	var/max_smartgun = 1
 	var/max_specialists = 2
 	var/max_leaders = 1
 
