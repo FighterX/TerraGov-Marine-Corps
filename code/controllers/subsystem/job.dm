@@ -81,6 +81,9 @@ SUBSYSTEM_DEF(job)
 		if(!job.player_old_enough(player.client))
 			JobDebug("AR player not old enough, Player: [player], Job:[job.title]")
 			return FALSE
+		if(length(SSticker.mode.valid_job_types) && !(job.type in SSticker.mode.valid_job_types))
+			JobDebug("AR job disallowed by gamemode, Player: [player], Job:[job.title]")
+			return FALSE
 		if(job.min_players > GLOB.clients.len)
 			JobDebug("AR player tried to join restricted job, Player: [player], Job:[job.title]")
 			to_chat(player, "<span class='danger'>[job.title] was forbidden due low players count.</span>")
