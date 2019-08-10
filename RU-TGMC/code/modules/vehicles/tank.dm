@@ -34,6 +34,9 @@
 	var/list/spawn_hardpoints = list()
 	var/list/damaged_hps = list()
 	var/list/network = list()
+	var/color_tank = ""
+	var/name_tank = null
+	var/desc_tank = null
 
 /obj/effect/multitile_spawner/cm_armored/tank/Initialize()
 	. = ..()
@@ -42,6 +45,11 @@
 	R.setDir(WEST)
 	R.tower_dir = R.dir
 	R.last_dir  = R.dir
+	if(name_tank)
+		R.name = name_tank
+	if(desc_tank)
+		R.desc = desc_tank
+	R.color = color_tank
 
 	var/datum/coords/dimensions = new
 	dimensions.x_pos = width
@@ -85,6 +93,27 @@
 							HDPT_ARMOR = /obj/item/hardpoint/tank/armor/ballistic,
 							HDPT_TREADS = /obj/item/hardpoint/tank/treads/standard)
 	network = list("almayer")
+
+/obj/effect/multitile_spawner/cm_armored/tank/upp
+	name_tank = "Type 91 \"Wolverine\" Main Battle Tank"
+	desc_tank = "Watch out! It's UPP main battle tank! Has inbuilt Type 21 \"Zavesa\" smoke cover system. Entrance in the back."
+	color_tank = "#c2b678"
+
+/obj/effect/multitile_spawner/cm_armored/tank/upp/decrepit
+	damaged_hps = list(
+				HDPT_PRIMARY,
+				HDPT_SECDGUN ,
+				HDPT_SUPPORT,
+				HDPT_ARMOR,
+				HDPT_TREADS)
+
+/obj/effect/multitile_spawner/cm_armored/tank/upp/fixed
+	spawn_hardpoints = list(HDPT_PRIMARY = /obj/item/hardpoint/tank/primary/cannon,
+							HDPT_SECDGUN = /obj/item/hardpoint/tank/secondary/m56cupola,
+							HDPT_SUPPORT = /obj/item/hardpoint/tank/support/smoke_launcher,
+							HDPT_ARMOR = /obj/item/hardpoint/tank/armor/ballistic,
+							HDPT_TREADS = /obj/item/hardpoint/tank/treads/standard)
+
 
 /obj/vehicle/multitile/root/cm_armored/tank/Destroy()
 	if(gunner)

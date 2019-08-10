@@ -1096,19 +1096,42 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 		return
 	if(P.ammo.flags_ammo_behavior & AMMO_XENO_ACID)
 		dam_type = "acid"
-		take_damage_type(P.damage * (0.75 + P.ammo.penetration/100), dam_type, P.firer)
+		take_damage_type(P.damage * (1 + P.ammo.penetration/100), dam_type, P.firer)
 		return
 	if(istype(P, /datum/ammo/rocket/ap))
 		dam_type = "explosive"
-		take_damage_type(P.damage * (1.2 + P.ammo.penetration/100), dam_type, P.firer)
+		next_move = next_move + 10
+		next_move_tower = next_move_tower + 10
+		var/obj/item/hardpoint/PW = hardpoints["primary"]
+		var/obj/item/hardpoint/SW = hardpoints["secondary"]
+		PW.next_use = PW.next_use + 10
+		SW.next_use = SW.next_use + 10
+		take_damage_type(P.damage * (2.2 + P.ammo.penetration/100), dam_type, P.firer)
 		return
-	/*if(istype(P, /datum/ammo/rocket/tow))
+	if(istype(P, /datum/ammo/rocket/tow))
 		dam_type = "explosive"
-		take_damage_type(P.damage * (1.5 + P.ammo.penetration/100), dam_type, P.firer)
-		return*/
+		next_move = next_move + 10
+		next_move_tower = next_move_tower + 10
+		var/obj/item/hardpoint/PW = hardpoints["primary"]
+		var/obj/item/hardpoint/SW = hardpoints["secondary"]
+		PW.next_use = PW.next_use + 10
+		SW.next_use = SW.next_use + 10
+		take_damage_type(P.damage * (2.5 + P.ammo.penetration/100), dam_type, P.firer)
+		return
 	if(istype(P, /datum/ammo/rocket/ltb))
+		if(istype(P, /datum/ammo/rocket/ltb/he))
+			next_move = next_move + 20
+			next_move_tower = next_move_tower + 20
+			var/obj/item/hardpoint/PW = hardpoints["primary"]
+			var/obj/item/hardpoint/SW = hardpoints["secondary"]
+			PW.next_use = PW.next_use + 20
+			SW.next_use = SW.next_use + 20
+
 		dam_type = "explosive"
-		take_damage_type(P.damage * (3 + P.ammo.penetration/100), dam_type, P.firer)
+		take_damage_type(P.damage * (5 + P.ammo.penetration/100), dam_type, P.firer)
+		return
+	if(istype(P, /datum/ammo/bullet/minigun))
+		take_damage_type(P.damage * (P.ammo.penetration/100), dam_type, P.firer)
 		return
 
 	take_damage_type(P.damage * (0.75 + P.ammo.penetration/100), dam_type, P.firer)
