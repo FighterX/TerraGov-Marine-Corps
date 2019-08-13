@@ -17,6 +17,7 @@
 	can_buckle = FALSE
 	move_delay = 6
 
+	var/obj/machinery/camera/camera
 	var/lights = FALSE
 	var/lights_power = 8
 	var/zoom = FALSE
@@ -32,15 +33,15 @@
 
 	var/acid_process_cooldown = null
 	var/list/damage_threshold = list(
-		"face" = 30,
-		"faceflank" = 15,
+		"face" = 20,
+		"faceflank" = 10,
 		"flank" = 0,
 		"behind" = -15
 		)
 	var/list/dmg_multipliers = list(
 		"all" = 1.0, //for when you want to make it invincible
 		"acid" = 0.9,
-		"slash" = 0.6,
+		"slash" = 0.9,
 		"bullet" = 0.2,
 		"explosive" = 5.0,
 		"blunt" = 0.1,
@@ -56,7 +57,17 @@
 /obj/vehicle/walker/Initialize()
 	. = ..()
 
+	camera = new (src)
+	camera.network = list("military")
+	camera.c_tag = "[name]"
 	resistance_flags |= UNACIDABLE
+
+/obj/vehicle/walker/Destroy()
+	QDEL_NULL(camera)
+	QDEL_NULL(left)
+	QDEL_NULL(right)
+	QDEL_NULL(armor_module)
+	. = ..()
 
 /obj/vehicle/walker/prebuilt/Initialize()
 	. = ..()
@@ -114,6 +125,19 @@
 		if (3)
 			take_damage(10, "explosive")					// 10 * 5.0 = 50. Maxhealth is 400. Hellova damage
 
+/atom/proc/mech_collision(obj/vehicle/walker/C)
+	return
+
+/obj/effect/alien/mech_collision(obj/vehicle/walker/C)
+	take_damage(20)
+
+/obj/effect/alien/weed/mech_collision(obj/vehicle/walker/C)
+	return
+
+/obj/effect/xenomorph/spray/mech_collision(obj/vehicle/walker/C)
+	if(C)
+		C.take_damage(rand(10, 20), "acid")
+
 /obj/vehicle/walker/relaymove(mob/user, direction)
 	if(user.incapacitated())
 		return
@@ -127,6 +151,8 @@
 			. = step(src, direction)
 			if(.)
 				pick(playsound(loc, 'sound/mecha/powerloader_step.ogg', 25), playsound(loc, 'sound/mecha/powerloader_step2.ogg', 25))
+				for(var/obj/atoms in loc)
+					atoms.mech_collision(src)
 
 /obj/vehicle/walker/Bump(var/atom/obstacle)
 	if(istype(obstacle, /obj/machinery/door))
@@ -185,10 +211,10 @@
 
 		var/mob/living/carbon/xenomorph/crusher/caste = A
 
-		if(caste.charge_speed < 2) //Arbitrary ratio here, might want to apply a linear transformation instead
+		if(caste.charge_speed < CHARGE_SPEED_MAX/(1.1)) //Arbitrary ratio here, might want to apply a linear transformation instead
 			return
 
-		obj_integrity -= 50 * dmg_multipliers["blunt"]
+		obj_integrity -= caste.charge_speed * CRUSHER_CHARGE_TANK_MULTI * dmg_multipliers["slash"]
 		caste.visible_message("<span class='xenodanger'>You crushed into tincan's armor!</span>", "<span class='danger'>[caste] crushed onto [src]</span>")
 		healthcheck()
 
@@ -288,6 +314,15 @@
 			right.ammo = null
 			to_chat(pilot, "<span class='warning'>WARNING! [right.name] ammo magazine deployed.</span>")
 			visible_message("[name]'s systems deployed used magazine.","")
+
+/obj/vehicle/walker/verb/use_armor()
+	set name = "Activate Armor Subsystems"
+	set category = "Walker Interface"
+	set src = usr.loc
+
+	if(!armor_module)
+		return
+	armor_module.activate_hardpoint()
 
 /obj/vehicle/walker/verb/get_stats()
 	set name = "Status Display"
@@ -403,22 +438,48 @@
 		var/obj/item/ammo_magazine/walker/mag = W
 		rearm(mag, user)
 
+	if(istype(W, /obj/item/mortal_shell/he))
+		var/obj/item/mortal_shell/he/SH = W
+		rearm_mortar(SH, user)
+
+
 	else if(istype(W, /obj/item/walker_gun))
 		var/obj/item/walker_gun/WG = W
 		install_gun(WG, user)
-
-	else if(iswrench(W))
-		var/obj/item/tool/wrench/WR = W
-		dismount(WR, user)
 
 	else if(iswelder(W))
 		var/obj/item/tool/weldingtool/weld = W
 		repair_walker(weld, user)
 
+	else if(istype(W, /obj/item/walker_armor))
+		var/obj/item/walker_armor/AR = W
+		install_armor(AR,user)
+
+	else if(iswrench(W))
+		var/obj/item/tool/wrench/WR = W
+		dismount(WR, user)
+
 	else
 		. = ..()
 
-/obj/vehicle/walker/proc/install_gun(var/obj/item/walker_gun/W, mob/user as mob)
+/obj/vehicle/walker/proc/install_armor(obj/item/walker_armor/W, mob/user as mob)
+	if(user.mind?.cm_skills && user.mind.cm_skills.engineer < SKILL_ENGINEER_MT)
+		to_chat(user, "You don't know how to mount armor.")
+		return
+
+	if(armor_module)
+		to_chat(user, "This hardpoint is full")
+		return
+
+	to_chat(user, "You start mounting [W.name] on armor hardpoint.")
+	if(do_after(user, 100, TRUE, src, BUSY_ICON_BUILD))
+		user.drop_held_item()
+		W.loc = src
+		armor_module = W
+		armor_module.owner = src
+		armor_module.apply_effect()
+
+/obj/vehicle/walker/proc/install_gun(obj/item/walker_gun/W, mob/user as mob)
 	if(user.mind?.cm_skills && user.mind.cm_skills.engineer < SKILL_ENGINEER_MT)
 		to_chat(user, "You don't know how to mount weapon.")
 		return
@@ -482,10 +543,32 @@
 		to_chat(user, "You cannot fit that magazine in any weapon.")
 		return
 
+
+/obj/vehicle/walker/proc/rearm_mortar(obj/item/mortal_shell/he/shell  as obj, mob/user as mob)
+	if(!armor_module)
+		to_chat(user, "Mortar module wasn't installed!")
+		return
+
+	if(!istype(armor_module, /obj/item/walker_armor/mortar))
+		to_chat(user, "Mortar module wasn't installed!")
+		return
+
+	var/obj/item/walker_armor/mortar/mr = armor_module
+	if(mr.shells == mr.max_shells)
+		to_chat(user, "Mortar module is full!")
+		return
+
+	if(!do_after(user, 20, TRUE, src, BUSY_ICON_BUILD))
+		to_chat(user, "Your action was interrupted.")
+		return
+	mr.shells++
+	user.drop_held_item()
+	qdel(shell)
+
 /obj/vehicle/walker/proc/dismount(obj/item/tool/wrench/WR  as obj, mob/user as mob)
 	if(!left && !right)
 		return
-	var/choice = input("Which hardpoint should be dismounted.") in list("Left", "Right", "Cancel")
+	var/choice = input("Which hardpoint should be dismounted.") in list("Left", "Right", "Armor", "Cancel")
 	switch(choice)
 		if("Cancel")
 			return
@@ -497,6 +580,7 @@
 			to_chat(user, "You start dismounting [left.name] from walker.")
 			if(do_after(user, 100, TRUE, src, BUSY_ICON_BUILD))
 				left.loc = loc
+				left.owner = null
 				left = null
 				update_icon()
 				return
@@ -510,7 +594,23 @@
 			to_chat(user, "You start dismounting [right.name] from walker.")
 			if(do_after(user, 100, TRUE, src, BUSY_ICON_BUILD))
 				right.loc = loc
+				right.owner = null
 				right = null
+				update_icon()
+				return
+			else
+				to_chat(user, "Dismounting has been interrupted.")
+
+		if("Armor")
+			if(!armor_module)
+				to_chat(user, "Armor hardpoint is empty.")
+				return
+			to_chat(user, "You start dismounting [armor_module.name] from walker.")
+			if(do_after(user, 100, TRUE, src, BUSY_ICON_BUILD))
+				armor_module.loc = loc
+				armor_module.remove_effect()
+				armor_module.owner = null
+				armor_module = null
 				update_icon()
 				return
 			else
@@ -598,14 +698,21 @@
 		if(TOX, OXY, CLONE)
 			return
 
-/obj/vehicle/walker/proc/take_damage(dam, damtype = "blunt", hit_dir)
+/obj/vehicle/walker/effect_smoke(obj/effect/particle_effect/smoke/S)
+	. = ..()
+	if(!.)
+		return
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
+		take_damage(rand(10,30), "acid")
+
+/obj/vehicle/walker/proc/take_damage(dam, damtype = "blunt", hit_dir=null)
 	if(!dam || dam <= 0)
 		return
 	if(!(damtype in list("explosive", "acid", "energy", "blunt", "slash", "bullet", "all", "abstract")))
 		return
 	// Applying multiplier and then substract theshold
 	// Attacking from behind add damage
-	var/damage = dam * dmg_multipliers[damtype] - get_damage_threshold(hit_dir)
+	var/damage = dam * max(0, dmg_multipliers[damtype]) - get_damage_threshold(hit_dir)
 	if(damage <= 0)
 		to_chat(pilot, "<span class='danger'>ALERT! Hostile incursion detected. Deflected.</span>")
 		return
@@ -616,9 +723,12 @@
 		pilot << sound('sound/mecha/critdestrsyndi.ogg',volume=50)
 	healthcheck()
 
-/obj/vehicle/walker/proc/get_damage_threshold(hit_dir)
+/obj/vehicle/walker/proc/get_damage_threshold(hit_dir=null)
 	if(!(hit_dir in CARDINAL_ALL_DIRS))
 		return DAMAGE_THRESHOLD_STANDART
+
+	if(reverse_direction(dir) == hit_dir)
+		return damage_threshold["face"]
 
 	var/list/faceflank
 	var/list/flank
@@ -626,29 +736,21 @@
 
 	switch(dir)
 		if(NORTH)
-			if(hit_dir == SOUTH)
-				return damage_threshold["face"]
 			faceflank = list(SOUTHEAST, SOUTHWEST)
 			flank = list(WEST,EAST)
 			back = list(NORTHEAST, NORTHWEST, NORTH)
 
 		if(SOUTH)
-			if(hit_dir == NORTH)
-				return damage_threshold["face"]
 			faceflank = list(NORTHEAST, NORTHWEST)
 			flank = list(WEST,EAST)
 			back = list(SOUTHEAST, SOUTHWEST, SOUTH)
 
 		if(EAST)
-			if(hit_dir == WEST)
-				return damage_threshold["face"]
 			faceflank = list(NORTHWEST, SOUTHWEST)
 			flank = list(NORTH, SOUTH)
 			back = list(NORTHEAST, SOUTHEAST, EAST)
 
 		if(WEST)
-			if(hit_dir == EAST)
-				return damage_threshold["face"]
 			faceflank = list(NORTHEAST, SOUTHEAST)
 			flank = list(NORTH, SOUTH)
 			back = list(NORTHWEST, SOUTHWEST, WEST)

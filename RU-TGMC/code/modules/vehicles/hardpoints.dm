@@ -2727,5 +2727,294 @@ All of the hardpoints, for the tank and APC
 // AMMO MAGS // END
 ///////////////
 ////////////////
+// MEGALODON ARMOR // START
+////////////////
+
+/obj/item/walker_armor
+	name = "walker armor"
+	icon = 'RU-TGMC/icons/obj/vehicles/mecha_guns.dmi'
+	var/equip_state = ""
+	w_class = 12.0
+	var/obj/vehicle/walker/owner = null
+
+	var/move_delay = 0
+
+	var/list/damage_thresholds = list(
+		"face" = 0,
+		"faceflank" = 0,
+		"flank" = 0,
+		"behind" = 0
+		)
+	var/list/dmg_multipliers = list(
+		"all" = 0.0, //for when you want to make it invincible
+		"acid" = 0.0,
+		"slash" = 0.0,
+		"bullet" = 0.0,
+		"explosive" = 0.0,
+		"blunt" = 0.0,
+		"energy" = 0.0,
+		"abstract" = 0.0) //abstract for when you just want to hurt it
+
+	w_class = 12.0
+
+/obj/item/walker_armor/proc/apply_effect()
+	if(!owner)
+		return
+
+	owner.move_delay += move_delay
+
+	owner.damage_threshold["face"] += damage_thresholds["face"]
+	owner.damage_threshold["faceflank"] += damage_thresholds["faceflank"]
+	owner.damage_threshold["flank"] += damage_thresholds["flank"]
+	owner.damage_threshold["behind"] += damage_thresholds["behind"]
+
+	owner.dmg_multipliers["acid"] += dmg_multipliers["acid"]
+	owner.dmg_multipliers["slash"] += dmg_multipliers["slash"]
+	owner.dmg_multipliers["bullet"] += dmg_multipliers["bullet"]
+	owner.dmg_multipliers["explosive"] += dmg_multipliers["explosive"]
+	owner.dmg_multipliers["blunt"] += dmg_multipliers["blunt"]
+	owner.dmg_multipliers["energy"] += dmg_multipliers["energy"]
+
+/obj/item/walker_armor/proc/remove_effect()
+	if(!owner)
+		return
+
+	owner.move_delay -= move_delay
+
+	owner.damage_threshold["face"] -= damage_thresholds["face"]
+	owner.damage_threshold["faceflank"] -= damage_thresholds["faceflank"]
+	owner.damage_threshold["flank"] -= damage_thresholds["flank"]
+	owner.damage_threshold["behind"] -= damage_thresholds["behind"]
+
+	owner.dmg_multipliers["acid"] -= dmg_multipliers["acid"]
+	owner.dmg_multipliers["slash"] -= dmg_multipliers["slash"]
+	owner.dmg_multipliers["bullet"] -= dmg_multipliers["bullet"]
+	owner.dmg_multipliers["explosive"] -= dmg_multipliers["explosive"]
+	owner.dmg_multipliers["blunt"] -= dmg_multipliers["blunt"]
+	owner.dmg_multipliers["energy"] -= dmg_multipliers["energy"]
+
+/obj/item/walker_armor/proc/activate_hardpoint()
+	if(!owner)
+		return FALSE
+	return TRUE
+
+
+/obj/item/walker_armor/light
+	name = "LA-14 \"Scatterpack\" Armor"
+	desc = "Light armor, usually used for scout walkers"
+
+	move_delay = -2
+
+	damage_thresholds = list(
+		"face" = -15,
+		"faceflank" = -10,
+		"flank" = 0,
+		"behind" = 5
+		)
+
+	dmg_multipliers = list(
+		"all" = 0.0, //for when you want to make it invincible
+		"acid" = 0.2,
+		"slash" = -0.2,
+		"bullet" = 0.6,
+		"explosive" = 2.0,
+		"blunt" = 0.5,
+		"energy" = 1.0,
+		"abstract" = 0.0) //abstract for when you just want to hurt it
+
+/obj/item/walker_armor/heavy
+	name = "HA-2 \"Raptor\" Armor"
+	desc = "Heavy armor, usually used for assault or defensive walkers"
+
+	move_delay = 2
+
+	damage_thresholds = list(
+		"face" = 5,
+		"faceflank" = 0,
+		"flank" = 5,
+		"behind" = 15
+		)
+
+	dmg_multipliers = list(
+		"all" = 0.0, //for when you want to make it invincible
+		"acid" = 0.4,
+		"slash" = -0.4,
+		"bullet" = -0.2,
+		"explosive" = -2.0,
+		"blunt" = -0.1,
+		"energy" = -0.5,
+		"abstract" = 0.0) //abstract for when you just want to hurt it
+
+/obj/item/walker_armor/acid
+	name = "Civilian-grade Hazmat Armor"
+	desc = "Not armor per se, used mostly by civilian walkers. How this even got here?"
+
+	move_delay = 2
+
+	damage_thresholds = list(
+		"face" = -5,
+		"faceflank" = -5,
+		"flank" = -5,
+		"behind" = -15
+		)
+
+	dmg_multipliers = list(
+		"all" = 0.0, //for when you want to make it invincible
+		"acid" = -0.5,
+		"slash" = 0.4,
+		"bullet" = 0.2,
+		"explosive" = 2.0,
+		"blunt" = 0.8,
+		"energy" = 1.5,
+		"abstract" = 0.0) //abstract for when you just want to hurt it
+
+/obj/item/walker_armor/squire
+	name = "X-108 \"Squire\" Super Heavy Armor"
+	desc = "Experimental armor, that can make a standart walker into nigh-inpenetrable fortress in exchange of limited mobility."
+
+	move_delay = 4
+
+	damage_thresholds = list(
+		"face" = 15,
+		"faceflank" = 15,
+		"flank" = 15,
+		"behind" = 0
+		)
+
+	dmg_multipliers = list(
+		"all" = 0.0, //for when you want to make it invincible
+		"acid" = -0.3,
+		"slash" = -0.4,
+		"bullet" = -0.2,
+		"explosive" = -4.0,
+		"blunt" = -0.1,
+		"energy" = -1.0,
+		"abstract" = 0.0) //abstract for when you just want to hurt it
+
+/obj/item/walker_armor/mortar
+	name = "M402W mortar"
+	desc = "Standart military mortar, used by TGMC forces, mounted on walker."
+
+	var/shells = 0
+	var/max_shells = 3
+	move_delay = 1
+
+	var/targ_x = 0 //Initial target coordinates
+	var/targ_y = 0
+	var/offset_x = 0 //Automatic offset from target
+	var/offset_y = 0
+	var/offset_per_turfs = 10 //Number of turfs to offset from target by 1
+	var/dial_x = 0 //Dial adjustment from target
+	var/dial_y = 0
+
+/obj/item/walker_armor/mortar/activate_hardpoint()
+	. = ..()
+	if(!.)
+		return
+
+	if(!shells)
+		return FALSE
+
+	var/choice = alert(owner.pilot, "Would you like to fire right now, ow set coordinates?", "M402W systems", "Fire", "Set", "Cancel")
+	if(choice == "Cancel")
+		return
+	if(choice =="Fire")
+		fire()
+	if(choice == "Set")
+		targeting()
+	return
+
+/obj/item/walker_armor/mortar/proc/fire()
+	if(shells <= 0)
+		to_chat(owner.pilot, "<span class='warning'>You cannot fire [src]: no ammo.</span>")
+		return
+	var/obj/item/mortal_shell/he/mortar_shell = new /obj/item/mortal_shell/he()
+	if(!is_ground_level(z))
+		to_chat(owner.pilot, "<span class='warning'>You cannot fire [src] here.</span>")
+		return
+
+	if(targ_x == 0 && targ_y == 0) //Mortar wasn't set
+		to_chat(owner.pilot, "<span class='warning'>[src] needs to be aimed first.</span>")
+		return
+
+	var/turf/T = locate(targ_x + dial_x + offset_x, targ_y + dial_y + offset_y, z)
+	if(!isturf(T))
+		to_chat(owner.pilot, "<span class='warning'>You cannot fire [src] to this target.</span>")
+		return
+
+	var/area/A = get_area(T)
+	if(istype(A) && A.ceiling >= CEILING_UNDERGROUND)
+		to_chat(owner.pilot, "<span class='warning'>You cannot hit the target. It is probably underground.</span>")
+		return
+
+	if(get_dist(owner.loc, T) < 10)
+		to_chat(owner.pilot, "<span class='warning'>You cannot aim at this coordinate, it is too close to you.</span>")
+		return
+
+	playsound(loc, 'sound/weapons/guns/interact/mortar_reload.ogg', 50, 1)
+	var/turf/G = get_turf(owner)
+	G.ceiling_debris_check(2)
+
+	spawn(45) //What goes up
+		playsound(T, 'sound/weapons/guns/misc/mortar_travel.ogg', 50, 1)
+		spawn(45) //Must go down //This should always be 45 ticks!
+			T.ceiling_debris_check(2)
+			mortar_shell.detonate(T)
+			qdel(mortar_shell)
+			shells--
+	return
+
+/obj/item/walker_armor/mortar/proc/targeting()
+	choice = alert(owner.pilot, "Would you like to set the mortar's target coordinates, or dial the mortar. or fire now? Setting coordinates will make you lose your fire adjustment.", "Mortar Dialing", "Target", "Dial", "Cancel")
+	if(choice == "Cancel")
+		return
+	if(choice == "Target")
+		var/temp_targ_x = input("Set longitude of strike from 0 to [world.maxx].") as num
+		if(dial_x + temp_targ_x > world.maxx || dial_x + temp_targ_x < 0)
+			to_chat(owner.pilot, "<span class='warning'>You cannot aim at this coordinate, it is outside of the area of operations.</span>")
+			return
+		var/temp_targ_y = input("Set latitude of strike from 0 to [world.maxy].") as num
+		if(dial_y + temp_targ_y > world.maxy || dial_y + temp_targ_y < 0)
+			to_chat(owner.pilot, "<span class='warning'>You cannot aim at this coordinate, it is outside of the area of operations.</span>")
+			return
+		var/turf/T = locate(temp_targ_x + dial_x, temp_targ_y + dial_y, z)
+		if(get_dist(owner.loc, T) < 10)
+			to_chat(owner.pilot, "<span class='warning'>You cannot aim at this coordinate, it is too close to your mortar.</span>")
+			return
+		playsound(owner.loc, 'sound/items/ratchet.ogg', 25, 1)
+		targ_x = temp_targ_x
+		targ_y = temp_targ_y
+		var/offset_x_max = round(abs((targ_x + dial_x) - x)/offset_per_turfs) //Offset of mortar shot, grows by 1 every 10 tiles travelled
+		var/offset_y_max = round(abs((targ_y + dial_y) - y)/offset_per_turfs)
+		offset_x = rand(-offset_x_max, offset_x_max)
+		offset_y = rand(-offset_y_max, offset_y_max)
+	if(choice == "Dial")
+		var/temp_dial_x = input("Set longitude adjustement from -10 to 10.") as num
+		if(temp_dial_x + targ_x > world.maxx || temp_dial_x + targ_x < 0)
+			to_chat(owner.pilot, "<span class='warning'>You cannot dial to this coordinate, it is outside of the area of operations.</span>")
+			return
+		if(temp_dial_x < -10 || temp_dial_x > 10)
+			to_chat(owner.pilot, "<span class='warning'>You cannot dial to this coordinate, it is too far away. You need to set [src] up instead.</span>")
+			return
+		var/temp_dial_y = input("Set latitude adjustement from -10 to 10.") as num
+		if(temp_dial_y + targ_y > world.maxy || temp_dial_y + targ_y < 0)
+			to_chat(owner.pilot, "<span class='warning'>You cannot dial to this coordinate, it is outside of the area of operations.</span>")
+			return
+		var/turf/T = locate(targ_x + temp_dial_x, targ_y + temp_dial_y, z)
+		if(get_dist(owner.loc, T) < 10)
+			to_chat(owner.pilot, "<span class='warning'>You cannot dial to this coordinate, it is too close to your mortar.</span>")
+			return
+		if(temp_dial_y < -10 || temp_dial_y > 10)
+			to_chat(owner.pilot, "<span class='warning'>You cannot dial to this coordinate, it is too far away. You need to set [src] up instead.</span>")
+			return
+		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+		dial_x = temp_dial_x
+		dial_y = temp_dial_y
+	return
+
+////////////////
+// MEGALODON ARMOR // END
+////////////////
+////////////////
 // MEGALODON HARDPOINTS // END
 ////////////////
