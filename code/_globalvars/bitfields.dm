@@ -58,7 +58,6 @@ GLOBAL_LIST_INIT(bitfields, list(
 		"OVERLAY_QUEUED" = OVERLAY_QUEUED
 		),
 	"obj_flags" = list(
-		"EMAGGED" = EMAGGED,
 		"IN_USE" = IN_USE,
 		"CAN_BE_HIT" = CAN_BE_HIT
 		),
@@ -148,7 +147,7 @@ GLOBAL_LIST_INIT(bitfields, list(
 		"BLOCKSHARPOBJ" = BLOCKSHARPOBJ,
 		"NOPRESSUREDMAGE" = NOPRESSUREDMAGE
 		),
-	"flags_marine_armor" = list(
+	"flags_armor_features" = list(
 		"ARMOR_SQUAD_OVERLAY" = ARMOR_SQUAD_OVERLAY,
 		"ARMOR_LAMP_OVERLAY" = ARMOR_LAMP_OVERLAY,
 		"ARMOR_LAMP_ON" = ARMOR_LAMP_ON,

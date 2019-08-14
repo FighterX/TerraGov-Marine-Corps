@@ -96,16 +96,13 @@
 		return TRUE
 
 /obj/machinery/door/window/open(forced = DOOR_NOT_FORCED)
-	if(operating) //doors can still open when emag-disabled
+	if(operating)
 		return FALSE
 	switch(forced)
 		if(DOOR_NOT_FORCED)
 			if(!hasPower())
 				return FALSE
-		if(DOOR_FORCED_NORMAL)
-			if(CHECK_BITFIELD(obj_flags, EMAGGED))
-				return FALSE
-	if(!operating) //in case of emag
+	if(!operating)
 		operating = TRUE
 	icon_state = "[base_state]open"
 	do_animate("opening")
@@ -114,7 +111,7 @@
 
 	density = FALSE
 
-	if(operating == 1) //emag again
+	if(operating)
 		operating = FALSE
 	return TRUE
 
@@ -125,9 +122,6 @@
 	switch(forced)
 		if(DOOR_NOT_FORCED)
 			if(!hasPower())
-				return FALSE
-		if(DOOR_FORCED_NORMAL)
-			if(CHECK_BITFIELD(obj_flags, EMAGGED))
 				return FALSE
 	operating = TRUE
 	icon_state = base_state
@@ -219,12 +213,6 @@
 	. = ..()
 
 	if(operating)
-		return TRUE
-
-	else if(density && istype(I, /obj/item/card/emag))
-		operating = -1
-		flick("[base_state]spark", src)
-		addtimer(CALLBACK(src, .proc/open), 6)
 		return TRUE
 
 	else if(operating == -1 && iscrowbar(I))

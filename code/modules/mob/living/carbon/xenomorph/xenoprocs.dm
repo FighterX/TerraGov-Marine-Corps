@@ -384,15 +384,13 @@
 
 
 /mob/living/carbon/xenomorph/proc/toggle_nightvision()
-	if(see_in_dark == XENO_NIGHTVISION_DISABLED)
+	if(lighting_alpha == LIGHTING_PLANE_ALPHA_NV_TRAIT)
 		lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
-		see_in_dark = XENO_NIGHTVISION_ENABLED
 		ENABLE_BITFIELD(sight, SEE_MOBS)
 		ENABLE_BITFIELD(sight, SEE_OBJS)
 		ENABLE_BITFIELD(sight, SEE_TURFS)
 	else
-		lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
-		see_in_dark = XENO_NIGHTVISION_DISABLED
+		lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 		ENABLE_BITFIELD(sight, SEE_MOBS)
 		DISABLE_BITFIELD(sight, SEE_OBJS)
 		DISABLE_BITFIELD(sight, SEE_TURFS)
@@ -686,9 +684,10 @@
 	xeno_mobhud = !xeno_mobhud
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_XENO_STATUS]
 	if(xeno_mobhud)
-		H.add_hud_to(usr)
+		H.add_hud_to(src)
 	else
-		H.remove_hud_from(usr)
+		H.remove_hud_from(src)
+	to_chat(src, "<span class='notice'>You have [xeno_mobhud ? "enabled" : "disabled"] the Xeno Status HUD.</span>")
 
 
 /mob/living/carbon/xenomorph/verb/middle_mousetoggle()
