@@ -158,7 +158,11 @@ function linkify_fallback(text) {
 function emojify(node) {
 	var rex = /:[\w\d\-_]+:/g;
 	node.innerHTML = node.innerHTML.replace(rex, function ($0) {
-		return '<i class="em em-'+$0.substring(1, $0.length-1)+'">'+$0+'</i>';
+		if(emojilist.contains($0)){
+			return '<i class="em em-'+$0.substring(1, $0.length-1)+'">'+$0+'</i>';
+		}else{
+			return ':'+$0+':'
+		}
 	});
 }
 
