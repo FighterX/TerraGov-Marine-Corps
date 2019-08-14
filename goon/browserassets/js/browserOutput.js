@@ -154,7 +154,7 @@ function linkify_fallback(text) {
 		}
 	});
 }
-
+boolean contains(Object element);
 function emojify(node) {
 	var rex = /:[\w\d\-_]+:/g;
 	node.innerHTML = node.innerHTML.replace(rex, function ($0) {
