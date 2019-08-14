@@ -154,11 +154,10 @@ function linkify_fallback(text) {
 		}
 	});
 }
-public boolean contains(Object element);
 function emojify(node) {
 	var rex = /:[\w\d\-_]+:/g;
 	node.innerHTML = node.innerHTML.replace(rex, function ($0) {
-		if(emojiList.contains($0)){
+		if(emojiList.includes($0)){
 			return '<i class="em em-'+$0.substring(1, $0.length-1)+'">'+$0+'</i>';
 		}else{
 			return ':'+$0+':'
