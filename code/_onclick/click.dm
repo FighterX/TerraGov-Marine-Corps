@@ -182,7 +182,15 @@
 	//Can't reach anything else in lockers or other weirdness
 	if(!loc.AllowClick())
 		return
-
+	if(isxeno(src))
+		var/mob/living/carbon/xenomorph/X = src
+		if(X.direction_attack)
+			var/direction_a = get_dir(src, A)
+			var/turf/turf_target = get_step(src, direction_a)
+			var/atom/target = locate(/mob/living/carbon) in turf_target
+			if(target)
+				A = target
+			
 	//Standard reach turf to turf or reaching inside storage
 	if(CanReach(A, W))
 		if(W)

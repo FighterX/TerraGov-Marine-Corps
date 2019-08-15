@@ -747,3 +747,14 @@
 
 /mob/living/carbon/human/species/synthetic/can_sting()
 	return FALSE
+
+/mob/living/carbon/xenomorph/verb/DirectionAttack()
+	set name = "Toggle Direction Attack"
+	set desc = "Toggles/Untoggles direction attack."
+	set category = "Alien"
+
+	direction_attack = !direction_attack
+	if(direction_attack)
+		to_chat(src, "<span class='notice'>You toggle direction attack.</span>")
+	else
+		to_chat(src, "<span class='notice'>You untoggle direction attack.</span>")
