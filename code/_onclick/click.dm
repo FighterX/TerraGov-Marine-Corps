@@ -188,6 +188,10 @@
 			var/direction_a = get_dir(src, A)
 			var/turf/turf_target = get_step(src, direction_a)
 			var/atom/target = locate(/mob/living/carbon) in turf_target
+			if(!target)
+				target = locate(/obj/vehicle/multitile/) in turf_target
+			if(!target)
+				target = locate(/obj/vehicle/walker) in turf_target
 			if(target)
 				A = target
 			
