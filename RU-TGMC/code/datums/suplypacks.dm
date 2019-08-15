@@ -390,7 +390,7 @@ Walker Hardpoint Modules (and their ammo)
 					/obj/item/ammo_magazine/walker/smartgun,
 					/obj/item/ammo_magazine/walker/smartgun
 					)
-	cost = RO_PRICE_CHEAP
+	cost = RO_PRICE_VERY_CHEAP
 	containertype = /obj/structure/closet/crate/ammo
 	containername = "CW13 ammo crate"
 	group = "Walker Hardpoint Modules"
@@ -402,7 +402,7 @@ Walker Hardpoint Modules (and their ammo)
 					/obj/item/ammo_magazine/walker/smartgun/ap,
 					/obj/item/ammo_magazine/walker/smartgun/ap
 					)
-	cost = RO_PRICE_NORMAL
+	cost = RO_PRICE_CHEAP
 	containertype = /obj/structure/closet/crate/ammo
 	containername = "CW13 ammo crate"
 	group = "Walker Hardpoint Modules"
@@ -412,7 +412,7 @@ Walker Hardpoint Modules (and their ammo)
 	contains = list(
 					/obj/item/ammo_magazine/walker/smartgun/incendiary
 					)
-	cost = RO_PRICE_PRETTY_PRICY
+	cost = RO_PRICE_CHEAP
 	containertype = /obj/structure/closet/crate/ammo
 	containername = "CW13 ammo crate"
 	group = "Walker Hardpoint Modules"

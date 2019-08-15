@@ -7,7 +7,7 @@ obj/machinery/vehicle_vendor/mech_vendor_ui
 	vendor_role = list("Walker Pilot") //everyone else, mind your business
 
 
-	var/list/aval_tank_mod = list("weapon" = 2, "ammo" = 7, "misc" = 0)
+	var/list/aval_tank_mod = list("weapon" = 2, "ammo" = 7, "armor" = 1, "misc" = 0)
 
 	listed_products = list(
 							list("WEAPONS (choose 2)", null, null, "misc", null),
@@ -18,6 +18,10 @@ obj/machinery/vehicle_vendor/mech_vendor_ui
 							list("M56 Magazine", 1, /obj/item/ammo_magazine/walker/smartgun, "ammo", "black"),
 							list("M30 Magazine", 2, /obj/item/ammo_magazine/walker/hmg, "ammo", "black"),
 							list("F40 Canister", 2, /obj/item/ammo_magazine/walker/flamer, "ammo", "black"),
+							list("ARMOR", null, null, "misc", null),
+							list("Heavy Armor", 1, /obj/item/walker_armor/light, "armor", "black"),
+							list("Light Armor", 1, /obj/item/walker_armor/heavy, "armor", "black"),
+							list("Hazmat Armor", 1, /obj/item/walker_armor/acid, "armor", "black"),
 						)
 
 /obj/machinery/vehicle_vendor/mech_vendor_ui/attack_hand(mob/user)
