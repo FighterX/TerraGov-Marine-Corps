@@ -817,6 +817,12 @@
 /obj/item/storage/belt/marine/upp/full,
 /obj/item/storage/belt/marine/upp/full,
 /obj/item/storage/belt/marine/upp/full,
+/obj/item/clothing/tie/storage/black_vest,
+/obj/item/clothing/tie/storage/black_vest,
+/obj/item/clothing/tie/storage/black_vest,
+/obj/item/clothing/tie/storage/webbing,
+/obj/item/clothing/tie/storage/webbing,
+/obj/item/clothing/tie/storage/webbing,
 /turf/open/floor,
 /area/mainship/command/cic)
 "acY" = (
@@ -1376,9 +1382,10 @@
 /area/lv624/ground/sand5)
 "aew" = (
 /obj/item/storage/belt/utility/full,
-/obj/structure/rack,
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
+/obj/structure/closet,
+/obj/item/storage/belt/utility/full,
 /turf/open/floor,
 /area/mainship/command/cic)
 "aex" = (
@@ -1930,6 +1937,8 @@
 /obj/structure/closet/cabinet,
 /obj/item/bodybag/tarp,
 /obj/item/clothing/under/soviet,
+/obj/item/clothing/tie/storage/black_vest,
+/obj/item/clothing/tie/storage/webbing,
 /turf/open/floor/prison/plate,
 /area/mainship/command/cic)
 "agj" = (
