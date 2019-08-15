@@ -483,6 +483,7 @@
 		armor_module = W
 		armor_module.owner = src
 		armor_module.apply_effect()
+		update_icon()
 
 /obj/vehicle/walker/proc/install_gun(obj/item/walker_gun/W, mob/user as mob)
 	if(user.mind?.cm_skills && user.mind.cm_skills.engineer < SKILL_ENGINEER_MT)
