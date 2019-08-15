@@ -12,6 +12,8 @@
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
 #include "_maps\map_files\generic\Admin_Level.dmm"
+#include "_maps\map_files\rhode_island\Rhode_Island.dmm"
+#include "_maps\map_files\RU-TGMC\TGS_Dream.dmm"
 #include "code\world.dm"
 #include "code\__DEFINES\__game.dm"
 #include "code\__DEFINES\_globals.dm"
@@ -1378,6 +1380,7 @@
 #include "RU-TGMC\code\datums\jobs\job\job.dm"
 #include "RU-TGMC\code\datums\jobs\job\shipside.dm"
 #include "RU-TGMC\code\game\almayer.dm"
+#include "RU-TGMC\code\game\area\rhode_island.dm"
 #include "RU-TGMC\code\game\objects\effects\landmarcs\marine_spawns.dm"
 #include "RU-TGMC\code\game\objects\items\manual.dm"
 #include "RU-TGMC\code\game\objects\structures\window.dm"
