@@ -3132,7 +3132,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/effect/landmark/start/marine/intelligenceofficer,
+/obj/effect/landmark/start/marine/staffofficer,
 /turf/open/floor/prison,
 /area/rhode_island/uground/uscmfob/cic)
 "hE" = (
