@@ -1451,7 +1451,7 @@
 /area/mainship/living/commandbunks)
 "adT" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
@@ -1916,7 +1916,7 @@
 /area/mainship/living/numbertwobunks)
 "afa" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /obj/structure/cable{
 	d1 = 1;
@@ -1965,7 +1965,7 @@
 "afh" = (
 /obj/machinery/alarm,
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/upper_engineering)
 "afi" = (
@@ -2559,7 +2559,7 @@
 	dir = 8
 	},
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
@@ -3636,7 +3636,7 @@
 /area/mainship/hallways/aft_hallway)
 "ajk" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_rnr)
@@ -6838,7 +6838,7 @@
 /area/mainship/hull/upper_hull)
 "apT" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "apU" = (
@@ -7171,7 +7171,7 @@
 	pixel_y = 30
 	},
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/self_destruct)
@@ -7300,7 +7300,7 @@
 /area/mainship/shipboard/brig)
 "aqY" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /turf/open/floor/mainship{
@@ -7350,7 +7350,7 @@
 /area/mainship/shipboard/chief_mp_office)
 "are" = (
 /obj/structure/table/woodentable,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
@@ -7876,7 +7876,7 @@
 /area/mainship/engineering/ce_room)
 "asp" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/black,
 /turf/open/floor/plating/plating_catwalk,
@@ -8940,7 +8940,7 @@
 /area/mainship/shipboard/brig)
 "auI" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /obj/machinery/light{
@@ -9038,7 +9038,7 @@
 /area/mainship/command/cic)
 "auS" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
@@ -9077,7 +9077,7 @@
 /area/mainship/command/cic)
 "auX" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/door_control{
 	id = "CIC Checkpoint Shutters";
@@ -12345,7 +12345,7 @@
 /area/mainship/command/cic)
 "aBB" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin{
+/obj/structure/paper_bin{
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -12423,7 +12423,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 2;
@@ -13197,7 +13197,7 @@
 /area/mainship/hallways/aft_hallway)
 "aDi" = (
 /obj/structure/table/reinforced,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /obj/machinery/door/window/brigdoor/westleft{
 	icon_state = "leftsecure";
@@ -13532,7 +13532,7 @@
 /area/mainship/engineering/upper_engineering)
 "aDV" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 6;
@@ -14319,7 +14319,7 @@
 /area/mainship/command/self_destruct)
 "aFs" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/self_destruct)
 "aFt" = (
@@ -14876,7 +14876,7 @@
 /area/mainship/squads/delta)
 "aGy" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/light,
 /turf/open/floor/mainship{
@@ -14968,7 +14968,7 @@
 "aGI" = (
 /obj/machinery/light,
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/reagent_container/spray/cleaner,
 /turf/open/floor/mainship{
 	dir = 8;
@@ -15507,7 +15507,7 @@
 /area/mainship/medical/upper_medical)
 "aHR" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship{
 	dir = 2;
 	icon_state = "sterile_green_corner"
@@ -15515,7 +15515,7 @@
 /area/mainship/medical/upper_medical)
 "aHS" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
@@ -15919,7 +15919,7 @@
 /area/mainship/command/cic)
 "aIP" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /turf/open/floor/mainship/mono,
@@ -16183,7 +16183,7 @@
 /area/mainship/engineering/upper_engineering)
 "aJx" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/upper_engineering)
 "aJy" = (
@@ -16671,7 +16671,7 @@
 /area/mainship/medical/lower_medical)
 "aKC" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/door_control{
 	id = "researchlockdownext";
@@ -17101,7 +17101,7 @@
 	dir = 4
 	},
 /obj/item/tool/pen,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
 "aLo" = (
@@ -17383,7 +17383,7 @@
 /area/mainship/medical/medical_science)
 "aLR" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/light{
 	dir = 4
@@ -20392,13 +20392,13 @@
 /area/mainship/living/bridgebunks)
 "aSC" = (
 /obj/structure/bed,
-/obj/effect/landmark/start/marine/intelligenceofficer,
 /obj/item/bedsheet/brown,
+/obj/effect/landmark/start/marine/staffofficer,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "aSD" = (
 /obj/structure/bed,
-/obj/effect/landmark/start/marine/intelligenceofficer,
+/obj/effect/landmark/start/marine/staffofficer,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "aSE" = (
@@ -20452,7 +20452,7 @@
 /area/mainship/hallways/aft_hallway)
 "aSL" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 4;
@@ -25020,7 +25020,7 @@
 /area/mainship/living/basketball)
 "bei" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/storage/fancy/crayons,
 /turf/open/floor/mainship{
@@ -29111,7 +29111,7 @@
 /area/mainship/squads/req)
 "bpr" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
@@ -29787,7 +29787,7 @@
 /area/mainship/squads/req)
 "brh" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/clipboard,
 /obj/item/tool/pen,
 /obj/item/tool/hand_labeler,
@@ -32085,7 +32085,7 @@
 /area/mainship/engineering/lower_engine_monitoring)
 "byw" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/status_display{
 	pixel_y = 30
@@ -35474,7 +35474,7 @@
 /area/mainship/medical/lower_medical)
 "bIw" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 10;
@@ -35920,7 +35920,7 @@
 /area/mainship/squads/req)
 "bJO" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	icon_state = "greencorner";
@@ -39356,7 +39356,7 @@
 /area/mainship/living/grunt_rnr)
 "bSF" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
@@ -42113,7 +42113,7 @@
 /area/mainship/hull/lower_hull)
 "cbI" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/pilotbunks)
@@ -43517,7 +43517,7 @@
 /area/mainship/shipboard/brig_cells)
 "cfK" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
@@ -44039,7 +44039,7 @@
 /area/mainship/shipboard/brig)
 "chf" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/taperecorder,
 /obj/machinery/computer/security/marinemainship{
@@ -44274,7 +44274,7 @@
 /area/mainship/living/bridgebunks)
 "chK" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
@@ -45113,7 +45113,7 @@
 "ckw" = (
 /obj/structure/table/mainship,
 /obj/item/cell/crap,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/clipboard,
 /obj/item/stack/sheet/glass/reinforced{
