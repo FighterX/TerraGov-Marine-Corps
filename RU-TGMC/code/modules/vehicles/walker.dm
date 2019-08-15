@@ -91,6 +91,10 @@
 		var/image/right_gun = right.get_icon_image("-r")
 		overlays += right_gun
 
+	if(right)
+		var/image/armor = armor_module.get_icon_image()
+		overlays += armor
+
 	if(pilot)
 		var/image/occupied = image(icon, icon_state = "mech-face")
 		overlays += occupied
@@ -111,6 +115,7 @@
 			to_chat(usr, "It's falling apart.")
 	to_chat(usr, "[left ? left.name : "Nothing"] is placed on its left hardpoint.")
 	to_chat(usr, "[right ? right.name : "Nothing"] is placed on its right hardpoint.")
+	to_chat(usr, "[armor_module ? armor_module.name : "Nothing"] is placed on its armor hardpoint.")
 
 /obj/vehicle/walker/ex_act(severity)
 	switch(severity)

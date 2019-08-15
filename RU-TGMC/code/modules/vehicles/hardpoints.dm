@@ -2798,10 +2798,17 @@ All of the hardpoints, for the tank and APC
 		return FALSE
 	return TRUE
 
+/obj/item/walker_armor/proc/get_icon_image()
+	if(!owner)
+		return
+
+	return image(owner.icon, icon_state)
+
 
 /obj/item/walker_armor/light
 	name = "LA-14 \"Scatterpack\" Armor"
 	desc = "Light armor, usually used for scout walkers"
+	icon_state = "light"
 
 	move_delay = -2
 
@@ -2825,6 +2832,7 @@ All of the hardpoints, for the tank and APC
 /obj/item/walker_armor/heavy
 	name = "HA-2 \"Raptor\" Armor"
 	desc = "Heavy armor, usually used for assault or defensive walkers"
+	icon_state = "heavy"
 
 	move_delay = 2
 
@@ -2848,6 +2856,7 @@ All of the hardpoints, for the tank and APC
 /obj/item/walker_armor/acid
 	name = "Civilian-grade Hazmat Armor"
 	desc = "Not armor per se, used mostly by civilian walkers. How this even got here?"
+	icon_state = "chem"
 
 	move_delay = 2
 
@@ -2965,7 +2974,7 @@ All of the hardpoints, for the tank and APC
 	return
 
 /obj/item/walker_armor/mortar/proc/targeting()
-	choice = alert(owner.pilot, "Would you like to set the mortar's target coordinates, or dial the mortar. or fire now? Setting coordinates will make you lose your fire adjustment.", "Mortar Dialing", "Target", "Dial", "Cancel")
+	var/choice = alert(owner.pilot, "Would you like to set the mortar's target coordinates, or dial the mortar. or fire now? Setting coordinates will make you lose your fire adjustment.", "Mortar Dialing", "Target", "Dial", "Cancel")
 	if(choice == "Cancel")
 		return
 	if(choice == "Target")
