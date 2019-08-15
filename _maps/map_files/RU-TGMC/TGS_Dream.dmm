@@ -3,8 +3,11 @@
 /turf/open/space,
 /area/space)
 "ab" = (
-/turf/closed/wall/mainship/outer,
-/area/space)
+/obj/machinery/camera/autoname/mainship{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/squads/req)
 "ac" = (
 /turf/closed/wall/mainship/outer,
 /area/mainship/shipboard/port_point_defense)
@@ -4840,6 +4843,14 @@
 /turf/open/floor/plating,
 /area/mainship/medical/operating_room_two)
 "mp" = (
+/obj/structure/table/mainship,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
+/obj/item/storage/box/MRE,
 /turf/open/floor/mainship{
 	icon_state = "sterile_green_corner";
 	dir = 1
@@ -5939,9 +5950,13 @@
 	},
 /area/mainship/hallways/repair_bay)
 "pn" = (
-/obj/machinery/tank_part_fabricator,
-/turf/open/floor/mainship,
-/area/mainship/hallways/repair_bay)
+/obj/item/weapon/gun/revolver/m44,
+/obj/structure/closet/secure_closet/guncabinet,
+/turf/open/floor/mainship{
+	dir = 9;
+	icon_state = "red"
+	},
+/area/mainship/shipboard/firing_range)
 "po" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
@@ -6955,17 +6970,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "rX" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/obj/item/weapon/gun/shotgun/combat,
-/obj/item/ammo_magazine/shotgun,
+/obj/machinery/vending/MarineMed,
 /turf/open/floor/mainship{
-	icon_state = "redfull";
-	tag = ""
+	dir = 8;
+	icon_state = "sterile_green_corner"
 	},
-/area/mainship/shipboard/brig)
+/area/mainship/medical/surgery_hallway)
 "rY" = (
 /obj/structure/window/framed/mainship/requisitions,
 /turf/open/floor/plating,
@@ -7317,10 +7327,10 @@
 	},
 /area/mainship/command/cic)
 "sR" = (
-/obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/revolver/m44,
+/obj/item/weapon/gun/smg/m39,
+/obj/structure/closet/secure_closet/guncabinet,
 /turf/open/floor/mainship{
-	dir = 9;
+	dir = 8;
 	icon_state = "red"
 	},
 /area/mainship/shipboard/firing_range)
@@ -8166,13 +8176,10 @@
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/grunt_rnr)
 "uR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 6
+/obj/effect/landmark{
+	name = "Observer-Start"
 	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "red"
-	},
+/turf/closed/wall/mainship,
 /area/mainship/living/cryo_cells)
 "uS" = (
 /turf/open/floor/mainship{
@@ -8443,6 +8450,7 @@
 "vE" = (
 /obj/structure/table/mainship,
 /obj/item/tool/pen,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship{
 	dir = 9;
 	icon_state = "red"
@@ -9082,9 +9090,10 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "wU" = (
+/obj/machinery/vending/medical,
 /turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "sterile_green_corner"
+	icon_state = "dark_sterile";
+	tag = ""
 	},
 /area/mainship/medical/surgery_hallway)
 "wV" = (
@@ -9569,8 +9578,8 @@
 	},
 /area/mainship/hallways/port_hallway)
 "yk" = (
-/obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/smg/m39,
+/obj/item/weapon/gun/shotgun/pump,
+/obj/structure/closet/secure_closet/guncabinet,
 /turf/open/floor/mainship{
 	dir = 8;
 	icon_state = "red"
@@ -9620,10 +9629,10 @@
 	},
 /area/mainship/squads/alpha)
 "ys" = (
-/obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/shotgun/pump,
+/obj/item/weapon/gun/rifle/m41a,
+/obj/structure/closet/secure_closet/guncabinet,
 /turf/open/floor/mainship{
-	dir = 8;
+	dir = 10;
 	icon_state = "red"
 	},
 /area/mainship/shipboard/firing_range)
@@ -12041,12 +12050,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "DK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 9
-	},
 /turf/open/floor/mainship{
 	dir = 1;
-	icon_state = "orange"
+	icon_state = "red"
 	},
 /area/mainship/living/cryo_cells)
 "DL" = (
@@ -12771,6 +12777,13 @@
 	icon_state = "red"
 	},
 /area/mainship/shipboard/weapon_room)
+"Ft" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "orange"
+	},
+/area/mainship/living/cryo_cells)
 "Fu" = (
 /obj/machinery/power/apc/mainship{
 	dir = 8
@@ -13072,6 +13085,15 @@
 	icon_state = "green"
 	},
 /area/mainship/squads/req)
+"Gd" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
+	},
+/turf/open/floor/mainship{
+	icon_state = "blue";
+	dir = 4
+	},
+/area/mainship/living/cryo_cells)
 "Ge" = (
 /obj/structure/table/mainship,
 /obj/machinery/prop/mainship/computer,
@@ -13103,6 +13125,12 @@
 	tag = ""
 	},
 /area/mainship/command/airoom)
+"Gi" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 9
+	},
+/turf/open/floor/mainship,
+/area/mainship/living/cryo_cells)
 "Gj" = (
 /obj/structure/window/framed/mainship/hull,
 /turf/open/floor/plating,
@@ -14687,13 +14715,22 @@
 /turf/open/floor/mainship,
 /area/mainship/squads/req)
 "Ka" = (
-/obj/structure/closet/secure_closet/guncabinet/mp_armory,
-/obj/item/weapon/gun/rifle/m41a,
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "red"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/area/mainship/shipboard/firing_range)
+/obj/machinery/door/poddoor/mainship{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Hangar Lockdown";
+	name = "\improper Hangar Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/mainship/maint/hangar,
+/turf/open/floor/mainship{
+	icon_state = "test_floor4"
+	},
+/area/mainship/hallways/hangar)
 "Kb" = (
 /obj/structure/rack,
 /obj/item/ammo_magazine/rifle,
@@ -14937,6 +14974,12 @@
 /obj/item/storage/box/zipcuffs,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
+"KC" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/mainship,
+/area/mainship/living/cryo_cells)
 "KD" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship{
@@ -15397,10 +15440,6 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
 "LE" = (
-/obj/machinery/door/airlock/mainship/maint,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/poddoor/mainship{
 	density = 0;
 	dir = 4;
@@ -15409,6 +15448,7 @@
 	name = "\improper Hangar Lockdown Blast Door";
 	opacity = 0
 	},
+/obj/machinery/door/airlock/mainship/maint/hangar,
 /turf/open/floor/mainship{
 	icon_state = "test_floor4"
 	},
@@ -16550,10 +16590,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/port_point_defense)
 "Ok" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /turf/open/floor/mainship,
 /area/mainship/living/cryo_cells)
 "Ol" = (
@@ -18728,20 +18767,6 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
-"Te" = (
-/obj/machinery/door/airlock/mainship/maint,
-/obj/machinery/door/poddoor/mainship{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Hangar Lockdown";
-	name = "\improper Hangar Lockdown Blast Door";
-	opacity = 0
-	},
-/turf/open/floor/mainship{
-	icon_state = "test_floor4"
-	},
-/area/mainship/hallways/hangar)
 "Tf" = (
 /obj/structure/table/mainship,
 /obj/effect/landmark/map_item,
@@ -18798,6 +18823,12 @@
 	icon_state = "silver"
 	},
 /area/mainship/command/self_destruct)
+"Tn" = (
+/obj/machinery/camera/autoname/mainship{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/living/briefing)
 
 (1,1,1) = {"
 aa
@@ -18927,7 +18958,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -19184,7 +19215,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -19441,7 +19472,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -19698,7 +19729,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -19955,7 +19986,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -20212,7 +20243,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -20469,7 +20500,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -20726,7 +20757,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -20983,7 +21014,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -21240,7 +21271,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -21497,7 +21528,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -21754,7 +21785,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -22011,7 +22042,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -22268,7 +22299,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -22525,7 +22556,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -22782,7 +22813,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -23039,7 +23070,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -23296,7 +23327,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -23553,7 +23584,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -23810,7 +23841,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -24067,7 +24098,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -24324,7 +24355,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -24581,7 +24612,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -24838,7 +24869,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -25095,7 +25126,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -25352,7 +25383,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -25609,7 +25640,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -25866,7 +25897,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -26123,7 +26154,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -26380,7 +26411,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -26637,7 +26668,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -26894,7 +26925,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -27151,7 +27182,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -27408,7 +27439,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -27665,7 +27696,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -27922,7 +27953,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -28179,7 +28210,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -28436,7 +28467,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -28693,7 +28724,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -28950,7 +28981,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -29207,7 +29238,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -29464,7 +29495,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -29721,7 +29752,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -29978,7 +30009,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -30235,7 +30266,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -30492,7 +30523,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -30749,7 +30780,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -31006,7 +31037,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -31263,7 +31294,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -31520,7 +31551,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -31777,7 +31808,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -32034,7 +32065,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -32291,7 +32322,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -32548,7 +32579,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -32805,7 +32836,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -33062,7 +33093,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -33319,7 +33350,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -33576,7 +33607,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -33833,7 +33864,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -34090,7 +34121,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -34347,7 +34378,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -34604,7 +34635,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -34861,7 +34892,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -35118,7 +35149,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -35375,7 +35406,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -35632,7 +35663,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -35889,7 +35920,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -36146,7 +36177,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -36403,7 +36434,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -36660,7 +36691,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -36917,7 +36948,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -37174,7 +37205,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -37431,7 +37462,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -37688,7 +37719,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -37945,7 +37976,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -38202,7 +38233,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -38459,7 +38490,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -38716,7 +38747,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -38973,7 +39004,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -39230,7 +39261,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -39487,7 +39518,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -39744,7 +39775,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -40001,7 +40032,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -40258,7 +40289,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -40515,7 +40546,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -40772,7 +40803,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -41029,7 +41060,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -41286,7 +41317,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -41543,7 +41574,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -41800,7 +41831,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -42057,7 +42088,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -42314,7 +42345,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -42571,7 +42602,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -42828,7 +42859,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -43085,7 +43116,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -43342,7 +43373,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -43599,7 +43630,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -43640,7 +43671,7 @@ II
 lU
 lV
 nU
-LE
+Ka
 ap
 Tc
 Tc
@@ -43856,7 +43887,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -44113,7 +44144,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -44370,7 +44401,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -44627,7 +44658,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -44884,7 +44915,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -44925,7 +44956,7 @@ II
 lU
 Lo
 nU
-Te
+LE
 ap
 Tc
 Tc
@@ -45141,7 +45172,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -45222,7 +45253,7 @@ GE
 au
 Sy
 oV
-pn
+sB
 sz
 sB
 ps
@@ -45398,7 +45429,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -45655,7 +45686,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -45912,7 +45943,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -46169,7 +46200,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -46426,7 +46457,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -46683,7 +46714,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -46940,7 +46971,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -47197,7 +47228,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -47454,7 +47485,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -47711,7 +47742,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -47968,7 +47999,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -48225,7 +48256,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -48482,7 +48513,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -48739,7 +48770,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -48996,7 +49027,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -49253,7 +49284,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -49510,7 +49541,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -49767,7 +49798,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -50024,7 +50055,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -50281,7 +50312,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -50538,7 +50569,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -50795,7 +50826,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -50838,7 +50869,7 @@ nh
 wY
 mp
 xa
-wU
+rX
 wY
 no
 Fz
@@ -50855,7 +50886,7 @@ KX
 wt
 tZ
 ae
-ak
+ab
 ak
 jq
 kR
@@ -51052,7 +51083,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -51095,7 +51126,7 @@ wY
 wY
 pe
 xa
-mv
+wU
 wY
 lp
 Fx
@@ -51309,7 +51340,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -51566,7 +51597,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -51823,7 +51854,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -52080,7 +52111,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -52337,7 +52368,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -52594,7 +52625,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -52691,7 +52722,7 @@ sZ
 sZ
 sZ
 sZ
-Sg
+Tn
 nU
 Mt
 vr
@@ -52851,7 +52882,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -53108,7 +53139,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -53365,7 +53396,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -53622,7 +53653,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -53879,7 +53910,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -54136,7 +54167,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -54227,10 +54258,10 @@ nx
 nx
 nx
 nx
+pn
 sR
 yk
 ys
-Ka
 nU
 nU
 nU
@@ -54393,7 +54424,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -54650,7 +54681,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -54907,7 +54938,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -55164,7 +55195,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -55421,7 +55452,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -55678,7 +55709,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -55935,7 +55966,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -56192,7 +56223,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -56449,7 +56480,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -56706,7 +56737,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -56963,7 +56994,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -57220,7 +57251,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -57477,7 +57508,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -57734,7 +57765,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -57991,7 +58022,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -58248,7 +58279,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -58505,7 +58536,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -58762,7 +58793,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -59019,7 +59050,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -59276,7 +59307,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -59533,7 +59564,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -59790,7 +59821,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -60047,7 +60078,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -60304,7 +60335,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -60561,7 +60592,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -60818,7 +60849,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -61075,7 +61106,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -61332,7 +61363,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -61589,7 +61620,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -61655,7 +61686,7 @@ md
 nU
 qK
 qK
-rX
+qK
 bU
 fp
 nZ
@@ -61846,7 +61877,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -62103,7 +62134,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -62360,7 +62391,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -62617,7 +62648,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -62874,7 +62905,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -63131,7 +63162,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -63388,7 +63419,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -63645,7 +63676,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -63902,7 +63933,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -64159,7 +64190,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -64416,7 +64447,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -64673,7 +64704,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -64744,9 +64775,9 @@ nf
 nf
 nf
 St
-nf
-uR
-KD
+KC
+DK
+Gd
 KD
 KD
 KD
@@ -64930,7 +64961,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -65001,9 +65032,9 @@ nf
 nf
 nf
 St
-Ok
-DK
-nf
+uR
+Ft
+Gi
 nf
 nf
 PO
@@ -65187,7 +65218,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -65258,7 +65289,7 @@ nf
 nf
 nf
 St
-nf
+Ok
 uS
 uU
 uU
@@ -65444,7 +65475,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -65701,7 +65732,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -65958,7 +65989,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -66215,7 +66246,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -66472,7 +66503,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -66729,7 +66760,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -66986,7 +67017,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -67243,7 +67274,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -67500,7 +67531,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -67757,7 +67788,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -68014,7 +68045,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -68271,7 +68302,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -68528,7 +68559,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -68785,7 +68816,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -69042,7 +69073,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -69299,7 +69330,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -69556,7 +69587,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -69813,7 +69844,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -70070,7 +70101,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -70327,7 +70358,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -70584,7 +70615,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -70841,7 +70872,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -71098,7 +71129,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -71355,7 +71386,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -71612,7 +71643,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -71869,7 +71900,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -72126,7 +72157,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -72383,7 +72414,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -72640,7 +72671,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -72897,7 +72928,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -73154,7 +73185,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -73411,7 +73442,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -73668,7 +73699,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -73925,7 +73956,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -74182,7 +74213,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -74439,7 +74470,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -74696,7 +74727,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -74953,7 +74984,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -75210,7 +75241,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -75467,7 +75498,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -75724,7 +75755,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -75981,7 +76012,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -76238,7 +76269,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -76495,7 +76526,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -76752,7 +76783,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -77009,7 +77040,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -77266,7 +77297,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -77523,7 +77554,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -77780,7 +77811,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -78037,7 +78068,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -78294,7 +78325,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -78551,7 +78582,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -78808,7 +78839,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -79065,7 +79096,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -79322,7 +79353,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -79579,7 +79610,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -79836,7 +79867,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -80093,7 +80124,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -80350,7 +80381,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -80607,7 +80638,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -80864,7 +80895,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -81121,7 +81152,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -81378,7 +81409,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -81635,7 +81666,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -81892,7 +81923,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -82149,7 +82180,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -82406,7 +82437,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -82663,7 +82694,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -82920,7 +82951,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -83177,7 +83208,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -83434,7 +83465,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -83691,7 +83722,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -83948,7 +83979,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
@@ -84205,7 +84236,7 @@ aa
 aa
 aa
 aa
-ab
+II
 aa
 aa
 aa
