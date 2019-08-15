@@ -29,7 +29,7 @@
 #define CAPTAIN "Captain"
 #define EXECUTIVE_OFFICER "Executive Officer" //Currently disabled.
 #define FIELD_COMMANDER "Field Commander"
-#define STAFF_OFFICER "Intelligence Officer"
+#define STAFF_OFFICER "Staff Officer"
 #define PILOT_OFFICER "Pilot Officer"
 #define REQUISITIONS_OFFICER "Requisitions Officer"
 #define CHIEF_SHIP_ENGINEER "Chief Ship Engineer"
