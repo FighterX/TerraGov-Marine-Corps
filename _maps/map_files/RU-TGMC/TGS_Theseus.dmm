@@ -1451,7 +1451,7 @@
 /area/mainship/living/commandbunks)
 "adT" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /turf/open/floor/carpet,
 /area/mainship/living/commandbunks)
@@ -1916,7 +1916,7 @@
 /area/mainship/living/numbertwobunks)
 "afa" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /obj/structure/cable{
 	d1 = 1;
@@ -1965,7 +1965,7 @@
 "afh" = (
 /obj/machinery/alarm,
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/upper_engineering)
 "afi" = (
@@ -2559,7 +2559,7 @@
 	dir = 8
 	},
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
@@ -3636,7 +3636,7 @@
 /area/mainship/hallways/aft_hallway)
 "ajk" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_rnr)
@@ -4376,15 +4376,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/starboard_atmos)
 "akK" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/mainship,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/bravo)
+/turf/open/space/basic,
+/area/space)
 "akL" = (
 /turf/open/floor/mainship{
 	icon_state = "orangecorner";
@@ -4426,11 +4419,11 @@
 	},
 /area/mainship/hallways/stern_hallway)
 "akQ" = (
-/obj/machinery/firealarm,
 /turf/open/floor/mainship{
-	icon_state = "cargo"
+	icon_state = "greencorner";
+	dir = 1
 	},
-/area/mainship/squads/bravo)
+/area/mainship/hallways/starboard_hallway)
 "akR" = (
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2;
@@ -4466,11 +4459,12 @@
 	},
 /area/mainship/shipboard/brig)
 "akV" = (
-/obj/machinery/alarm,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
+/obj/structure/ladder{
+	height = 1;
+	id = "ladder1"
 	},
-/area/mainship/squads/bravo)
+/turf/open/floor/plating/mainship,
+/area/mainship/hallways/starboard_hallway)
 "akW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -6838,7 +6832,7 @@
 /area/mainship/hull/upper_hull)
 "apT" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "apU" = (
@@ -7171,7 +7165,7 @@
 	pixel_y = 30
 	},
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/self_destruct)
@@ -7300,7 +7294,7 @@
 /area/mainship/shipboard/brig)
 "aqY" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /turf/open/floor/mainship{
@@ -7350,7 +7344,7 @@
 /area/mainship/shipboard/chief_mp_office)
 "are" = (
 /obj/structure/table/woodentable,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
@@ -7615,6 +7609,9 @@
 /area/mainship/medical/medical_science)
 "arJ" = (
 /obj/machinery/computer/cryopod/alpha,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "arK" = (
@@ -7876,7 +7873,7 @@
 /area/mainship/engineering/ce_room)
 "asp" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/black,
 /turf/open/floor/plating/plating_catwalk,
@@ -7920,8 +7917,12 @@
 /turf/closed/wall/mainship,
 /area/mainship/command/self_destruct)
 "asw" = (
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
+/obj/structure/ladder{
+	height = 1;
+	id = "ladder2"
+	},
+/turf/open/floor/plating/mainship,
+/area/mainship/hallways/starboard_hallway)
 "asx" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 2
@@ -8240,9 +8241,13 @@
 	},
 /area/mainship/command/cic)
 "atk" = (
-/obj/machinery/computer/cryopod/bravo,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
+/area/mainship/hull/lower_hull)
 "atl" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/mainship{
@@ -8940,7 +8945,7 @@
 /area/mainship/shipboard/brig)
 "auI" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /obj/machinery/light{
@@ -9038,7 +9043,7 @@
 /area/mainship/command/cic)
 "auS" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
@@ -9077,7 +9082,7 @@
 /area/mainship/command/cic)
 "auX" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/door_control{
 	id = "CIC Checkpoint Shutters";
@@ -12345,7 +12350,7 @@
 /area/mainship/command/cic)
 "aBB" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin{
+/obj/structure/paper_bin{
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -12423,7 +12428,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 2;
@@ -13197,7 +13202,7 @@
 /area/mainship/hallways/aft_hallway)
 "aDi" = (
 /obj/structure/table/reinforced,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen/blue,
 /obj/machinery/door/window/brigdoor/westleft{
 	icon_state = "leftsecure";
@@ -13532,7 +13537,7 @@
 /area/mainship/engineering/upper_engineering)
 "aDV" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 6;
@@ -14319,7 +14324,7 @@
 /area/mainship/command/self_destruct)
 "aFs" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/self_destruct)
 "aFt" = (
@@ -14653,19 +14658,30 @@
 	},
 /area/mainship/hallways/repair_bay)
 "aGa" = (
-/obj/machinery/firealarm,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/open/floor/mainship{
 	dir = 1;
-	icon_state = "emerald"
+	icon_state = "red"
 	},
-/area/mainship/squads/charlie)
+/area/mainship/living/starboard_emb)
 "aGb" = (
-/obj/machinery/alarm,
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/area/mainship/squads/charlie)
+/turf/open/floor/mainship{
+	icon_state = "redcorner"
+	},
+/area/mainship/living/starboard_emb)
 "aGc" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -14713,14 +14729,18 @@
 	},
 /area/mainship/hallways/aft_hallway)
 "aGh" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/mainship{
-	dir = 1
+/obj/machinery/door_control{
+	id = "laddernortheast";
+	name = "North East Ladders Shutters";
+	pixel_x = 25;
+	req_one_access_txt = "2;3;12;19";
+	throw_range = 15
 	},
 /turf/open/floor/mainship{
-	icon_state = "cargo"
+	dir = 4;
+	icon_state = "red"
 	},
-/area/mainship/squads/charlie)
+/area/mainship/hallways/starboard_hallway)
 "aGi" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/captain_mess)
@@ -14876,7 +14896,7 @@
 /area/mainship/squads/delta)
 "aGy" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/light,
 /turf/open/floor/mainship{
@@ -14968,7 +14988,7 @@
 "aGI" = (
 /obj/machinery/light,
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/reagent_container/spray/cleaner,
 /turf/open/floor/mainship{
 	dir = 8;
@@ -15128,25 +15148,14 @@
 	},
 /area/mainship/engineering/upper_engineering)
 "aHc" = (
-/obj/machinery/door/airlock/mainship/marine/alpha{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/mainship{
-	icon_state = "red"
+	dir = 8;
+	icon_state = "blue"
 	},
-/area/mainship/squads/alpha)
+/area/mainship/hallways/port_hallway)
 "aHd" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-05"
@@ -15191,33 +15200,29 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/self_destruct)
 "aHk" = (
-/obj/machinery/door/airlock/mainship/marine/bravo{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/mainship,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"aHl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/mainship/marine/bravo{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
+	dir = 4;
+	icon_state = "red"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/starboard_emb)
+"aHl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/open/floor/mainship{
+	icon_state = "redcorner";
+	dir = 4
+	},
+/area/mainship/living/starboard_emb)
 "aHm" = (
 /obj/machinery/light{
 	dir = 4
@@ -15237,8 +15242,14 @@
 	},
 /area/mainship/shipboard/brig_cells)
 "aHo" = (
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/living/starboard_emb)
 "aHp" = (
 /obj/structure/window/framed/mainship,
 /turf/open/floor/plating,
@@ -15444,9 +15455,21 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/captain_mess)
 "aHJ" = (
-/obj/machinery/computer/cryopod/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/living/starboard_emb)
 "aHK" = (
 /obj/structure/window/framed/mainship/white,
 /obj/machinery/door/firedoor/mainship{
@@ -15507,7 +15530,7 @@
 /area/mainship/medical/upper_medical)
 "aHR" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship{
 	dir = 2;
 	icon_state = "sterile_green_corner"
@@ -15515,7 +15538,7 @@
 /area/mainship/medical/upper_medical)
 "aHS" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/medical/upper_medical)
@@ -15823,6 +15846,9 @@
 /area/mainship/hallways/aft_hallway)
 "aIE" = (
 /obj/machinery/computer/cryopod/delta,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/delta)
 "aIF" = (
@@ -15876,17 +15902,25 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/brig_cells)
 "aIK" = (
-/obj/machinery/door/airlock/mainship/marine/bravo{
+/obj/structure/disposalpipe/segment/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/mainship,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/area/mainship/squads/bravo)
+/turf/open/floor/mainship{
+	icon_state = "redcorner";
+	dir = 8
+	},
+/area/mainship/living/starboard_emb)
 "aIL" = (
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/mainship{
@@ -15919,7 +15953,7 @@
 /area/mainship/command/cic)
 "aIP" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/folder/red,
 /turf/open/floor/mainship/mono,
@@ -16183,7 +16217,7 @@
 /area/mainship/engineering/upper_engineering)
 "aJx" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/upper_engineering)
 "aJy" = (
@@ -16420,12 +16454,26 @@
 	},
 /area/mainship/shipboard/brig_cells)
 "aKc" = (
-/obj/machinery/door/airlock/mainship/marine/charlie{
-	dir = 4
+/obj/machinery/door/airlock/mainship/generic{
+	name = "\improper Extended Operations Bunks"
 	},
 /obj/machinery/door/firedoor/mainship,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
+/area/mainship/living/starboard_emb)
 "aKd" = (
 /obj/machinery/vending/marine,
 /turf/open/floor/mainship{
@@ -16522,43 +16570,31 @@
 	},
 /area/mainship/command/cic)
 "aKo" = (
-/obj/machinery/door/airlock/mainship/marine/charlie{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
 	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aKp" = (
 /obj/machinery/light,
 /obj/machinery/door/window/brigdoor/mainship/cell_1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/shipboard/brig_cells)
 "aKq" = (
-/obj/machinery/door/airlock/mainship/marine/charlie{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aKr" = (
 /obj/machinery/door/airlock/mainship/marine/delta{
 	dir = 4
@@ -16671,7 +16707,7 @@
 /area/mainship/medical/lower_medical)
 "aKC" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/door_control{
 	id = "researchlockdownext";
@@ -17101,7 +17137,7 @@
 	dir = 4
 	},
 /obj/item/tool/pen,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
 "aLo" = (
@@ -17383,7 +17419,7 @@
 /area/mainship/medical/medical_science)
 "aLR" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/light{
 	dir = 4
@@ -17575,13 +17611,15 @@
 /turf/open/floor/mainship,
 /area/mainship/living/cafeteria_port)
 "aMm" = (
-/obj/machinery/camera/autoname/mainship{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aMn" = (
 /obj/structure/table/mainship,
 /obj/item/clipboard,
@@ -17603,23 +17641,23 @@
 /turf/open/floor/wood,
 /area/mainship/hallways/exoarmor)
 "aMq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
+	},
+/area/mainship/hallways/starboard_hallway)
+"aMr" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/mainship{
+/turf/open/floor/mainship{
+	icon_state = "redcorner";
 	dir = 1
 	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"aMr" = (
-/obj/machinery/camera/autoname/mainship,
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
+/area/mainship/hallways/starboard_hallway)
 "aMs" = (
 /obj/item/radio/intercom/general,
 /obj/structure/cable/yellow{
@@ -17749,11 +17787,13 @@
 /turf/open/floor/plating,
 /area/mainship/shipboard/brig_cells)
 "aME" = (
-/obj/machinery/camera/autoname/mainship{
-	dir = 4
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
 	},
-/turf/open/floor/mainship,
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	icon_state = "redfull"
+	},
+/area/mainship/living/cryo_cells)
 "aMF" = (
 /obj/structure/window/framed/mainship,
 /obj/machinery/door/poddoor/shutters/mainship{
@@ -20392,13 +20432,13 @@
 /area/mainship/living/bridgebunks)
 "aSC" = (
 /obj/structure/bed,
-/obj/effect/landmark/start/marine/intelligenceofficer,
+/obj/effect/landmark/start/marine/staffofficer,
 /obj/item/bedsheet/brown,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "aSD" = (
 /obj/structure/bed,
-/obj/effect/landmark/start/marine/intelligenceofficer,
+/obj/effect/landmark/start/marine/staffofficer,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
 "aSE" = (
@@ -20452,7 +20492,7 @@
 /area/mainship/hallways/aft_hallway)
 "aSL" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 4;
@@ -21421,6 +21461,18 @@
 	icon_state = "test_floor4"
 	},
 /area/mainship/hallways/aft_hallway)
+"aUV" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 10
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aUW" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 9
@@ -21632,9 +21684,11 @@
 /turf/closed/wall/mainship,
 /area/mainship/hull/lower_hull)
 "aVt" = (
-/obj/structure/largecrate/random/barrel/blue,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	icon_state = "redfull"
+	},
+/area/mainship/living/cryo_cells)
 "aVu" = (
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
@@ -21744,9 +21798,30 @@
 	},
 /area/mainship/hallways/hangar)
 "aVF" = (
-/obj/structure/largecrate/random/case,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/machinery/door/airlock/mainship/marine/alpha{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/mainship,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/squads/alpha)
 "aVG" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
@@ -21794,16 +21869,19 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/shipboard/starboard_point_defense)
 "aVN" = (
-/obj/machinery/light/small{
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/open/floor/mainship{
+	icon_state = "redcorner";
 	dir = 8
 	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hull/lower_hull)
+/area/mainship/hallways/starboard_hallway)
 "aVO" = (
 /obj/effect/decal/warning_stripes{
 	icon_state = "SW-out"
@@ -21837,9 +21915,24 @@
 	},
 /area/mainship/hallways/hangar)
 "aVR" = (
-/obj/structure/largecrate/random/barrel/red,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aVS" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/shipboard/starboard_point_defense)
@@ -21876,13 +21969,24 @@
 	},
 /area/mainship/hallways/exoarmor)
 "aVX" = (
-/obj/structure/largecrate/random/case/double,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/effect/landmark/start/latejoin_gateway,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
+	},
+/turf/open/floor/mainship{
+	dir = 5;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aVY" = (
-/obj/structure/largecrate/random/barrel/yellow,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hull/lower_hull)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/turf/open/floor/mainship{
+	dir = 9;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aVZ" = (
 /turf/open/floor/plating,
 /area/mainship/squads/req)
@@ -21951,9 +22055,14 @@
 	},
 /area/mainship/hallways/exoarmor)
 "aWh" = (
-/obj/structure/closet/crate,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aWi" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -21975,9 +22084,14 @@
 	},
 /area/mainship/hallways/exoarmor)
 "aWk" = (
-/obj/structure/largecrate/random/barrel/white,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aWl" = (
 /turf/open/floor/mainship{
 	dir = 8;
@@ -22009,12 +22123,15 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "aWo" = (
-/obj/structure/ladder{
-	height = 1;
-	id = "ladder1"
+/obj/effect/landmark/start/marine/squadsmartgunner,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
 	},
-/turf/open/floor/plating/mainship,
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aWp" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -22024,15 +22141,11 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "aWq" = (
-/obj/machinery/door/airlock/mainship/maint,
-/obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
-	id = "laddernortheast";
-	name = "\improper North East Ladders Shutters"
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
 	},
-/obj/machinery/door/firedoor/mainship,
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/area/mainship/living/cryo_cells)
 "aWr" = (
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
@@ -22046,20 +22159,22 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "aWt" = (
-/obj/structure/ladder{
-	height = 1;
-	id = "ladder2"
+/obj/effect/landmark/start/latejoin_gateway,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
 	},
-/turf/open/floor/plating/mainship,
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aWu" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/docking_port/stationary/marine_dropship/crash_target,
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
 	},
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
+/area/mainship/living/cryo_cells)
 "aWv" = (
 /obj/machinery/door/airlock/mainship/maint,
 /obj/structure/cable/yellow{
@@ -22078,28 +22193,25 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/starboard_point_defense)
 "aWx" = (
-/obj/machinery/door_control{
-	id = "laddernortheast";
-	name = "North East Ladders Shutters";
-	pixel_x = 25;
-	req_one_access_txt = "2;3;12;19";
-	throw_range = 15
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
-"aWy" = (
-/obj/machinery/door_control{
-	id = "laddernortheast";
-	name = "North East Ladders Shutters";
-	pixel_x = -25;
-	req_one_access_txt = "2;3;12;19";
-	throw_range = 15
+/obj/effect/landmark/start/marine/squadleader,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
 	},
 /turf/open/floor/mainship{
-	icon_state = "greencorner";
-	dir = 1
+	dir = 4;
+	icon_state = "red"
 	},
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/cryo_cells)
+"aWy" = (
+/obj/effect/landmark/start/marine/squadcorpsman,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "red"
+	},
+/area/mainship/living/cryo_cells)
 "aWz" = (
 /obj/machinery/door_control{
 	id = "laddernortheast";
@@ -22277,18 +22389,15 @@
 /turf/open/floor/mainship,
 /area/mainship/hallways/starboard_hallway)
 "aWZ" = (
-/obj/machinery/door_control{
-	id = "laddernortheast";
-	name = "North East Ladders Shutters";
-	pixel_x = 25;
-	req_one_access_txt = "2;3;12;19";
-	throw_range = 15
+/obj/effect/landmark/start/marine/squadleader,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
 	},
 /turf/open/floor/mainship{
 	dir = 4;
 	icon_state = "red"
 	},
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/cryo_cells)
 "aXa" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22341,6 +22450,11 @@
 	icon_state = "red"
 	},
 /area/mainship/squads/alpha)
+"aXg" = (
+/turf/open/floor/mainship{
+	icon_state = "redcorner"
+	},
+/area/mainship/hallways/starboard_hallway)
 "aXh" = (
 /obj/machinery/marine_selector/clothes/specialist/alpha,
 /turf/open/floor/mainship/mono,
@@ -22429,6 +22543,11 @@
 "aXw" = (
 /turf/closed/wall/mainship,
 /area/mainship/living/basketball)
+"aXx" = (
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/living/cafeteria_starboard)
 "aXy" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -22833,56 +22952,35 @@
 	},
 /area/mainship/living/starboard_emb)
 "aYA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
+/area/mainship/living/cafeteria_starboard)
+"aYB" = (
+/obj/machinery/door/firedoor/mainship{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship/mono,
+/area/mainship/living/cafeteria_starboard)
+"aYC" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "red"
+	},
+/area/mainship/hallways/starboard_hallway)
+"aYD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	on = 1
 	},
 /turf/open/floor/mainship{
 	icon_state = "redcorner";
-	dir = 1
+	dir = 8
 	},
-/area/mainship/living/starboard_emb)
-"aYB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/mainship/generic{
-	name = "\improper Extended Operations Bunks"
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/living/starboard_emb)
-"aYC" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship,
-/area/mainship/hallways/starboard_hallway)
-"aYD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 10
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/cafeteria_starboard)
 "aYE" = (
 /turf/open/floor/mainship{
 	icon_state = "redcorner";
@@ -22981,20 +23079,23 @@
 	},
 /area/mainship/hallways/exoarmor)
 "aYQ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
+/obj/effect/landmark/start/marine/squadleader,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
 	},
 /turf/open/floor/mainship{
 	icon_state = "redcorner";
-	dir = 1
+	dir = 4
 	},
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/cryo_cells)
 "aYR" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 10
+/obj/machinery/camera/autoname/mainship{
+	dir = 4
 	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/living/starboard_emb)
 "aYS" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 9
@@ -23031,14 +23132,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "aYY" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
+	icon_state = "red"
 	},
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/starboard_emb)
 "aYZ" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship,
@@ -23110,10 +23207,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "aZi" = (
-/turf/open/floor/mainship{
-	icon_state = "redcorner"
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 4
 	},
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/living/starboard_emb)
 "aZj" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
@@ -23238,41 +23338,29 @@
 	},
 /area/mainship/living/briefing)
 "aZt" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	icon_state = "red"
+	},
+/area/mainship/living/starboard_emb)
+"aZu" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment/corner{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "redcorner";
-	dir = 8
-	},
-/area/mainship/hallways/starboard_hallway)
-"aZu" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 2
-	},
-/turf/open/floor/plating/plating_catwalk,
+/turf/open/floor/mainship,
 /area/mainship/hallways/starboard_hallway)
 "aZv" = (
 /obj/structure/cable{
@@ -23388,9 +23476,6 @@
 "aZJ" = (
 /obj/machinery/vending/marine,
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
@@ -23402,21 +23487,27 @@
 	},
 /area/mainship/squads/alpha)
 "aZL" = (
-/obj/machinery/vending/uniform_supply{
-	squad_tag = "Alpha"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/machinery/marine_selector/clothes/alpha,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "aZM" = (
 /obj/machinery/vending/marine,
 /obj/structure/window/reinforced{
-	dir = 1
+	dir = 8
 	},
 /turf/open/floor/mainship/mono,
-/area/mainship/squads/alpha)
+/area/mainship/squads/delta)
+"aZN" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/starboard_hallway)
 "aZO" = (
 /turf/open/floor/mainship{
 	icon_state = "cargo"
@@ -23433,13 +23524,6 @@
 	icon_state = "mono"
 	},
 /area/mainship/hallways/exoarmor)
-"aZQ" = (
-/obj/machinery/marine_selector/clothes/alpha,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/alpha)
 "aZR" = (
 /turf/open/floor/mainship{
 	dir = 8;
@@ -23447,18 +23531,14 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "aZS" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 8
+/obj/structure/disposalpipe/segment/corner{
+	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
 	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/living/port_emb)
 "aZT" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -23902,39 +23982,67 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "baV" = (
-/turf/closed/wall/mainship,
-/area/mainship/squads/bravo)
-"baW" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"baX" = (
-/obj/machinery/vending/marine,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
+/turf/open/floor/mainship{
+	icon_state = "greencorner";
 	dir = 8
 	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"baY" = (
-/obj/machinery/light{
+/area/mainship/hallways/port_hallway)
+"baW" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/junction/flipped{
 	dir = 1
 	},
-/turf/open/floor/mainship{
-	icon_state = "cargo"
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 9
 	},
-/area/mainship/squads/bravo)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/port_hallway)
+"baX" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hull/lower_hull)
+"baY" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hull/lower_hull)
 "baZ" = (
-/obj/machinery/marine_selector/clothes/bravo,
-/obj/structure/window/reinforced,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
+/area/mainship/hull/lower_hull)
 "bba" = (
-/obj/machinery/vending/marine,
-/obj/structure/window/reinforced,
+/obj/structure/bed,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/bedsheet/blue,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
+/area/mainship/living/port_emb)
 "bbb" = (
 /obj/machinery/camera/autoname/mainship{
 	dir = 8;
@@ -23947,13 +24055,12 @@
 	},
 /area/mainship/hallways/exoarmor)
 "bbc" = (
-/obj/machinery/marine_selector/clothes/bravo,
-/obj/structure/window/reinforced,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
+	dir = 4;
+	icon_state = "bluecorner"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/port_emb)
 "bbd" = (
 /obj/machinery/vehicle_vendor/tank_vendor_ui,
 /obj/machinery/light{
@@ -23966,16 +24073,17 @@
 	},
 /area/mainship/hallways/exoarmor)
 "bbe" = (
-/obj/item/radio/intercom/general,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/area/mainship/squads/bravo)
+/turf/closed/wall/mainship,
+/area/mainship/hull/lower_hull)
 "bbf" = (
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship{
-	icon_state = "cargo"
+	icon_state = "blue"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/port_emb)
 "bbg" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -23989,13 +24097,11 @@
 	},
 /area/mainship/hallways/exoarmor)
 "bbh" = (
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/bravo)
+/obj/structure/closet,
+/obj/item/contraband/poster,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/mainship/mono,
+/area/mainship/living/port_emb)
 "bbi" = (
 /turf/closed/wall/mainship,
 /area/mainship/living/cafeteria_starboard)
@@ -24003,6 +24109,10 @@
 /obj/machinery/vending/marineFood,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_starboard)
+"bbk" = (
+/obj/structure/disposalpipe/segment,
+/turf/closed/wall/mainship,
+/area/mainship/hull/lower_hull)
 "bbl" = (
 /obj/machinery/status_display{
 	pixel_y = 30
@@ -24207,6 +24317,15 @@
 	icon_state = "test_floor4"
 	},
 /area/mainship/hallways/exoarmor)
+"bbN" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hull/lower_hull)
 "bbO" = (
 /obj/structure/bed/chair/reinforced{
 	dir = 8
@@ -24381,32 +24500,42 @@
 /area/mainship/living/briefing)
 "bco" = (
 /obj/structure/bed,
-/obj/item/bedsheet/yellow,
+/obj/structure/disposalpipe/segment,
+/obj/item/bedsheet/red,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/starboard_emb)
 "bcp" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
+/obj/effect/landmark/start/marine/squadcorpsman,
+/obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/area/mainship/living/starboard_emb)
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
 "bcq" = (
 /turf/open/floor/mainship{
-	icon_state = "orangecorner"
+	dir = 8;
+	icon_state = "blue"
 	},
-/area/mainship/living/starboard_emb)
+/area/mainship/living/cryo_cells)
 "bcr" = (
 /obj/structure/bed,
 /obj/structure/disposalpipe/segment,
-/obj/item/bedsheet/yellow,
+/obj/item/bedsheet/blue,
 /turf/open/floor/mainship/mono,
-/area/mainship/living/starboard_emb)
+/area/mainship/living/port_emb)
 "bcs" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 4
+/obj/effect/landmark/start/marine/squadcorpsman,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
 	},
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
 "bct" = (
 /obj/structure/bed/chair/reinforced{
 	dir = 8
@@ -24416,48 +24545,46 @@
 	},
 /area/mainship/living/briefing)
 "bcu" = (
+/obj/effect/landmark/start/latejoin_cryo,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
+	},
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
+"bcv" = (
+/obj/effect/landmark/start/marine/squadmarine,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
+"bcw" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bcv" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bcw" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/bravo)
-"bcx" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hull/lower_hull)
+"bcx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
+	dir = 8;
+	icon_state = "blue"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/hallways/port_hallway)
 "bcy" = (
 /obj/machinery/computer/med_data,
 /turf/open/floor/mainship{
@@ -24466,19 +24593,15 @@
 	},
 /area/mainship/medical/upper_medical)
 "bcz" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/landmark/start/latejoin_gateway,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 9
 	},
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
+	dir = 4;
+	icon_state = "blue"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/cryo_cells)
 "bcA" = (
 /turf/open/floor/mainship{
 	dir = 8;
@@ -24486,72 +24609,45 @@
 	},
 /area/mainship/medical/upper_medical)
 "bcB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
 	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
+	icon_state = "pipe-c"
 	},
-/area/mainship/squads/bravo)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/port_hallway)
 "bcC" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
+	dir = 8;
+	icon_state = "blue"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/cafeteria_port)
 "bcD" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/landmark/start/marine/squadleader,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
 	},
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "orange"
+	icon_state = "bluecorner"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/cryo_cells)
 "bcE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
+	dir = 4;
+	icon_state = "blue"
 	},
-/area/mainship/squads/bravo)
+/area/mainship/living/cryo_cells)
 "bcF" = (
 /obj/structure/bed/chair/reinforced{
 	dir = 8
@@ -24562,40 +24658,23 @@
 	},
 /area/mainship/living/briefing)
 "bcG" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 1
+	dir = 4;
+	icon_state = "bluecorner"
 	},
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/hallways/port_hallway)
 "bcH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/junction,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
+/area/mainship/hallways/port_hallway)
 "bcI" = (
 /obj/machinery/vending/marineFood,
 /obj/machinery/light{
@@ -24647,6 +24726,32 @@
 	icon_state = "bluefull"
 	},
 /area/mainship/living/briefing)
+"bcQ" = (
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/cafeteria_port)
+"bcR" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/port_hallway)
+"bcS" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/plating/plating_catwalk,
+/area/mainship/hallways/port_hallway)
 "bcT" = (
 /obj/structure/table/mainship,
 /obj/machinery/door/window/northleft,
@@ -24771,101 +24876,154 @@
 /turf/open/floor/wood,
 /area/mainship/living/chapel)
 "bdk" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
 /turf/open/floor/mainship{
 	dir = 8;
-	icon_state = "orange"
+	icon_state = "blue"
 	},
-/area/mainship/living/starboard_emb)
+/area/mainship/living/cryo_cells)
 "bdl" = (
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
+/obj/effect/landmark/start/latejoin_gateway,
+/obj/effect/decal/warning_stripes/thin{
+	dir = 10
 	},
-/area/mainship/living/starboard_emb)
+/turf/open/floor/mainship{
+	dir = 6;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
 "bdm" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner"
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 6
 	},
-/area/mainship/hallways/starboard_hallway)
+/turf/open/floor/mainship{
+	dir = 10;
+	icon_state = "blue"
+	},
+/area/mainship/living/cryo_cells)
 "bdn" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
+/obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/area/mainship/squads/bravo)
+/turf/open/floor/mainship{
+	icon_state = "bluefull"
+	},
+/area/mainship/living/cryo_cells)
 "bdo" = (
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/bravo)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	icon_state = "bluefull"
+	},
+/area/mainship/living/cryo_cells)
 "bdp" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner"
-	},
-/area/mainship/squads/bravo)
-"bdq" = (
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bdr" = (
-/obj/machinery/light,
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bds" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 4;
-	on = 1
-	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bdt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/bravo)
-"bdu" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bdv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/machinery/light,
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bdx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 8
-	},
-/area/mainship/hallways/starboard_hallway)
-"bdy" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/cafeteria_port)
+"bdq" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	name = "\improper Canteen"
+	},
+/obj/machinery/door/firedoor/mainship{
+	dir = 2
+	},
 /obj/structure/disposalpipe/segment,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/turf/open/floor/mainship/mono,
+/area/mainship/living/cafeteria_starboard)
+"bdr" = (
+/obj/machinery/camera/autoname/mainship{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/port_emb)
+"bds" = (
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/port_emb)
+"bdt" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 4;
+	on = 1
+	},
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/port_emb)
+"bdu" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/port_emb)
+"bdv" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 1;
+	icon_state = "blue"
+	},
+/area/mainship/living/port_emb)
+"bdw" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	icon_state = "bluecorner";
+	dir = 1
+	},
+/area/mainship/living/port_emb)
+"bdx" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "blue"
+	},
+/area/mainship/hallways/port_hallway)
+"bdy" = (
+/obj/docking_port/stationary/marine_dropship/crash_target,
+/turf/open/floor/mainship{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/mainship/hallways/port_hallway)
 "bdz" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -24931,6 +25089,49 @@
 /obj/item/tank/emergency_oxygen/double,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_umbilical)
+"bdJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	icon_state = "bluecorner";
+	dir = 1
+	},
+/area/mainship/hallways/port_hallway)
+"bdK" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 5
+	},
+/turf/open/floor/mainship{
+	icon_state = "bluecorner";
+	dir = 1
+	},
+/area/mainship/living/cafeteria_port)
+"bdL" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/turf/open/floor/mainship{
+	dir = 8;
+	icon_state = "bluecorner"
+	},
+/area/mainship/hallways/port_hallway)
+"bdM" = (
+/obj/structure/bed,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/item/bedsheet/blue,
+/turf/open/floor/mainship/mono,
+/area/mainship/living/port_emb)
+"bdN" = (
+/obj/machinery/marine_selector/clothes/delta,
+/turf/open/floor/mainship/mono,
+/area/mainship/squads/delta)
 "bdW" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
@@ -25020,7 +25221,7 @@
 /area/mainship/living/basketball)
 "bei" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/storage/fancy/crayons,
 /turf/open/floor/mainship{
@@ -25120,62 +25321,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/chapel)
-"beu" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 1
-	},
-/area/mainship/living/starboard_emb)
-"bev" = (
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 4
-	},
-/area/mainship/living/starboard_emb)
-"bew" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bex" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 6;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bey" = (
-/obj/machinery/door/airlock/mainship/marine/bravo/smart,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bez" = (
-/obj/machinery/door/airlock/mainship/marine/bravo/medic,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"beA" = (
-/obj/machinery/door/airlock/mainship/marine/bravo/engineer,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"beB" = (
-/obj/machinery/door/airlock/mainship/marine/bravo/spec,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"beC" = (
-/obj/machinery/door/airlock/mainship/marine/bravo/sl,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"beD" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
-/area/mainship/hallways/starboard_hallway)
 "beE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -25415,120 +25560,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/chapel)
-"bfu" = (
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/living/starboard_emb)
-"bfv" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/living/starboard_emb)
-"bfw" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/living/starboard_emb)
-"bfx" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 8
-	},
-/area/mainship/living/starboard_emb)
-"bfy" = (
-/obj/machinery/door/airlock/mainship/generic{
-	name = "\improper Extended Operations Bunks"
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/living/starboard_emb)
-"bfz" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 10
-	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 2
-	},
-/turf/open/floor/mainship,
-/area/mainship/hallways/starboard_hallway)
-"bfA" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/bravo)
-"bfB" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/bravo)
-"bfC" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/bravo)
-"bfD" = (
-/turf/open/floor/mainship,
-/area/mainship/squads/bravo)
-"bfE" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bfF" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
-/area/mainship/squads/bravo)
-"bfH" = (
-/obj/machinery/marine_selector/clothes/specialist/bravo,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bfI" = (
-/obj/machinery/marine_selector/clothes/leader/bravo,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
 "bfJ" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 2;
@@ -25536,20 +25567,6 @@
 	},
 /obj/machinery/door/firedoor/mainship,
 /turf/open/floor/mainship/mono,
-/area/mainship/living/cafeteria_starboard)
-"bfK" = (
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/living/cafeteria_starboard)
-"bfL" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	on = 1
-	},
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 8
-	},
 /area/mainship/living/cafeteria_starboard)
 "bfM" = (
 /turf/open/floor/plating/plating_catwalk,
@@ -25879,74 +25896,10 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/hallways/starboard_hallway)
-"bgG" = (
-/obj/machinery/vending/uniform_supply{
-	squad_tag = "Bravo"
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgH" = (
-/obj/machinery/vending/marine,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgI" = (
-/obj/machinery/marine_selector/clothes/smartgun/bravo,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgJ" = (
-/obj/machinery/marine_selector/gear/smartgun,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgK" = (
-/obj/machinery/marine_selector/gear/medic,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgL" = (
-/obj/machinery/marine_selector/clothes/medic/bravo,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgM" = (
-/obj/machinery/vending/MarineMed,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgN" = (
-/obj/machinery/marine_selector/gear/engi,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgO" = (
-/obj/machinery/marine_selector/clothes/engi/bravo,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgP" = (
-/obj/machinery/vending/shared_vending/marine_engi,
-/obj/item/stack/sheet/metal/medium_stack{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/obj/item/stack/sheet/plasteel/small_stack,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/bravo)
-"bgQ" = (
-/obj/machinery/marine_selector/gear/spec,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
-"bgR" = (
-/obj/machinery/marine_selector/gear/leader,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/bravo)
 "bgS" = (
 /obj/structure/window/framed/mainship,
 /obj/machinery/door/firedoor/mainship,
 /turf/open/floor/plating,
-/area/mainship/living/cafeteria_starboard)
-"bgT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
 /area/mainship/living/cafeteria_starboard)
 "bgU" = (
 /obj/structure/bed/chair,
@@ -26543,35 +26496,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_starboard)
-"biB" = (
-/obj/machinery/door/firedoor/mainship{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
-/area/mainship/living/cafeteria_starboard)
-"biC" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/multi_tile/mainship/generic{
-	name = "\improper Canteen"
-	},
-/obj/machinery/door/firedoor/mainship{
-	dir = 2
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "red"
-	},
-/area/mainship/living/cafeteria_starboard)
 "biD" = (
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
@@ -26748,13 +26672,6 @@
 	on = 1
 	},
 /turf/open/floor/mainship/mono,
-/area/mainship/hallways/starboard_hallway)
-"bjm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
 /area/mainship/hallways/starboard_hallway)
 "bjn" = (
 /obj/structure/disposalpipe/segment,
@@ -28589,20 +28506,6 @@
 	icon_state = "cargo"
 	},
 /area/mainship/living/cryo_cells)
-"bnM" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	icon_state = "orangefull"
-	},
-/area/mainship/living/cryo_cells)
-"bnN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	icon_state = "orangefull"
-	},
-/area/mainship/living/cryo_cells)
 "bnP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -29111,7 +29014,7 @@
 /area/mainship/squads/req)
 "bpr" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
@@ -29240,25 +29143,6 @@
 "bpH" = (
 /obj/effect/landmark/start/marine/squadcorpsman,
 /turf/open/floor/plating/plating_catwalk,
-/area/mainship/living/cryo_cells)
-"bpI" = (
-/obj/effect/landmark/start/latejoin_gateway,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 9
-	},
-/turf/open/floor/mainship{
-	dir = 5;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
-"bpJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 5
-	},
-/turf/open/floor/mainship{
-	dir = 9;
-	icon_state = "orange"
-	},
 /area/mainship/living/cryo_cells)
 "bpK" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -29787,7 +29671,7 @@
 /area/mainship/squads/req)
 "brh" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/clipboard,
 /obj/item/tool/pen,
 /obj/item/tool/hand_labeler,
@@ -29883,24 +29767,6 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
-/area/mainship/living/cryo_cells)
-"bru" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
-"brv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
 /area/mainship/living/cryo_cells)
 "brw" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -30481,22 +30347,6 @@
 /obj/effect/landmark/start/marine/squadengineer,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/cryo_cells)
-"bte" = (
-/obj/effect/landmark/start/marine/squadsmartgunner,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 10
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
-"btf" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
 "btg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -30863,16 +30713,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
-"buJ" = (
-/obj/effect/landmark/start/latejoin_gateway,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
 "buK" = (
 /obj/effect/landmark/start/marine/squadmarine,
 /obj/effect/decal/warning_stripes/thin{
@@ -31347,16 +31187,6 @@
 "bwq" = (
 /obj/effect/landmark/start/latejoin,
 /turf/open/floor/mainship,
-/area/mainship/living/cryo_cells)
-"bwr" = (
-/obj/effect/landmark/start/marine/squadleader,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 9
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
 /area/mainship/living/cryo_cells)
 "bws" = (
 /obj/effect/landmark/start/latejoin_cryo,
@@ -32009,16 +31839,6 @@
 /obj/effect/landmark/start/latejoin,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/cryo_cells)
-"byk" = (
-/obj/effect/landmark/start/marine/squadcorpsman,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 10
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
 "byl" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/mono,
@@ -32085,7 +31905,7 @@
 /area/mainship/engineering/lower_engine_monitoring)
 "byw" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/machinery/status_display{
 	pixel_y = 30
@@ -32465,16 +32285,6 @@
 	},
 /turf/open/floor/mainship{
 	icon_state = "cargo"
-	},
-/area/mainship/living/cryo_cells)
-"bzv" = (
-/obj/effect/landmark/start/marine/squadleader,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "orange"
 	},
 /area/mainship/living/cryo_cells)
 "bzx" = (
@@ -33017,16 +32827,6 @@
 /obj/structure/closet/crate/bravo,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/req)
-"bAP" = (
-/obj/effect/landmark/start/marine/squadleader,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 9
-	},
-/turf/open/floor/mainship{
-	icon_state = "orangecorner";
-	dir = 4
-	},
-/area/mainship/living/cryo_cells)
 "bAQ" = (
 /turf/open/floor/mainship{
 	icon_state = "silvercorner";
@@ -33985,15 +33785,6 @@
 	dir = 8
 	},
 /area/mainship/squads/req)
-"bDI" = (
-/obj/effect/landmark/start/marine/squadleader,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 10
-	},
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/living/cryo_cells)
 "bDJ" = (
 /turf/open/floor/mainship{
 	icon_state = "silvercorner";
@@ -34319,22 +34110,6 @@
 /obj/machinery/cell_charger,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
-"bER" = (
-/obj/effect/landmark/start/marine/squadcorpsman,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
-"bES" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bET" = (
 /turf/open/floor/mainship{
 	dir = 4;
@@ -34824,16 +34599,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
-"bGo" = (
-/obj/effect/landmark/start/marine/squadcorpsman,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 9
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bGp" = (
 /obj/effect/landmark/start/latejoin_cryo,
 /obj/effect/decal/warning_stripes/thin{
@@ -35144,16 +34909,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
-"bHy" = (
-/obj/effect/landmark/start/latejoin_cryo,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 10
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bHz" = (
 /obj/effect/landmark/start/latejoin_cryo,
 /obj/effect/decal/warning_stripes/thin{
@@ -35474,7 +35229,7 @@
 /area/mainship/medical/lower_medical)
 "bIw" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	dir = 10;
@@ -35570,16 +35325,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
-"bII" = (
-/obj/effect/landmark/start/marine/squadmarine,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bIK" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -35920,7 +35665,7 @@
 /area/mainship/squads/req)
 "bJO" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship{
 	icon_state = "greencorner";
@@ -35953,16 +35698,6 @@
 	icon_state = "redfull"
 	},
 /area/mainship/squads/req)
-"bJS" = (
-/obj/effect/landmark/start/latejoin_gateway,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 9
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bJT" = (
 /obj/effect/landmark/start/latejoin_cryo,
 /obj/effect/landmark/start/marine/squadsmartgunner,
@@ -36293,24 +36028,6 @@
 	icon_state = "redfull"
 	},
 /area/mainship/squads/req)
-"bKX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
-"bKY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bKZ" = (
 /obj/effect/landmark/start/latejoin_cryo,
 /turf/open/floor/mainship{
@@ -37040,25 +36757,6 @@
 	dir = 2
 	},
 /area/mainship/squads/req)
-"bML" = (
-/obj/effect/landmark/start/latejoin_gateway,
-/obj/effect/decal/warning_stripes/thin{
-	dir = 10
-	},
-/turf/open/floor/mainship{
-	dir = 6;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
-"bMM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 6
-	},
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cryo_cells)
 "bMN" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 9
@@ -37524,20 +37222,6 @@
 	icon_state = "cargo"
 	},
 /area/mainship/living/cryo_cells)
-"bNY" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	icon_state = "emeraldfull"
-	},
-/area/mainship/living/cryo_cells)
-"bNZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	icon_state = "emeraldfull"
-	},
-/area/mainship/living/cryo_cells)
 "bOa" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship{
@@ -37952,19 +37636,6 @@
 "bPG" = (
 /obj/item/radio/intercom/general,
 /turf/open/floor/mainship/mono,
-/area/mainship/hallways/port_hallway)
-"bPH" = (
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner";
-	dir = 4
-	},
-/area/mainship/hallways/port_hallway)
-"bPI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
 /area/mainship/hallways/port_hallway)
 "bPJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -38856,16 +38527,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship,
 /area/mainship/hallways/port_hallway)
-"bRn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/hallways/port_hallway)
 "bRo" = (
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 8
@@ -39356,7 +39017,7 @@
 /area/mainship/living/grunt_rnr)
 "bSF" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
@@ -39414,9 +39075,6 @@
 	icon_state = "test_floor4"
 	},
 /area/mainship/hallways/port_hallway)
-"bSQ" = (
-/turf/closed/wall/mainship,
-/area/mainship/squads/charlie)
 "bSR" = (
 /obj/machinery/vending/marineFood,
 /turf/open/floor/mainship/mono,
@@ -39424,13 +39082,6 @@
 "bSS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
-/area/mainship/living/cafeteria_port)
-"bST" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
 /area/mainship/living/cafeteria_port)
 "bSV" = (
 /obj/structure/disposalpipe/segment/corner{
@@ -39782,98 +39433,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/port_emb)
-"bUq" = (
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/hallways/port_hallway)
-"bUr" = (
-/obj/machinery/vending/uniform_supply{
-	squad_tag = "Charlie"
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUs" = (
-/obj/machinery/vending/marine,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUt" = (
-/obj/machinery/marine_selector/clothes/smartgun/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUu" = (
-/obj/machinery/marine_selector/gear/smartgun,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUv" = (
-/obj/machinery/marine_selector/gear/medic,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUw" = (
-/obj/machinery/marine_selector/clothes/medic/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUx" = (
-/obj/machinery/vending/MarineMed,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUy" = (
-/obj/structure/table/mainship,
-/obj/machinery/marine_selector/gear/medic,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUz" = (
-/obj/machinery/marine_selector/gear/engi,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUA" = (
-/obj/machinery/marine_selector/gear/engi,
-/obj/machinery/marine_selector/clothes/engi/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUB" = (
-/obj/machinery/vending/shared_vending/marine_engi,
-/obj/item/stack/sheet/metal/medium_stack{
-	pixel_x = -4;
-	pixel_y = -4
-	},
-/obj/item/stack/sheet/plasteel/small_stack,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/charlie)
-"bUC" = (
-/obj/machinery/marine_selector/gear/spec,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUD" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bUE" = (
-/obj/machinery/marine_selector/gear/leader,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bUF" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/hallways/port_hallway)
-"bUG" = (
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/hallways/port_hallway)
 "bUH" = (
 /obj/structure/window/framed/mainship,
 /obj/machinery/door/firedoor/mainship,
@@ -40174,67 +39733,6 @@
 /obj/item/clipboard,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
-"bVM" = (
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bVN" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 4;
-	on = 1
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bVO" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bVP" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bVQ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/living/port_emb)
 "bVR" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -40267,110 +39765,9 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/hallways/port_hallway)
-"bVT" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bVU" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bVV" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bVW" = (
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/charlie)
-"bVX" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bVY" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bVZ" = (
-/obj/machinery/marine_selector/clothes/specialist/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWa" = (
-/obj/machinery/marine_selector/clothes/leader/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWb" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/hallways/port_hallway)
-"bWc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/port_hallway)
 "bWd" = (
 /obj/machinery/door/firedoor/mainship,
 /turf/open/floor/mainship/mono,
-/area/mainship/living/cafeteria_port)
-"bWe" = (
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cafeteria_port)
-"bWf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/cafeteria_port)
-"bWg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 5
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
 /area/mainship/living/cafeteria_port)
 "bWh" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -40554,72 +39951,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
-"bWN" = (
-/obj/structure/bed,
-/obj/item/bedsheet/purple,
-/turf/open/floor/mainship/mono,
-/area/mainship/living/port_emb)
-"bWO" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/living/port_emb)
-"bWP" = (
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/living/port_emb)
-"bWQ" = (
-/obj/structure/bed,
-/obj/structure/disposalpipe/segment,
-/obj/item/bedsheet/purple,
-/turf/open/floor/mainship/mono,
-/area/mainship/living/port_emb)
-"bWR" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship{
-	dir = 9;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bWS" = (
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bWT" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 5;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bWU" = (
-/obj/machinery/door/airlock/mainship/marine/charlie/smart,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWV" = (
-/obj/machinery/door/airlock/mainship/marine/charlie/medic,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWW" = (
-/obj/machinery/door/airlock/mainship/marine/charlie/engineer,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWX" = (
-/obj/machinery/door/airlock/mainship/marine/charlie/spec,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bWY" = (
-/obj/machinery/door/airlock/mainship/marine/charlie/sl,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
 "bXa" = (
 /turf/open/floor/mainship{
 	icon_state = "bluecorner"
@@ -40799,110 +40130,6 @@
 /obj/structure/bed/chair/wood/normal,
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
-"bXK" = (
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bXL" = (
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
-"bXM" = (
-/obj/structure/bed,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/obj/item/bedsheet/purple,
-/turf/open/floor/mainship/mono,
-/area/mainship/living/port_emb)
-"bXO" = (
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/squads/charlie)
-"bXP" = (
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner";
-	dir = 4
-	},
-/area/mainship/squads/charlie)
-"bXR" = (
-/obj/item/radio/intercom/general,
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bXT" = (
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bXU" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/squads/charlie)
-"bXV" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/charlie)
-"bXW" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bXX" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner";
-	dir = 4
-	},
-/area/mainship/squads/charlie)
-"bXZ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/hallways/port_hallway)
-"bYa" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/port_hallway)
 "bYb" = (
 /turf/open/floor/mainship{
 	dir = 4;
@@ -41189,190 +40416,11 @@
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/grunt_rnr)
-"bZd" = (
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/living/port_emb)
-"bZe" = (
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner";
-	dir = 4
-	},
-/area/mainship/living/port_emb)
 "bZf" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/mainship,
-/area/mainship/hallways/port_hallway)
-"bZg" = (
-/obj/structure/disposalpipe/segment/corner{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bZh" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bZi" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bZj" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bZk" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bZl" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bZm" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 4;
-	on = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bZn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
-"bZo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
-/area/mainship/squads/charlie)
-"bZp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/squads/charlie)
-"bZr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emeraldcorner"
-	},
-/area/mainship/hallways/port_hallway)
-"bZs" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/junction,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
 "bZt" = (
 /obj/machinery/vending/marineFood,
@@ -41531,56 +40579,6 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/living/port_emb)
-"bZQ" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bZR" = (
-/obj/machinery/vending/marine,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bZS" = (
-/obj/machinery/light,
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/charlie)
-"bZT" = (
-/obj/machinery/marine_selector/clothes/charlie,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bZU" = (
-/obj/machinery/vending/marine,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
-"bZX" = (
-/turf/open/floor/mainship{
-	icon_state = "cargo"
-	},
-/area/mainship/squads/charlie)
-"bZY" = (
-/obj/machinery/light,
-/obj/machinery/marine_selector/clothes/charlie,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
 "bZZ" = (
 /obj/machinery/light{
 	dir = 4
@@ -41986,28 +40984,12 @@
 	icon_state = "blue"
 	},
 /area/mainship/living/port_emb)
-"cbm" = (
-/obj/structure/bed,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/item/bedsheet/blue,
-/turf/open/floor/mainship/mono,
-/area/mainship/living/port_emb)
 "cbn" = (
 /turf/closed/wall/mainship,
 /area/mainship/squads/delta)
 "cbo" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/delta)
-"cbp" = (
-/obj/structure/window/reinforced,
-/obj/machinery/vending/marine,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/delta)
 "cbq" = (
@@ -42017,16 +40999,6 @@
 /turf/open/floor/mainship{
 	icon_state = "cargo"
 	},
-/area/mainship/squads/delta)
-"cbr" = (
-/obj/machinery/marine_selector/clothes/delta,
-/obj/structure/window/reinforced,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/delta)
-"cbs" = (
-/obj/structure/window/reinforced,
-/obj/machinery/vending/marine,
-/turf/open/floor/mainship/mono,
 /area/mainship/squads/delta)
 "cbv" = (
 /obj/item/radio/intercom/general,
@@ -42113,7 +41085,7 @@
 /area/mainship/hull/lower_hull)
 "cbI" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/pilotbunks)
@@ -42246,12 +41218,6 @@
 	icon_state = "bluecorner"
 	},
 /area/mainship/living/port_emb)
-"ccd" = (
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "bluecorner"
-	},
-/area/mainship/hallways/port_hallway)
 "ccf" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -42376,45 +41342,6 @@
 	icon_state = "cargo_arrow"
 	},
 /area/mainship/squads/delta)
-"ccr" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "bluecorner";
-	dir = 1
-	},
-/area/mainship/hallways/port_hallway)
-"ccs" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/junction/flipped{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/port_hallway)
 "cct" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -42568,19 +41495,6 @@
 	icon_state = "blue"
 	},
 /area/mainship/living/port_emb)
-"ccN" = (
-/obj/machinery/door/airlock/mainship/generic{
-	name = "\improper Extended Operations Bunks"
-	},
-/obj/machinery/door/firedoor/mainship,
-/turf/open/floor/mainship/mono,
-/area/mainship/living/port_emb)
-"ccO" = (
-/turf/open/floor/mainship{
-	dir = 2;
-	icon_state = "bluecorner"
-	},
-/area/mainship/hallways/port_hallway)
 "ccP" = (
 /turf/open/floor/mainship{
 	dir = 8;
@@ -42629,21 +41543,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/delta)
-"ccZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "bluecorner"
-	},
-/area/mainship/hallways/port_hallway)
-"cda" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 9
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/port_hallway)
 "cdb" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
@@ -43067,29 +41966,6 @@
 /obj/machinery/marine_selector/gear/leader,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/delta)
-"ceo" = (
-/obj/machinery/door_control{
-	id = "laddersoutheast";
-	name = "South East Ladders Shutters";
-	pixel_x = 25;
-	req_one_access_txt = "2;3;12;19";
-	throw_range = 15
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
-"cep" = (
-/obj/machinery/door_control{
-	id = "laddersoutheast";
-	name = "South East Ladders Shutters";
-	pixel_x = -25;
-	req_one_access_txt = "2;3;12;19";
-	throw_range = 15
-	},
-/turf/open/floor/mainship{
-	icon_state = "greencorner";
-	dir = 8
-	},
-/area/mainship/hallways/port_hallway)
 "ceq" = (
 /obj/machinery/door_control{
 	id = "laddersoutheast";
@@ -43113,40 +41989,6 @@
 "ces" = (
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/port_point_defense)
-"cet" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/disposalpipe/segment/corner{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hull/lower_hull)
-"ceu" = (
-/obj/machinery/door/airlock/mainship/maint,
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/poddoor/shutters/mainship{
-	dir = 4;
-	id = "laddersoutheast";
-	name = "\improper South East Ladders Shutters"
-	},
-/obj/machinery/door/firedoor/mainship,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/hull/lower_hull)
 "cev" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -43230,18 +42072,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hull/lower_hull)
-"ceF" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
 "ceH" = (
@@ -43517,7 +42347,7 @@
 /area/mainship/shipboard/brig_cells)
 "cfK" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/tool/pen,
 /turf/open/floor/mainship/mono,
@@ -44039,7 +42869,7 @@
 /area/mainship/shipboard/brig)
 "chf" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/taperecorder,
 /obj/machinery/computer/security/marinemainship{
@@ -44274,7 +43104,7 @@
 /area/mainship/living/bridgebunks)
 "chK" = (
 /obj/structure/table/mainship,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /turf/open/floor/wood,
 /area/mainship/living/bridgebunks)
@@ -45113,7 +43943,7 @@
 "ckw" = (
 /obj/structure/table/mainship,
 /obj/item/cell/crap,
-/obj/item/paper_bin,
+/obj/structure/paper_bin,
 /obj/item/tool/pen,
 /obj/item/clipboard,
 /obj/item/stack/sheet/glass/reinforced{
@@ -45614,11 +44444,6 @@
 	icon_state = "dark_sterile"
 	},
 /area/mainship/medical/lower_medical)
-"fCG" = (
-/obj/machinery/marine_selector/gear/engi,
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/charlie)
 "fHl" = (
 /obj/machinery/light,
 /obj/effect/decal/warning_stripes/thin{
@@ -45953,14 +44778,6 @@
 	},
 /turf/open/floor/mainship,
 /area/mainship/command/cic)
-"iDq" = (
-/obj/machinery/camera/autoname/mainship{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	icon_state = "orange"
-	},
-/area/mainship/living/starboard_emb)
 "iGN" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -46712,13 +45529,6 @@
 	icon_state = "test_floor4"
 	},
 /area/mainship/hallways/stern_hallway)
-"oTt" = (
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "orange"
-	},
-/area/mainship/living/cryo_cells)
 "oXs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -47021,10 +45831,6 @@
 /obj/structure/sign/safety/laser,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/aft_hallway)
-"ruy" = (
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/closed/wall/mainship,
-/area/mainship/squads/bravo)
 "rGG" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 4;
@@ -47379,16 +46185,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/shipboard/port_missiles)
-"vAf" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/open/floor/mainship{
-	dir = 8;
-	icon_state = "emerald"
-	},
-/area/mainship/squads/charlie)
 "vBC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -47423,13 +46219,6 @@
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/cic)
-"vKT" = (
-/obj/docking_port/stationary/marine_dropship/crash_target,
-/turf/open/floor/mainship{
-	dir = 4;
-	icon_state = "emerald"
-	},
-/area/mainship/hallways/port_hallway)
 "vMb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -47651,15 +46440,6 @@
 	icon_state = "silvercorner"
 	},
 /area/mainship/command/cic)
-"xtn" = (
-/obj/machinery/camera/autoname/mainship{
-	dir = 4
-	},
-/turf/open/floor/mainship{
-	dir = 1;
-	icon_state = "emerald"
-	},
-/area/mainship/living/port_emb)
 "xtT" = (
 /obj/structure/table/mainship,
 /obj/item/reagent_container/hypospray,
@@ -82321,14 +81101,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -82341,10 +81121,10 @@ abl
 aZe
 aZe
 baQ
-bco
-bco
-bco
-iDq
+aZe
+aZe
+aZe
+aYR
 aXN
 aXM
 bio
@@ -82378,10 +81158,10 @@ bRa
 bOR
 bSO
 bUk
-xtn
-bWN
-bWN
-bWN
+bdr
+caH
+caH
+caH
 bZM
 caH
 caH
@@ -82578,14 +81358,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -82598,10 +81378,10 @@ aZf
 aZG
 bay
 baR
-bcp
-bdk
-beu
-bfu
+aZf
+aZG
+bay
+aYY
 aXN
 aXM
 aKe
@@ -82635,10 +81415,10 @@ bPw
 cjj
 bSO
 bUl
-bVM
-bWO
-bXK
-bZd
+bds
+caI
+cbj
+ccb
 bZN
 caI
 cbj
@@ -82835,14 +81615,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -82855,10 +81635,10 @@ aZg
 aZH
 baz
 baR
-bcq
-bdl
-bev
-bfu
+aZg
+aZH
+baz
+aYY
 seI
 aXM
 bip
@@ -82892,10 +81672,10 @@ bPw
 bRa
 bSO
 aFq
-bVN
-bWP
-bXL
-bZe
+bdt
+caJ
+cbk
+ccc
 bZN
 caJ
 cbk
@@ -83092,14 +81872,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -83112,10 +81892,10 @@ aZe
 aZe
 aZe
 baS
-bco
-bco
-bco
-bfv
+aZe
+aZe
+aZe
+aZi
 aXN
 aXM
 biq
@@ -83149,10 +81929,10 @@ bPw
 bRr
 bSO
 aFG
-bVO
-bWN
-bWN
-bWN
+bdu
+caH
+caH
+caH
 bZO
 caH
 caH
@@ -83166,11 +81946,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -83349,14 +82129,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVk
 aVk
@@ -83369,10 +82149,10 @@ aZf
 aZG
 bay
 baR
-bcp
-bdk
-beu
-bfw
+aZf
+aZG
+bay
+aZt
 sLN
 aXM
 blX
@@ -83406,10 +82186,10 @@ bPw
 bRa
 bSO
 qmK
-bVP
-bWO
-bXK
-bZd
+bdv
+caI
+cbj
+ccb
 bZN
 caI
 cbj
@@ -83422,13 +82202,13 @@ aVk
 aVk
 aVk
 aVk
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -83606,30 +82386,30 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVl
-aVr
-aVr
-aVN
-aVr
-aVr
-aVr
-aVr
 aVr
 aVr
 aWF
 aVs
 aXS
-aYz
-aZg
-aZH
-baz
-baR
-bcq
-bdl
-bev
-bfw
+aGa
+aGb
+aHk
+aHl
+aHo
+aGb
+aHk
+aHl
+aHJ
 bgD
 aXM
 bir
@@ -83663,29 +82443,29 @@ bPw
 bRa
 bSO
 bUo
-bVP
-bWP
-bXL
-bZe
-bZN
+bdv
 caJ
 cbk
 ccc
-ccM
-bUk
-aVs
-aVp
-aVr
-cet
-ceF
-caO
-caO
-caO
-caO
+bZN
+caJ
+aZS
+bbc
+bbf
+bbh
+bbk
+bbN
 caO
 caO
 cdW
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -83863,7 +82643,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -83872,21 +82659,14 @@ aVs
 aVs
 aVs
 aVs
-aWk
-aVu
-aWx
-aVG
-aVs
-aXN
-aYA
 aZe
 aZe
 aZe
 baT
-bcr
-bcr
-bcr
-bfx
+bco
+bco
+bco
+aIK
 aXN
 aXM
 aop
@@ -83920,29 +82700,29 @@ bPw
 bRa
 bSO
 aFK
-bVQ
-bWQ
-bXM
-bWQ
+bdw
+bcr
+bdM
+bcr
 bZP
 caH
-cbm
+bba
 caH
-caI
-bUk
-aVs
-aVG
-ceo
-cal
-aVu
-aVs
-aVs
+bSO
+bSO
 aVs
 aVs
 aVs
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -84120,7 +82900,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -84129,13 +82916,6 @@ aVB
 aVB
 aVB
 aVs
-aVs
-aWq
-aVs
-aVs
-aVs
-aXM
-aYB
 aXM
 aXM
 aXM
@@ -84143,7 +82923,7 @@ aXM
 aXM
 aXM
 aXM
-bfy
+aKc
 aXM
 aXM
 aNg
@@ -84181,16 +82961,9 @@ bVR
 bSO
 bSO
 bSO
-bSO
-bSO
-bSO
-bSO
-ccN
-bSO
 aVs
 aVs
-aVs
-ceu
+bbe
 aVs
 aVs
 aVB
@@ -84200,6 +82973,13 @@ aVB
 aVs
 cak
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -84377,7 +83157,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -84388,19 +83175,12 @@ aVB
 aWf
 abk
 aWl
-aWy
+akQ
 aWG
 aWY
 blX
-aYC
 blX
-blX
-aME
-blX
-aWY
-blX
-blX
-bfz
+aZu
 bgE
 bhA
 bgE
@@ -84438,18 +83218,11 @@ bVS
 bRa
 bRa
 bZf
-bRa
-bRa
-bRa
-bRa
-bRa
-bRa
-bZf
 ceb
-cep
+baV
 cev
 aOH
-aWf
+bRF
 aVB
 aVB
 aVB
@@ -84457,6 +83230,13 @@ aVB
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -84634,7 +83414,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -84649,15 +83436,8 @@ aWr
 aWG
 aWr
 aWr
-aYD
-aZh
-aZh
-aZh
-aZh
-aZh
-aZh
-aZh
-aZh
+aWr
+aZN
 bgF
 bhB
 bgF
@@ -84695,13 +83475,6 @@ bPw
 bPw
 bPw
 bPw
-bPw
-bPw
-bPw
-bPw
-bPw
-bPw
-bPw
 ceb
 bPw
 cew
@@ -84714,6 +83487,13 @@ aVB
 aVs
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -84891,7 +83671,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -84904,18 +83691,11 @@ aWn
 aWs
 aWz
 aWG
-aWZ
+aGh
 aXT
 aYE
-aZi
+aXg
 aXT
-aXT
-baU
-bcs
-bdm
-baU
-baU
-baU
 bhC
 blX
 aWr
@@ -84947,23 +83727,16 @@ bQt
 bPw
 bRa
 bOU
-vKT
-bUq
-bUq
-bPH
-bUG
-bUq
-caK
-bYb
-ccd
-ccO
+bdy
+bcG
+bXa
 bYb
 cdL
 ceb
 ceq
 cex
 ceH
-aWf
+bRF
 aVB
 aVB
 aVB
@@ -84971,6 +83744,13 @@ aVB
 aVs
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -85148,7 +83928,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -85157,8 +83944,8 @@ aVB
 aVB
 aVB
 aWf
-aWo
-aWt
+akV
+asw
 aVs
 aWH
 aWH
@@ -85167,13 +83954,6 @@ aBo
 aBo
 aWH
 aWH
-baV
-aHk
-aHk
-baV
-baV
-baV
-baV
 bit
 aWr
 bjW
@@ -85203,14 +83983,7 @@ bPw
 bQt
 bPw
 bRa
-bSQ
-bSQ
-bSQ
-bSQ
-aKc
-aKc
-bSQ
-bSQ
+cbn
 cbn
 aKr
 aKr
@@ -85220,7 +83993,7 @@ cbn
 cbn
 cey
 ceI
-aWf
+bRF
 aVB
 aVB
 aVB
@@ -85228,6 +84001,13 @@ aVB
 aVs
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -85405,7 +84185,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -85424,13 +84211,6 @@ aYG
 aZj
 aZI
 aWH
-baW
-bcu
-bdn
-bew
-bfA
-bgG
-baV
 biu
 bjl
 bkd
@@ -85460,14 +84240,7 @@ bGq
 bQu
 bRh
 bGq
-bSQ
-bUr
-bVT
-bWR
-bXO
-bZg
-bZQ
-bSQ
+cbn
 cbo
 ccf
 ccP
@@ -85485,6 +84258,13 @@ aVs
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -85662,17 +84442,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
-aVm
-aVt
-aVF
-aVR
-aVX
-aVX
-aWh
-aWh
-aWh
+aVp
+aVr
+aVr
+aVr
+aVr
+aWp
+aWp
+aWp
+atk
 aVs
 aWJ
 aXb
@@ -85681,13 +84468,6 @@ aXd
 aZk
 arF
 aWH
-asw
-bcv
-bdo
-bdq
-bfB
-bgH
-baV
 blX
 blX
 bke
@@ -85717,14 +84497,7 @@ bRa
 bQt
 bRa
 bRa
-bSQ
-bUs
-bVU
-bWS
-bVW
-bZh
-aHo
-bSQ
+cbn
 aIg
 ccg
 ccQ
@@ -85742,6 +84515,13 @@ aVu
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -85919,17 +84699,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
-aVm
-aVu
-aVG
-aVu
-aVY
-aVR
-aVu
-aVu
-aWh
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVn
 aVs
 aWJ
 aXb
@@ -85938,13 +84725,6 @@ aXd
 aZl
 aZK
 aWH
-baY
-bcw
-bdo
-bdq
-bfB
-bgH
-baV
 blX
 biu
 bjW
@@ -85974,14 +84754,7 @@ bGq
 bQt
 bGq
 bRr
-bSQ
-bUs
-bVU
-bWS
-bVW
-bZi
-bZS
-bSQ
+cbn
 cbq
 cch
 ccQ
@@ -85999,6 +84772,13 @@ cfh
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -86176,17 +84956,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
-aVo
-aVu
-aVG
-aVu
-aVG
-aVu
-aVu
-aVu
-aWh
+aVn
 aVs
 aWJ
 aXc
@@ -86195,13 +84982,6 @@ aYH
 aZk
 arJ
 aWH
-atk
-bcv
-bdp
-bex
-bfC
-bgH
-baV
 blX
 biu
 bjV
@@ -86231,14 +85011,7 @@ bGq
 bQv
 bGq
 bRa
-bSQ
-bUs
-bVV
-bWT
-bXP
-bZh
-aHJ
-bSQ
+cbn
 aIE
 ccg
 ccR
@@ -86256,6 +85029,13 @@ aVs
 aVs
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -86433,17 +85213,24 @@ aaa
 aaa
 aaa
 aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
-aVp
-aVr
-aVr
-aVr
-aVr
-aVr
-aVr
-aWp
-aWu
+aVn
 aVs
 aWH
 aWH
@@ -86452,13 +85239,6 @@ aMg
 aZk
 aZJ
 aWH
-baX
-bcv
-aMm
-baV
-baV
-baV
-baV
 blX
 biu
 bjV
@@ -86488,15 +85268,8 @@ bGq
 bQv
 bGq
 bRa
-bSQ
-bSQ
-bSQ
-bSQ
-aMr
-bZh
-bZR
-bSQ
-cbp
+cbn
+aZM
 ccg
 aMt
 cbn
@@ -86513,6 +85286,13 @@ caO
 caO
 cfm
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -86690,15 +85470,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
-aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -86709,13 +85496,6 @@ aXd
 aZm
 ako
 aWH
-akK
-bcx
-bdo
-bey
-bfD
-bgI
-baV
 biq
 biu
 bjV
@@ -86745,14 +85525,7 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUt
-bVW
-bWU
-bVW
-bZj
-aGh
-bSQ
+cbn
 aGn
 cci
 ccQ
@@ -86770,6 +85543,13 @@ aVk
 aVk
 aVk
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -86947,15 +85727,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -86964,15 +85751,8 @@ aXe
 aWH
 aXV
 aZn
-aZL
+aWI
 aWH
-bbc
-bcz
-bdq
-baV
-bfE
-bgJ
-baV
 blX
 biu
 bjV
@@ -87002,15 +85782,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUu
-bVX
-bSQ
-bXP
-bZk
-bZT
-bSQ
-cbr
+cbn
+bdN
 ccl
 ccS
 cbn
@@ -87019,6 +85792,13 @@ cef
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -87204,15 +85984,22 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -87221,15 +86008,8 @@ aWH
 aWH
 aWT
 aZn
-aZM
+aWJ
 aWH
-bba
-bcz
-bdr
-baV
-baV
-baV
-baV
 bir
 biu
 bjV
@@ -87259,15 +86039,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bSQ
-bSQ
-bSQ
-bUD
-bZk
-bZU
-bSQ
-cbs
+cbn
+ced
 ccl
 ccT
 cbn
@@ -87276,6 +86049,13 @@ cbn
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -87470,6 +86250,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -87480,13 +86267,6 @@ akl
 aZo
 aZO
 aWH
-akQ
-bcB
-bdq
-baV
-bfF
-bgK
-baV
 blX
 biu
 bjV
@@ -87516,14 +86296,7 @@ bGq
 bQw
 bGq
 bRr
-bSQ
-bUv
-bVY
-bSQ
-aGa
-bZl
-bZX
-bSQ
+cbn
 aGx
 cck
 ccS
@@ -87533,6 +86306,13 @@ ceg
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -87727,6 +86507,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -87735,15 +86522,8 @@ aXd
 aWH
 aXV
 aZn
-aZQ
+aZL
 aWH
-baZ
-bcz
-bds
-baV
-bfD
-bgL
-baV
 aNg
 biu
 bjV
@@ -87773,15 +86553,8 @@ bGq
 bQw
 bGq
 abh
-bSQ
-bUw
-bVW
-bSQ
-bWS
-bZk
-bZT
-bSQ
-cbr
+cbn
+bdN
 ccl
 ccS
 cbn
@@ -87790,6 +86563,13 @@ ceh
 cbn
 cak
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -87984,6 +86764,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -87992,15 +86779,8 @@ aXd
 aXY
 aXd
 aZn
-aZM
+aWJ
 aWH
-bba
-bcz
-bdt
-bez
-bfD
-bgM
-baV
 blX
 biu
 bjV
@@ -88030,15 +86810,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUx
-bVW
-bWV
-bVW
-bZk
-bZU
-bSQ
-cbs
+cbn
+ced
 ccl
 ccQ
 cdA
@@ -88047,6 +86820,13 @@ cei
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -88241,6 +87021,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -88251,13 +87038,6 @@ aXV
 aZo
 aZO
 aWH
-bbe
-bcB
-bdu
-ruy
-bfD
-bgK
-baV
 biu
 biu
 bjW
@@ -88287,14 +87067,7 @@ bGq
 bQx
 bGq
 bGq
-bSQ
-bUy
-bVW
-bSQ
-bXP
-bZl
-bZX
-bSQ
+cbn
 cbv
 cck
 poE
@@ -88304,6 +87077,13 @@ ceg
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -88498,6 +87278,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVo
 aVs
@@ -88506,15 +87293,8 @@ aXe
 aWH
 aXV
 aZp
-aZQ
+aZL
 aWH
-baZ
-bcz
-bdu
-baV
-bfE
-bgL
-baV
 blX
 biu
 bjV
@@ -88544,15 +87324,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUw
-bVX
-bSQ
-bWS
-bZk
-bZT
-bSQ
-cbr
+cbn
+bdN
 ccl
 ccV
 cbn
@@ -88561,6 +87334,13 @@ ceh
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -88755,6 +87535,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -88763,15 +87550,8 @@ aWH
 aWH
 aWT
 aZq
-aZM
+aWJ
 aWH
-bba
-bcz
-bdv
-baV
-baV
-baV
-baV
 blX
 biu
 bjV
@@ -88801,15 +87581,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bSQ
-bSQ
-bSQ
-bUD
-bZk
-bZU
-bSQ
-cbs
+cbn
+ced
 ccl
 ccW
 cbn
@@ -88818,6 +87591,13 @@ cbn
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -89012,6 +87792,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -89022,13 +87809,6 @@ aYI
 aZr
 aZO
 aWH
-bbf
-bcB
-bdu
-baV
-bfF
-bgN
-baV
 blX
 biu
 bkf
@@ -89058,14 +87838,7 @@ bOP
 bQy
 bGq
 bRa
-bSQ
-fCG
-vAf
-bSQ
-bXR
-bZl
-bZX
-bSQ
+cbn
 aFe
 cck
 ccV
@@ -89075,6 +87848,13 @@ cej
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -89269,6 +88049,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -89277,15 +88064,8 @@ aXd
 aWH
 aMg
 aZq
-aZQ
+aZL
 aWH
-baZ
-bcz
-aMq
-baV
-bdo
-bgO
-baV
 blX
 biu
 bjV
@@ -89315,15 +88095,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUA
-bVW
-bSQ
-aMr
-bZm
-bZT
-bSQ
-cbr
+cbn
+bdN
 ccl
 aMB
 cbn
@@ -89332,6 +88105,13 @@ cek
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -89526,6 +88306,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVn
 aVs
@@ -89534,15 +88321,8 @@ aXd
 aXZ
 aXd
 aZq
-aZM
+aWJ
 aWH
-bba
-bcz
-bdt
-beA
-bdo
-bgP
-baV
 bip
 biu
 bjV
@@ -89572,15 +88352,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUB
-bVW
-bWW
-bVW
-bZn
-bZU
-bSQ
-cbs
+cbn
+ced
 ccl
 ccX
 cdB
@@ -89589,6 +88362,13 @@ cel
 cbn
 cal
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -89783,6 +88563,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -89793,13 +88580,6 @@ aYJ
 aZr
 aZO
 aWH
-akV
-bcB
-bdu
-baV
-bdo
-bgO
-baV
 biu
 biu
 bjW
@@ -89829,14 +88609,7 @@ bGq
 bQx
 bGq
 bRa
-bSQ
-bUA
-bVW
-bSQ
-aGb
-bZo
-bZX
-bSQ
+cbn
 aGH
 cck
 ccV
@@ -89846,6 +88619,13 @@ cej
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -90040,6 +88820,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -90048,15 +88835,8 @@ aXe
 aWH
 akm
 aZq
-aZQ
+aZL
 aWH
-baZ
-bcC
-bdu
-baV
-bfE
-bgN
-baV
 blX
 biu
 bjV
@@ -90086,15 +88866,8 @@ bGq
 bQw
 bGq
 bRa
-bSQ
-bUz
-bVX
-bSQ
-bXT
-bZn
-bZT
-bSQ
-cbr
+cbn
+bdN
 ccn
 ccV
 cbn
@@ -90103,6 +88876,13 @@ cek
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -90297,6 +89077,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -90305,15 +89092,8 @@ aWH
 aWH
 aWT
 aZq
-aZM
+aWJ
 aWH
-bba
-bcD
-bdv
-baV
-baV
-baV
-baV
 biv
 biv
 bkg
@@ -90343,15 +89123,8 @@ bOQ
 bQz
 bOQ
 bOQ
-bSQ
-bSQ
-bSQ
-bSQ
-bUD
-bZn
-bZU
-bSQ
-cbs
+cbn
+ced
 cco
 ccW
 cbn
@@ -90360,6 +89133,13 @@ cbn
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -90554,6 +89334,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -90564,13 +89351,6 @@ aYL
 aZr
 aZO
 aWH
-bbh
-bcE
-bdu
-baV
-bfH
-bgQ
-baV
 blX
 biu
 bjV
@@ -90600,14 +89380,7 @@ bGq
 bQA
 bGq
 bRa
-bSQ
-bUC
-bVZ
-bSQ
-bXU
-bZo
-bZX
-bSQ
+cbn
 cby
 ccp
 ccV
@@ -90617,6 +89390,13 @@ cem
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -90811,6 +89591,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -90819,15 +89606,8 @@ aXd
 aYa
 aYM
 aZq
-aZQ
+aZL
 aWH
-baZ
-bcD
-bdt
-beB
-bdo
-bdr
-baV
 biw
 biu
 bjW
@@ -90857,15 +89637,8 @@ bGq
 bQB
 bGq
 abh
-bSQ
-bUD
-bVW
-bWX
-bXV
-bZn
-bZY
-bSQ
-cbr
+cbn
+bdN
 cco
 ccX
 cdC
@@ -90874,6 +89647,13 @@ ccT
 cbn
 caj
 aVk
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aaa
 aaa
 aaa
@@ -91068,6 +89848,13 @@ aaa
 aaa
 aaa
 aaa
+akK
+akK
+akK
+akK
+akK
+akK
+akK
 aVk
 aVm
 aVs
@@ -91076,15 +89863,8 @@ aWH
 aWH
 aYN
 aZq
-aZM
+aWJ
 aWH
-bba
-bcD
-bdu
-baV
-baV
-baV
-baV
 biq
 biu
 bjV
@@ -91114,15 +89894,8 @@ bGq
 bQA
 bGq
 bRr
-bSQ
-bSQ
-bSQ
-bSQ
-bXW
-bZn
-bZU
-bSQ
-cbs
+cbn
+ced
 cco
 ccV
 cbn
@@ -91130,6 +89903,13 @@ cbn
 cbn
 cbn
 caj
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
 aVk
 aaa
 aaa
@@ -91326,6 +90106,13 @@ aaa
 aaa
 aaa
 aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
 aVm
 aVs
 aWT
@@ -91335,13 +90122,6 @@ aYM
 aZr
 aZK
 aWH
-baY
-bcE
-bdt
-beC
-bdo
-bdr
-baV
 blX
 biu
 bjV
@@ -91371,14 +90151,7 @@ bGq
 bQA
 bGq
 bRa
-bSQ
-bUD
-bVW
-bWY
-bXV
-bZo
-bZX
-bSQ
+cbn
 cbq
 ccp
 ccX
@@ -91386,7 +90159,14 @@ cdD
 ccQ
 ccT
 cbn
-caj
+baX
+baY
+baZ
+baZ
+baZ
+baZ
+baZ
+bcw
 aVk
 aaa
 aaa
@@ -91583,22 +90363,22 @@ aaa
 aaa
 aaa
 aVk
-aVm
+aVl
+aWp
+aWp
+aWp
+aWp
+aWp
+aWp
+aWF
 aVs
 aWU
 aXi
 aWH
 aYO
 aZq
-aZQ
+aZL
 aWH
-baZ
-bcD
-bdu
-baV
-bfI
-bgR
-baV
 bir
 biu
 bjV
@@ -91628,22 +90408,22 @@ bGq
 bQA
 bGq
 bRa
-bSQ
-bUE
-bWa
-bSQ
-bXX
-bZp
-bZT
-bSQ
-cbr
+cbn
+bdN
 cco
 ccV
 cbn
 cdT
 cen
 cbn
-cak
+aVG
+aVG
+aVu
+aVu
+aVu
+aVu
+aVu
+ceD
 aVk
 aaa
 aaa
@@ -91841,21 +90621,21 @@ aaa
 aaa
 aVk
 aVm
+aVu
+aVk
+aVk
+aVk
+aVk
+aVk
+aVk
 aVs
 aWH
 aWH
 aWH
 aGT
-aHc
+aVF
 aWH
 aWH
-baV
-aHl
-aIK
-baV
-baV
-baV
-baV
 blX
 biu
 bjV
@@ -91885,14 +90665,7 @@ bGq
 bQA
 bGq
 bRa
-bSQ
-bSQ
-bSQ
-bSQ
-aKo
-aKq
-bSQ
-bSQ
+cbn
 cbn
 aKw
 aKA
@@ -91900,7 +90673,14 @@ cbn
 cbn
 cbn
 cbn
-caj
+brq
+brq
+aVs
+aVs
+aVs
+aVs
+aVu
+ceD
 aVk
 aaa
 aaa
@@ -92102,16 +90882,16 @@ aVu
 aVs
 aXj
 aYc
-aYQ
-aZt
 aZR
 aZR
-aYY
-bcG
-bdx
-beD
-beD
-beD
+aZR
+aZR
+aMq
+aZR
+aZR
+aMr
+aVN
+aZR
 bhC
 blX
 biu
@@ -92143,16 +90923,16 @@ bQA
 bGq
 bRa
 bOU
-bUF
-bWb
-bWb
-bXZ
-bZr
-bWb
+aHc
+bdJ
+bdL
 caL
 caL
-ccr
-ccZ
+caL
+caL
+caL
+caL
+caL
 cdE
 bOR
 aVs
@@ -92359,15 +91139,15 @@ aVu
 aVs
 aje
 aYd
-aYR
-aZu
-aZS
-baB
-baB
-bcH
-bdy
-beE
-baB
+aWr
+ban
+aKo
+aMm
+aZh
+aZh
+aKq
+aUV
+aVR
 baB
 bhD
 baB
@@ -92401,15 +91181,15 @@ bRi
 bMQ
 bOV
 bMQ
-bWc
-bMQ
-bYa
-bZs
-bMQ
-bMQ
-bMQ
-ccs
-cda
+baW
+bcH
+bcR
+bcS
+bcR
+bcR
+bcR
+bcB
+bPw
 cdF
 cdU
 aVs
@@ -92624,8 +91404,8 @@ aXT
 aXT
 aXT
 aYE
-bdm
-bcs
+aXg
+aYE
 bhC
 blX
 blX
@@ -92657,8 +91437,8 @@ bQD
 bRj
 bRa
 bOU
-bUG
-bPH
+bXa
+bcG
 bXa
 bYb
 bYb
@@ -93138,7 +91918,7 @@ bbj
 bcI
 bbj
 beG
-bfK
+aXx
 bbv
 bbj
 biz
@@ -93172,7 +91952,7 @@ bRj
 bRR
 bSR
 bUI
-bWe
+bcQ
 bXc
 bSR
 bZt
@@ -93395,7 +92175,7 @@ alt
 bbv
 bbv
 beG
-bfK
+aXx
 bbv
 bbj
 biz
@@ -93429,7 +92209,7 @@ bRj
 bRR
 bSR
 bUI
-bWe
+bcQ
 bXc
 bUI
 bUI
@@ -93652,7 +92432,7 @@ bbl
 bbp
 bbv
 beG
-bfK
+aXx
 bbv
 bbj
 biz
@@ -93686,7 +92466,7 @@ bRj
 bRR
 bSR
 bUI
-bWe
+bcQ
 bXc
 bUI
 cac
@@ -93909,7 +92689,7 @@ bbm
 bbm
 bdz
 beG
-bfK
+aXx
 bbv
 bbj
 biz
@@ -93943,7 +92723,7 @@ bRj
 bRR
 bSR
 bUI
-bWe
+bcQ
 bXc
 bYc
 bYj
@@ -94166,7 +92946,7 @@ bbn
 bcJ
 bdA
 beG
-bfK
+aXx
 bbv
 bbj
 bbi
@@ -94200,7 +92980,7 @@ bRl
 bRQ
 knI
 bUI
-bWe
+bcQ
 bXc
 bYd
 bYh
@@ -94423,41 +93203,41 @@ bbn
 bbt
 bdB
 beG
-bfK
+aXx
 bbv
 bbv
 biA
 blX
 bjP
-bdm
+aXg
 bma
-bnM
-bpI
-bru
-bte
-buJ
-bwr
-byk
-bzv
-bAP
+aME
+aVX
+aWh
+aWo
+aWt
+aWx
+aWy
+aWZ
+aYQ
 bCa
-bDI
-bER
-bGo
-bHy
-bII
-bJS
-bKX
-bML
-bNY
+bcD
+bcp
+bcs
+bcu
+bcv
+bcz
+bcE
+bdl
+bdn
 bma
-bPH
+bcG
 bQG
 bRm
 bRS
 bSS
 bSS
-bWf
+bdp
 bXd
 bYe
 bYk
@@ -94680,41 +93460,41 @@ bbo
 bbo
 bdC
 beG
-bfL
-bgT
-bgT
-biB
-bjm
+aYD
+aYA
+aYA
+aYB
+aYC
 bkl
-bjm
+aYC
 bmb
-bnN
-bpJ
-brv
-btf
-oTt
-btf
-btf
-btf
+aVt
+aVY
+aWk
+aWq
+aWu
+aWq
+aWq
+aWq
 bAQ
 bCc
 bDJ
-bES
-bES
-bES
-bES
-bES
-bKY
-bMM
-bNZ
+bcq
+bcq
+bcq
+bcq
+bcq
+bdk
+bdm
+bdo
 bmb
-bPI
+bdx
 bQH
-bRn
+bcx
 bRT
-bST
-bST
-bWg
+bcC
+bcC
+bdK
 bXc
 bYf
 bYi
@@ -95197,7 +93977,7 @@ beH
 bfN
 bfN
 bhF
-biC
+bdq
 bjn
 bkm
 blk
