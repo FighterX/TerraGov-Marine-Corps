@@ -634,10 +634,6 @@
 		to_chat(user, "You inject the solution into the [src].")
 
 		if(S.reagents.has_reagent(/datum/reagent/toxin/phoron, 5))
-
-			log_game("[key_name(user)] injected a light with phoron, rigging it to explode.")
-			message_admins("[ADMIN_TPMONTY(user)] injected a light with phoron, rigging it to explode.")
-
 			rigged = TRUE
 
 		S.reagents.clear_reagents()
@@ -692,14 +688,14 @@
 
 /obj/machinery/landinglight/ds1/Initialize(mapload, ...)
 	. = ..()
-	id = "[CONFIG_GET(string/ship_name)] Dropship 1"
+	id = "alamo"
 
 /obj/machinery/landinglight/ds2
 
 
 /obj/machinery/landinglight/ds2/Initialize(mapload, ...)
 	. = ..()
-	id = "[CONFIG_GET(string/ship_name)] Dropship 2" // ID for landing zone
+	id = "normandy" // ID for landing zone
 
 /obj/machinery/landinglight/proc/turn_on()
 	icon_state = "landingstripe0"

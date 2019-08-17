@@ -96,7 +96,7 @@ Make the TGMC proud!"})
 /datum/job/command/staffofficer
 	title = STAFF_OFFICER
 	paygrade = "O4"
-	comm_title = "IO"
+	comm_title = "SO"
 	total_positions = 4
 	access = list(ACCESS_IFF_MARINE, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_BRIG, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_ALPHA, ACCESS_MARINE_BRAVO, ACCESS_MARINE_CHARLIE, ACCESS_MARINE_DELTA)
 	minimal_access = ALL_MARINE_ACCESS
@@ -707,6 +707,9 @@ As a Synthetic you answer to the acting captain. Special circumstances may chang
 	if(!length(GLOB.ai_spawn))
 		CRASH("attempted to spawn an AI with no landmark set")
 
+	if(!H.mind) //Could be a dummy.
+		return
+
 	var/mob/living/silicon/ai/AI = new(pick(GLOB.ai_spawn))
 	H.mind.transfer_to(AI, TRUE)
 	qdel(H)
@@ -714,7 +717,7 @@ As a Synthetic you answer to the acting captain. Special circumstances may chang
 
 /datum/job/ai/assign(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	if(preference_source?.prefs)
-		H.fully_replace_character_name(H.name, preference_source.prefs.synthetic_name)
+		H.fully_replace_character_name(H.name, preference_source.prefs.ai_name)
 
 	return ..()
 
