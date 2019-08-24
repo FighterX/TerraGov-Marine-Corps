@@ -33,6 +33,13 @@ GLOBAL_LIST_EMPTY(active_laser_targets)
 	var/obj/selected_target //Selected target for bombarding
 
 
+/obj/machinery/computer/camera_advanced/overwatch/Initialize()
+	. = ..()
+	for(var/i in SSjob.squads)
+		var/datum/squad/S = SSjob.squads[i]
+		squads += S
+
+
 /obj/machinery/computer/camera_advanced/overwatch/main
 	icon_state = "overwatch_main"
 	name = "Main Overwatch Console"
@@ -57,8 +64,6 @@ GLOBAL_LIST_EMPTY(active_laser_targets)
 /obj/machinery/computer/camera_advanced/overwatch/attackby(obj/item/I, mob/user, params)
 	return
 
-/obj/machinery/computer/camera_advanced/overwatch/bullet_act(obj/item/projectile/Proj) //Can't shoot it
-	return FALSE
 
 /obj/machinery/computer/camera_advanced/overwatch/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -86,10 +91,6 @@ GLOBAL_LIST_EMPTY(active_laser_targets)
 
 
 /obj/machinery/computer/camera_advanced/overwatch/interact(mob/living/user)
-	if(!length(squads))
-		for(var/i in SSjob.squads)
-			var/datum/squad/S = SSjob.squads[i]
-			squads += S
 	if(!current_squad && !(current_squad = get_squad_by_id(squad_console)))
 		to_chat(user, "<span class='warning'>Error: Unable to link to a proper squad.</span>")
 		return
@@ -359,7 +360,7 @@ GLOBAL_LIST_EMPTY(active_laser_targets)
 			switch(z_hidden)
 				if(HIDE_NONE)
 					z_hidden = HIDE_ON_SHIP
-					to_chat(usr, "[icon2html(src, usr)] <span class='notice'>Marines on the [CONFIG_GET(string/ship_name)] are now hidden.</span>")
+					to_chat(usr, "[icon2html(src, usr)] <span class='notice'>Marines on the [SSmapping.configs[SHIP_MAP].map_name] are now hidden.</span>")
 				if(HIDE_ON_SHIP)
 					z_hidden = HIDE_ON_GROUND
 					to_chat(usr, "[icon2html(src, usr)] <span class='notice'>Marines on the ground are now hidden.</span>")

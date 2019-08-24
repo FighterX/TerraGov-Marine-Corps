@@ -6,6 +6,8 @@
 
 #define isatom(A) (isloc(A))
 
+#define isclient(A) (istype(A, /client))
+
 //Turfs
 //#define isturf(A) (istype(A, /turf)) This is actually a byond built-in. Added here for completeness sake.
 
@@ -123,6 +125,8 @@
 #define isobj(A) istype(A, /obj) //override the byond proc because it returns true on children of /atom/movable that aren't objs
 
 #define isitem(A) (istype(A, /obj/item))
+
+#define isgun(A) (istype(A, /obj/item/weapon/gun))
 
 #define iswrench(I) (istype(I, /obj/item/tool/wrench))
 
