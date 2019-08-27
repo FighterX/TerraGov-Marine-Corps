@@ -107,7 +107,6 @@ datum/ammo/bullet/machinegun/walker/New()
 	max_range = CONFIG_GET(number/combat_define/max_shell_range)
 	penetration = CONFIG_GET(number/combat_define/ltb_armor_penetration)
 	damage = CONFIG_GET(number/combat_define/ltb_hit_damage)
-	shell_speed = CONFIG_GET(number/combat_define/fast_shell_speed)
 
 /datum/ammo/rocket/ltb/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_turf(M), -1, 3, 5, 6)
@@ -273,7 +272,6 @@ datum/ammo/bullet/machinegun/walker/New()
 	max_range = CONFIG_GET(number/combat_define/max_shell_range)
 	damage = CONFIG_GET(number/combat_define/hlow_hit_damage)
 	penetration = CONFIG_GET(number/combat_define/mlow_armor_penetration)
-	shell_speed = CONFIG_GET(number/combat_define/fast_shell_speed)
 
 /datum/ammo/rocket/autocannon/scr
 	name = "autocannon round"

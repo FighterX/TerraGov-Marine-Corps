@@ -854,7 +854,7 @@ var/list/apc_dmg_distributions = list(
 	return ..()
 
 //Can't hit yourself with your own bullet
-/obj/vehicle/multitile/hitbox/cm_transport/get_projectile_hit_chance(var/obj/item/projectile/P)
+/obj/vehicle/multitile/hitbox/cm_transport/projectile_hit(var/obj/item/projectile/P)
 	if(P.firer == root) //Don't hit our own hitboxes
 		return 0
 
@@ -901,7 +901,7 @@ var/list/apc_dmg_distributions = list(
 	else
 		log_attack("[src] took [damage] [type] damage from [attacker].")
 
-/obj/vehicle/multitile/root/cm_transport/get_projectile_hit_chance(var/obj/item/projectile/P)
+/obj/vehicle/multitile/root/cm_transport/projectile_hit(var/obj/item/projectile/P)
 	if(P.firer == src) //Don't hit our own hitboxes
 		return 0
 

@@ -1020,7 +1020,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	return ..()
 
 //Can't hit yourself with your own bullet
-/obj/vehicle/multitile/hitbox/cm_armored/get_projectile_hit_chance(obj/item/projectile/P)
+/obj/vehicle/multitile/hitbox/cm_armored/projectile_hit(obj/item/projectile/P)
 	if(P.firer == root) //Don't hit our own hitboxes
 		return FALSE
 
@@ -1077,7 +1077,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 	else
 		log_attack("[src] took [damage] [type] damage from [attacker].")
 
-/obj/vehicle/multitile/root/cm_armored/get_projectile_hit_chance(obj/item/projectile/P)
+/obj/vehicle/multitile/root/cm_armored/projectile_hit(obj/item/projectile/P)
 	if(P.firer == src) //Don't hit our own hitboxes
 		return FALSE
 
