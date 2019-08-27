@@ -377,7 +377,7 @@ var/list/apc_dmg_distributions = list(
 			//	to_chat(user, "There is a [HP.obj_integrity <= 0 ? "broken" : "working"] [HP] installed on the [i] hardpoint slot.")
 
 //Special armored vic healthcheck that mainly updates the hardpoint states
-/obj/vehicle/multitile/root/cm_transport/healthcheck()
+/obj/vehicle/multitile/root/cm_transport/proc/healthcheck()
 	obj_integrity = max_integrity //The APC itself doesn't take damage
 	var/i
 	var/remove_person = 1 //Whether or not to call handle_all_modules_broken()
@@ -492,7 +492,7 @@ var/list/apc_dmg_distributions = list(
 		var/obj/structure/fence/F = A
 		F.visible_message("<span class='danger'>[root] smashes through [F]!</span>")
 		F.obj_integrity = 0
-		F.healthcheck()
+		F.deconstruct(FALSE)
 	else if(istype(A, /turf/closed/wall) && !istype(A, /turf/closed/wall/resin))
 		var/turf/closed/wall/W = A
 		W.take_damage(10)
@@ -516,7 +516,7 @@ var/list/apc_dmg_distributions = list(
 	else if(istype(A, /obj/structure/mineral_door/resin))
 		var/obj/structure/mineral_door/resin/R = A
 		R.obj_integrity = 0
-		R.healthcheck()
+		R.deconstruct(FALSE)
 	else if(istype(A, /obj/structure/table))
 		var/obj/structure/table/T = A
 		T.visible_message("<span class='danger'>[root] crushes [T]!</span>")
@@ -527,7 +527,7 @@ var/list/apc_dmg_distributions = list(
 		RK.Destroy(1)
 	else if(istype(A, /obj/structure/girder))
 		var/obj/structure/girder/G = A
-		G.dismantle()
+		G.deconstruct(FALSE)
 		CA.take_damage_type(15, "blunt", G)
 		if(world.time > lastsound + 10)
 			playsound(G, 'sound/effects/metal_crash.ogg', 35)
@@ -561,7 +561,7 @@ var/list/apc_dmg_distributions = list(
 		if(!WN.damageable)
 			return
 		WN.obj_integrity = 0
-		WN.healthcheck(0, 1)
+		WN.deconstruct(FALSE)
 	else if (istype(A, /obj/machinery/computer))
 		var/obj/machinery/computer/CP = A
 		CP.visible_message("<span class='danger'>[root] crushes [CP]!</span>")
@@ -803,7 +803,7 @@ var/list/apc_dmg_distributions = list(
 	else if (istype(A, /obj/vehicle/train))
 		var/obj/vehicle/train/TR = A
 		TR.visible_message("<span class='danger'>[root] crushes [TR]!</span>")
-		TR.explode()
+		TR.deconstruct()
 	else if (istype(A, /obj/machinery/door/window))
 		var/obj/machinery/door/window/WD = A
 		WD.visible_message("<span class='danger'>[root] smashes through[WD]!</span>")
@@ -814,7 +814,7 @@ var/list/apc_dmg_distributions = list(
 		CA.take_damage_type(5, "blunt", wR)
 		step_away(wR,root,0)
 		playsound(wR, 'sound/effects/metal_crash.ogg', 35)
-	healthcheck()
+	CA.healthcheck()
 
 /obj/vehicle/multitile/hitbox/cm_transport/Move(var/atom/A, var/direction)
 	var/obj/vehicle/multitile/root/cm_transport/CA = root
@@ -829,7 +829,7 @@ var/list/apc_dmg_distributions = list(
 		var/obj/item/hardpoint/HP = CA.hardpoints[HDPT_WHEELS]
 		if(istype(HP, /obj/item/hardpoint/apc/wheels) && HP.obj_integrity > 0)
 			HP.obj_integrity -= 10
-			healthcheck()
+			CA.healthcheck()
 
 	. = ..()
 

@@ -630,7 +630,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 
 //Special armored vic healthcheck that mainly updates the hardpoint states
-/obj/vehicle/multitile/root/cm_armored/healthcheck()
+/obj/vehicle/multitile/root/cm_armored/proc/healthcheck()
 	obj_integrity = max_integrity//The tank itself doesn't take damage
 	var/i
 	var/remove_person = 1 //Whether or not to call handle_all_modules_broken()

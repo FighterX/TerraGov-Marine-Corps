@@ -159,7 +159,7 @@
 				for(var/obj/atoms in loc)
 					atoms.mech_collision(src)
 
-/obj/vehicle/walker/Bump(var/atom/obstacle)
+/obj/vehicle/walker/Bump(atom/obstacle)
 	if(istype(obstacle, /obj/machinery/door))
 		var/obj/machinery/door/door = obstacle
 		if(door.allowed(pilot))
@@ -177,27 +177,27 @@
 		F.visible_message("<span class='danger'>[src.name] smashes through [F]!</span>")
 		take_damage(5, "abstract")
 		F.obj_integrity = 0
-		F.healthcheck()
+		F.deconstruct(FALSE)
 	else if(istype(obstacle, /obj/structure/table))
 		var/obj/structure/table/T = obstacle
 		T.visible_message("<span class='danger'>[src.name] crushes [T]!</span>")
 		take_damage(5, "abstract")
-		T.destroy_structure(TRUE)
+		T.deconstruct(TRUE)
 	else if(istype(obstacle, /obj/structure/showcase))
 		var/obj/structure/showcase/S = obstacle
 		S.visible_message("<span class='danger'>[src.name] bulldozes over [S]!</span>")
 		take_damage(15, "abstract")
-		S.destroy_structure(TRUE)
+		S.deconstruct(TRUE)
 	else if(istype(obstacle, /obj/structure/rack))
 		var/obj/structure/rack/R = obstacle
 		R.visible_message("<span class='danger'>[src.name] smashes through the [R]!</span>")
 		take_damage(5, "abstract")
-		R.destroy_structure(TRUE)
+		R.deconstruct(TRUE)
 	else if(istype(obstacle, /obj/structure/window/framed))
 		var/obj/structure/window/framed/W = obstacle
 		W.visible_message("<span class='danger'>[src.name] crashes through the [W]!</span>")
 		take_damage(20, "abstract")
-		W.shatter_window(1)
+		W.deconstruct(TRUE)
 	else if(istype(obstacle, /obj/structure/window_frame))
 		var/obj/structure/window_frame/WF = obstacle
 		WF.visible_message("<span class='danger'>[src.name] runs over the [WF]!</span>")
@@ -206,7 +206,7 @@
 	else
 		..()
 
-/obj/vehicle/walker/Bumped(var/atom/A)
+/obj/vehicle/walker/Bumped(atom/A)
 	..()
 
 	if(!isxeno(A))
@@ -676,7 +676,7 @@
 	else
 		attack_hand(M)
 
-/obj/vehicle/walker/healthcheck()
+/obj/vehicle/walker/proc/healthcheck()
 	if(obj_integrity > max_integrity)
 		obj_integrity = max_integrity
 		return
@@ -711,7 +711,7 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(rand(10,30), "acid")
 
-/obj/vehicle/walker/proc/take_damage(dam, damtype = "blunt", hit_dir=null)
+/obj/vehicle/walker/take_damage(dam, damtype = "blunt", hit_dir=null)
 	if(!dam || dam <= 0)
 		return
 	if(!(damtype in list("explosive", "acid", "energy", "blunt", "slash", "bullet", "all", "abstract")))

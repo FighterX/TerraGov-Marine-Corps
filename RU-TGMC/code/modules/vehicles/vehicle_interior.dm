@@ -508,7 +508,6 @@
 	walltype = "metal"
 	junctiontype //when walls smooth with one another, the type of junction each wall is.
 
-	damage = 0
-	damage_cap = 10000 //Wall will break down to girders if damage reaches this point
+	max_integrity = 10000 //Wall will break down to girders if damage reaches this point
 
 	max_temperature = 50000 //K, walls will take damage if they're next to a fire hotter than this
