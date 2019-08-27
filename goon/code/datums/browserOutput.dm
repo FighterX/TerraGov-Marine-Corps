@@ -75,9 +75,6 @@ GLOBAL_VAR_INIT(emojiJson, file2text("goon/browserassets/js/emojiList.json"))
 		if("debug")
 			data = debug(arglist(params))
 
-		if("ping")
-			data = ping(arglist(params))
-
 		if("analyzeClientData")
 			data = analyzeClientData(arglist(params))
 
@@ -175,9 +172,6 @@ GLOBAL_VAR_INIT(emojiJson, file2text("goon/browserassets/js/emojiList.json"))
 
 	cookieSent = TRUE
 
-//Called by js client every 60 seconds
-/datum/chatOutput/proc/ping()
-	return "pong"
 
 //Called by js client on js error
 /datum/chatOutput/proc/debug(error)
