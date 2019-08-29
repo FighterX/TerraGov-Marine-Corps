@@ -629,7 +629,8 @@ var/list/free_modules = list("Medical Modification", "Supply Modification")
 						receiver.master = src
 						var/turf/T = locate(156, 61, 3)
 						var/obj/machinery/vehicle_interior/supply_sender_control/button = locate(/obj/machinery/vehicle_interior/supply_sender_control) in T.contents
-						button.destination = receiver
+						if(button)
+							button.destination = receiver
 						T = locate(157, 61, 3)
 						var/obj/structure/vehicle_interior/supply_sender/sender = locate(/obj/structure/vehicle_interior/supply_sender) in range(button, 1)
 						button.master = sender
