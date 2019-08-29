@@ -592,10 +592,11 @@ var/list/free_modules = list("Medical Modification", "Supply Modification")
 						name = "M580-M APC"
 						camera.network.Add("apc_1")
 
-						interior_area = locate(/area/vehicle_interior/apc_1)
+						interior_area = locate(/area/vehicle_interior/apc_1) in world
 						var/obj/machinery/camera/cam = locate(/obj/machinery/camera/autoname/mainship) in interior_area
-						cam.c_tag = camera.c_tag + " Interior Camera"
-						cam.network.Add("almayer","apc_1")
+						if(cam)
+							cam.c_tag = camera.c_tag + " Interior Camera"
+							cam.network.Add("almayer","apc_1")
 						multitile_interior_exit = locate(/obj/effect/landmark/multitile_interior_exit) in interior_area
 						multitile_interior_cabin_exit = locate(/obj/effect/landmark/multitile_interior_cabin_exit) in interior_area
 						interior_side_door = locate(/obj/structure/vehicle_interior/side_door) in interior_area
@@ -612,10 +613,11 @@ var/list/free_modules = list("Medical Modification", "Supply Modification")
 						name = "M580-S APC"
 						camera.network.Add("apc_2")
 
-						interior_area = locate(/area/vehicle_interior/apc_2)
+						interior_area = locate(/area/vehicle_interior/apc_2) in world
 						var/obj/machinery/camera/cam = locate(/obj/machinery/camera/autoname/mainship) in interior_area
-						cam.c_tag = camera.c_tag + " Interior Camera"
-						cam.network.Add("almayer","apc_2")
+						if(cam)
+							cam.c_tag = camera.c_tag + " Interior Camera"
+							cam.network.Add("almayer","apc_2")
 						multitile_interior_exit = locate(/obj/effect/landmark/multitile_interior_exit) in interior_area
 						multitile_interior_cabin_exit = locate(/obj/effect/landmark/multitile_interior_cabin_exit) in interior_area
 						interior_side_door = locate(/obj/structure/vehicle_interior/side_door) in interior_area

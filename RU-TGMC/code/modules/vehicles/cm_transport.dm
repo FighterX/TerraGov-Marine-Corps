@@ -408,12 +408,12 @@ var/list/apc_dmg_distributions = list(
 	if(dir in list(NORTH, SOUTH))
 		pixel_x = -32
 		pixel_y = -48
-		icon = 'icons/obj/apcarrier_NS.dmi'
+		icon = 'RU-TGMC/icons/obj/vehicles/apcarrier_NS.dmi'
 
 	else if(dir in list(EAST, WEST))
 		pixel_x = -48
 		pixel_y = -32
-		icon = 'icons/obj/apcarrier_EW.dmi'
+		icon = 'RU-TGMC/icons/obj/vehicles/apcarrier_EW.dmi'
 
 	//Basic iteration that snags the overlay from the hardpoint module object
 	var/i

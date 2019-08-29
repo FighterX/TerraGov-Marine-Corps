@@ -24,7 +24,7 @@
 	ex_act(severity)
 		return
 
-/obj/effect/elevator_garage/New()
+/obj/effect/elevator_garage/Initialize()
 	..()
 
 	Center = get_turf(src)
@@ -95,7 +95,7 @@
 
 /obj/effect/elevator_garage/proc/raise_railings()
 	var/effective = FALSE
-	for(var/obj/machinery/door/poddoor/M in SSmachines)
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if(M.id == railing_id && !M.density)
 			effective = TRUE
 			spawn()
@@ -106,7 +106,7 @@
 
 /obj/effect/elevator_garage/proc/lower_railings()
 	var/effective = FALSE
-	for(var/obj/machinery/door/poddoor/M in SSmachines)
+	for(var/obj/machinery/door/poddoor/M in GLOB.machines)
 		if(M.id == railing_id && M.density)
 			effective = TRUE
 			spawn()
@@ -115,7 +115,7 @@
 		playsound(src, 'sound/machines/elevator_openclose.ogg', 50, 0)
 
 /obj/effect/elevator_garage/proc/start_gears()
-	for(var/obj/machinery/gear/M in SSmachines)
+	for(var/obj/machinery/gear/M in GLOB.machines)
 		if(M.id == gear_id)
 			spawn()
 				M.icon_state = "gear_moving"
@@ -125,7 +125,7 @@
 					M.dir = SOUTH
 
 /obj/effect/elevator_garage/proc/stop_gears()
-	for(var/obj/machinery/gear/M in SSmachines)
+	for(var/obj/machinery/gear/M in GLOB.machines)
 		if(M.id == gear_id)
 			spawn()
 				M.icon_state = "gear"
