@@ -24653,10 +24653,6 @@
 	dir = 4
 	},
 /area/mainship/medical/upper_medical)
-"bcz" = (
-/obj/machinery/marine_selector/clothes/smartgun/charlie,
-/turf/open/floor/mainship/mono,
-/area/mainship/squads/delta)
 "bcA" = (
 /turf/open/floor/mainship{
 	dir = 8;
@@ -87294,7 +87290,7 @@ bQw
 bGq
 bRa
 cbn
-bcz
+cee
 ccQ
 cdz
 ccQ
