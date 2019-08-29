@@ -1097,7 +1097,7 @@ var/list/apc_dmg_distributions = list(
 /obj/vehicle/multitile/root/cm_transport/proc/handle_hardpoint_repair(var/obj/item/O, var/mob/user)
 
 	//Need to the what the hell you're doing
-	if(!user.mind || !user.mind.cm_skills || !user.mind.cm_skills.engineer >= SKILL_ENGINEER_MT)
+	if(!user.mind || !user.mind.cm_skills || !user.mind.cm_skills.engineer >= SKILL_ENGINEER_MASTER)
 		to_chat(user, "<span class='warning'>You don't know what to do with [O] on [src].</span>")
 		return
 
@@ -1188,7 +1188,7 @@ var/list/apc_dmg_distributions = list(
 		to_chat(user, "<span class='warning'>You don't know what to do with [HP] on [src].</span>")
 		return
 
-	if(HP.slot != HDPT_WHEELS && user.mind.cm_skills.engineer < SKILL_ENGINEER_MT)
+	if(HP.slot != HDPT_WHEELS && user.mind.cm_skills.engineer < SKILL_ENGINEER_MASTER)
 		to_chat(user, "<span class='warning'>You only know how to remove, install and field repair wheels.</span>")
 		return
 
@@ -1236,7 +1236,7 @@ var/list/apc_dmg_distributions = list(
 
 	var/slot = input("Select a slot to try and remove") in hardpoints
 
-	if(slot != HDPT_WHEELS && user.mind.cm_skills.engineer < SKILL_ENGINEER_MT)
+	if(slot != HDPT_WHEELS && user.mind.cm_skills.engineer < SKILL_ENGINEER_MASTER)
 		to_chat(user, "<span class='warning'>You only know how to remove, install and field repair wheels.</span>")
 		return
 

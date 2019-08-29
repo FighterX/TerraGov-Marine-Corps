@@ -352,7 +352,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), pick('sound/weapons/guns/fire/tank_cannon1.ogg', 'sound/weapons/guns/fire/tank_cannon2.ogg'), 60, 1)
@@ -416,7 +416,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'RU-TGMC/sound/weapons/tank_autocannon_fire1.ogg', 60, 1)
@@ -506,7 +506,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + (chained > length(chain_delays) ? 0.5 : chain_delays[chained]) * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 
@@ -546,7 +546,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), pick('sound/weapons/guns/fire/tank_cannon1.ogg', 'sound/weapons/guns/fire/tank_cannon2.ogg'), 60, 1)
@@ -579,7 +579,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"] * owner.w_ratios["w_prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'RU-TGMC/sound/weapons/tank_autocannon_fire1.ogg', 60, 1)
@@ -654,7 +654,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/tank_flamethrower.ogg', 60, 1)
@@ -718,7 +718,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		A.current_rounds--
@@ -788,7 +788,7 @@ All of the hardpoints, for the tank and APC
 		for(var/i = 0; i <= bullets_fired; i++)
 			if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 				T = get_step(T, pick(CARDINAL_DIRS))
-			var/obj/item/projectile/P = new
+			var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 			P.generate_bullet(new A.default_ammo)
 			P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 			playsound(get_turf(src), pick(list('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')), 60, 1)
@@ -854,7 +854,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P =  new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/interact/m92_cocked.ogg', 60, 1)
@@ -894,7 +894,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/tank_flamethrower.ogg', 60, 1)
@@ -928,7 +928,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		A.current_rounds--
@@ -961,7 +961,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), pick(list('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')), 60, 1)
@@ -994,7 +994,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["secondary"] * owner.misc_ratios["secd_cool"]
 		if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"] * owner.w_ratios["w_secd_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/interact/m92_cocked.ogg', 60, 1)
@@ -1064,7 +1064,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["support"] * owner.misc_ratios["supp_cool"]
 		if(!prob(owner.accuracies["support"] * 100 * owner.misc_ratios["supp_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/tank_smokelauncher.ogg', 60, 1)
@@ -1940,7 +1940,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'RU-TGMC/sound/weapons/tank_autocannon_fire1.ogg', 60, 1)
@@ -1969,7 +1969,7 @@ All of the hardpoints, for the tank and APC
 		next_use = world.time + owner.cooldowns["primary"] * owner.misc_ratios["prim_cool"]
 		if(!prob(owner.accuracies["primary"] * 100 * owner.misc_ratios["prim_acc"]))
 			T = get_step(T, pick(CARDINAL_DIRS))
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 		playsound(get_turf(src), 'RU-TGMC/sound/weapons/tank_autocannon_fire1.ogg', 60, 1)
@@ -2029,7 +2029,7 @@ All of the hardpoints, for the tank and APC
 		for(var/i = 0; i <= bullets_fired; i++)
 			if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"]))
 				T = get_step(T, pick(CARDINAL_DIRS))
-			var/obj/item/projectile/P = new
+			var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 			P.generate_bullet(new A.default_ammo)
 			P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 			playsound(get_turf(src), pick(list('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')), 60, 1)
@@ -2066,7 +2066,7 @@ All of the hardpoints, for the tank and APC
 		for(var/i = 0; i <= bullets_fired; i++)
 			if(!prob(owner.accuracies["secondary"] * 100 * owner.misc_ratios["secd_acc"]))
 				T = get_step(T, pick(CARDINAL_DIRS))
-			var/obj/item/projectile/P = new
+			var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 			P.generate_bullet(new A.default_ammo)
 			P.fire_at(T, owner, src, P.ammo.max_range, P.ammo.shell_speed)
 			playsound(get_turf(src), pick(list('sound/weapons/guns/fire/smartgun1.ogg', 'sound/weapons/guns/fire/smartgun2.ogg', 'sound/weapons/guns/fire/smartgun3.ogg')), 60, 1)
@@ -2143,13 +2143,13 @@ All of the hardpoints, for the tank and APC
 
 
 		next_use = world.time + owner.cooldowns["support"] * owner.misc_ratios["support"]
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(F, owner, src, 8, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/flare.ogg', 60, 1)
 		A.current_rounds--
 		sleep (10)
-		var/obj/item/projectile/G = new
+		var/obj/item/projectile/G = new /obj/item/projectile(owner.loc)
 		G.generate_bullet(new A.default_ammo)
 		G.fire_at(S, owner, src, 8, G.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/flare.ogg', 60, 1)
@@ -2217,13 +2217,13 @@ All of the hardpoints, for the tank and APC
 
 
 		next_use = world.time + owner.cooldowns["support"] * owner.misc_ratios["support"]
-		var/obj/item/projectile/P = new
+		var/obj/item/projectile/P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new A.default_ammo)
 		P.fire_at(F, owner, src, 8, P.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/flare.ogg', 60, 1)
 		A.current_rounds--
 		sleep (10)
-		var/obj/item/projectile/G = new
+		var/obj/item/projectile/G = new /obj/item/projectile(owner.loc)
 		G.generate_bullet(new A.default_ammo)
 		G.fire_at(S, owner, src, 8, G.ammo.shell_speed)
 		playsound(get_turf(src), 'sound/weapons/guns/fire/flare.ogg', 60, 1)
@@ -2451,7 +2451,7 @@ All of the hardpoints, for the tank and APC
 			to_chat(owner.pilot , "<span class='warning'>[name] fired! [ammo.current_rounds]/[ammo.max_rounds] remaining!")
 			visible_message("<span class='danger'>[owner.name] fires from [name]!</span>", "<span class='warning'>You hear [istype(P.ammo, /datum/ammo/bullet) ? "gunshot" : "blast"]!</span>")
 			return
-		P = new
+		P = new /obj/item/projectile(owner.loc)
 		P.generate_bullet(new ammo.default_ammo)
 		playsound(src, fire_sound, 60)
 		target = simulate_scatter(target, P)
