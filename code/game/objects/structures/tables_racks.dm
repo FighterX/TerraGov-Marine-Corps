@@ -22,7 +22,6 @@
 	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	hit_sound = 'sound/effects/metalhit.ogg'
-	coverage = 10
 	var/parts = /obj/item/frame/table
 	var/status = 2
 	var/sheet_type = /obj/item/stack/sheet/metal
@@ -59,7 +58,7 @@
 
 /obj/structure/table/Crossed(atom/movable/O)
 	..()
-	if(istype(O,/mob/living/carbon/xenomorph/ravager))
+	if(istype(O,/mob/living/carbon/xenomorph/ravager) || istype(O,/mob/living/carbon/xenomorph/crusher))
 		var/mob/living/carbon/xenomorph/M = O
 		if(!M.stat) //No dead xenos jumpin on the bed~
 			visible_message("<span class='danger'>[O] plows straight through [src]!</span>")
@@ -581,7 +580,7 @@
 
 /obj/structure/rack/Crossed(atom/movable/O)
 	..()
-	if(istype(O,/mob/living/carbon/xenomorph/ravager))
+	if(istype(O,/mob/living/carbon/xenomorph/ravager) || istype(O,/mob/living/carbon/xenomorph/crusher))
 		var/mob/living/carbon/xenomorph/M = O
 		if(!M.stat) //No dead xenos jumpin on the bed~
 			visible_message("<span class='danger'>[O] plows straight through [src]!</span>")

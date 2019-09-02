@@ -307,22 +307,30 @@
 /mob/living/is_drawable(allowmobs = TRUE)
 	return (allowmobs && can_inject())
 
-/mob/living/Bump(atom/A)
-	. = ..()
-	if(.) //We are thrown onto something.
+/mob/living/Bump(atom/movable/AM, yes)
+	if(buckled || !yes || now_pushing)
 		return
-	if(buckled || now_pushing)
-		return
-	if(isliving(A))
-		var/mob/living/L = A
+	now_pushing = 1
+	if(isliving(AM))
+		var/mob/living/L = AM
 
-		if(mob_size < L.mob_size) //Can't go around pushing things larger than us.
-			return
+		if(isxeno(L) && !isxenolarva(L)) //Handling pushing Xenos in general, but big Xenos can still push small Xenos
+			var/mob/living/carbon/xenomorph/X = L
+			if((ishuman(src) && X.mob_size == MOB_SIZE_BIG) || (isxeno(src) && X.mob_size == MOB_SIZE_BIG))
+				if(!isxeno(src) && client)
+					do_bump_delay = 1
+				now_pushing = 0
+				return
 
+		if(isxeno(src) && !isxenolarva(src) && ishuman(L)) //We are a Xenomorph and pushing a human
+			var/mob/living/carbon/xenomorph/X = src
+			if(X.mob_size == MOB_SIZE_BIG)
+				L.do_bump_delay = 1
 
 		if(L.pulledby && L.pulledby != src && L.restrained())
 			if(!(world.time % 5))
 				to_chat(src, "<span class='warning'>[L] is restrained, you cannot push past.</span>")
+			now_pushing = 0
 			return
 
 		if(L.pulling)
@@ -331,55 +339,60 @@
 				if(P.restrained())
 					if(!(world.time % 5))
 						to_chat(src, "<span class='warning'>[L] is restraining [P], you cannot push past.</span>")
+					now_pushing = 0
 					return
 
+		if(ishuman(L))
+			if(!(L.status_flags & CANPUSH))
+				now_pushing = 0
+				return
+
 		if(moving_diagonally)//no mob swap during diagonal moves.
+			now_pushing = 0
 			return
 
 		if(!L.buckled && !L.anchored)
-			var/mob_swap = FALSE
+			var/mob_swap
 			//the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
-				mob_swap = TRUE
+				mob_swap = 1
 			//restrained people act if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 			else if((L.restrained() || L.a_intent == INTENT_HELP) && (restrained() || a_intent == INTENT_HELP))
-				mob_swap = TRUE
-			else if(mob_size > L.mob_size && a_intent == INTENT_HELP) //Larger mobs can shove aside smaller ones.
-				mob_swap = TRUE
+				mob_swap = 1
 			if(mob_swap)
 				//switch our position with L
 				if(loc && !loc.Adjacent(L.loc))
+					now_pushing = 0
 					return
-				now_pushing = TRUE
 				var/oldloc = loc
 				var/oldLloc = L.loc
+
 
 				var/L_passmob = (L.flags_pass & PASSMOB) // we give PASSMOB to both mobs to avoid bumping other mobs during swap.
 				var/src_passmob = (flags_pass & PASSMOB)
 				L.flags_pass |= PASSMOB
 				flags_pass |= PASSMOB
 
-				var/move_failed = FALSE
-				if(!L.Move(oldloc) || !Move(oldLloc))
-					L.forceMove(oldLloc)
-					forceMove(oldloc)
-					move_failed = TRUE
+				L.Move(oldloc)
+				Move(oldLloc)
 
 				if(!src_passmob)
 					flags_pass &= ~PASSMOB
 				if(!L_passmob)
 					L.flags_pass &= ~PASSMOB
 
-				now_pushing = FALSE
-
-				if(!move_failed)
-					return
+				now_pushing = 0
+				return
 
 		if(!(L.status_flags & CANPUSH))
+			now_pushing = 0
 			return
 
-	if(ismovableatom(A))
-		PushAM(A)
+	now_pushing = 0
+	. = ..()
+	
+	if(ismovableatom(AM))
+		PushAM(AM)
 
 
 //Called when we want to push an atom/movable
@@ -406,7 +419,7 @@
 	now_pushing = FALSE
 
 
-/mob/living/throw_at(atom/target, range, speed, thrower, spin)
+/mob/living/throw_at(atom/target, range, speed, thrower)
 	if(!target || !src)	
 		return 0
 	if(pulling) 

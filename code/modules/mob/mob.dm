@@ -201,9 +201,8 @@
 
 
 /mob/proc/movement_delay()
-	. += cached_multiplicative_slowdown + next_move_slowdown
+	. += next_move_slowdown
 	next_move_slowdown = 0
-
 
 //This proc is called whenever someone clicks an inventory ui slot.
 /mob/proc/attack_ui(slot)

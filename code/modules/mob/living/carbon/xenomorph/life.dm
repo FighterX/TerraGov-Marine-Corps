@@ -305,19 +305,15 @@
 		#endif
 	return slowdown
 
-
 /mob/living/carbon/xenomorph/add_slowdown(amount)
-	if(is_charging >= CHARGE_ON) //If we're charging we're immune to slowdown.
-		return 0
-	slowdown = adjust_slowdown(amount * XENO_SLOWDOWN_REGEN)
+	slowdown = adjust_slowdown(amount*XENO_SLOWDOWN_REGEN)
 	return slowdown
 
-
-/mob/living/carbon/xenomorph/adjust_stagger(amount)
-	if(is_charging >= CHARGE_ON) //If we're charging we don't accumulate more stagger stacks.
+/mob/living/carbon/xenomorph/crusher/add_slowdown(amount)
+	if(charge_speed > CHARGE_SPEED_MAX * 0.5) //If we're over half the max charge speed, we're immune to slowdown.
 		return FALSE
-	return ..()
-
+	slowdown = adjust_slowdown(amount*XENO_SLOWDOWN_REGEN)
+	return slowdown
 
 /mob/living/carbon/xenomorph/proc/handle_halloss()
 	if(halloss)

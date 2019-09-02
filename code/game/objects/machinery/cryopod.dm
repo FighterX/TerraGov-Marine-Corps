@@ -344,7 +344,7 @@
 /obj/item/storage/store_in_cryo(list/items, nullspace_it = TRUE)
 	for(var/O in src)
 		var/obj/item/I = O
-		I.store_in_cryo(items, FALSE)
+		items = I.store_in_cryo(items, FALSE)
 	return ..()
 
 /obj/item/clothing/suit/storage/store_in_cryo(list/items, nullspace_it = TRUE)
