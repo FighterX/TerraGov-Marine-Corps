@@ -206,23 +206,6 @@
 	else
 		..()
 
-/obj/vehicle/walker/Bumped(atom/A)
-	..()
-
-	if(!isxeno(A))
-		return
-	var/mob/living/carbon/xenomorph/C = A
-	if(isxenocrusher(C))
-
-		var/mob/living/carbon/xenomorph/crusher/caste = A
-
-		if(caste.charge_speed < CHARGE_SPEED_MAX/(1.1)) //Arbitrary ratio here, might want to apply a linear transformation instead
-			return
-
-		obj_integrity -= caste.charge_speed * CRUSHER_CHARGE_TANK_MULTI * dmg_multipliers["slash"]
-		caste.visible_message("<span class='xenodanger'>You crushed into tincan's armor!</span>", "<span class='danger'>[caste] crushed onto [src]</span>")
-		healthcheck()
-
 /obj/vehicle/walker/verb/enter_walker()
 	set category = "Object"
 	set name = "Enter Into Walker"
