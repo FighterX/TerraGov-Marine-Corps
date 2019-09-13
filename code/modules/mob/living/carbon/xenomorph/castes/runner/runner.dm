@@ -4,8 +4,8 @@
 	desc = "A small red alien that looks like it could run fairly quickly..."
 	icon = 'icons/Xeno/2x2_Xenos.dmi' //They are now like, 2x1 or something
 	icon_state = "Runner Walking"
-	health = 100
-	maxHealth = 100
+	health = 175
+	maxHealth = 175
 	plasma_stored = 50
 	speed = -1.7
 	flags_pass = PASSTABLE

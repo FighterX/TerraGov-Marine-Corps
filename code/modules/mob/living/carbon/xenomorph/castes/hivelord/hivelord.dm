@@ -4,8 +4,8 @@
 	desc = "A huge ass xeno covered in weeds! Oh shit!"
 	icon = 'icons/Xeno/2x2_Xenos.dmi'
 	icon_state = "Hivelord Walking"
-	health = 250
-	maxHealth = 250
+	health = 325
+	maxHealth = 325
 	plasma_stored = 200
 	pixel_x = -16
 	old_x = -16

@@ -22,7 +22,7 @@
 	plasma_gain = 15
 
 	// *** Health *** //
-	max_health = 600
+	max_health = 675
 
 	hardcore = TRUE
 
