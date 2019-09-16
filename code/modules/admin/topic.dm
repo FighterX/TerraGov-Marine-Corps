@@ -8,15 +8,18 @@
 	message_admins("[ADMIN_TPMONTY(usr)] clicked an href with [msg] authorization key.")
 
 
+/datum/admins/can_interact(mob/user)
+	if(user.client != owner || !check_rights(NONE))
+		log_admin("[key_name(user)] tried to use the admin panel without authorization.")
+		message_admins("[ADMIN_TPMONTY(user)] tried to use the admin panel without authorization.")
+		return FALSE
+
+	return TRUE
+
 
 /datum/admins/Topic(href, href_list)
 	. = ..()
 	if(.)
-		return
-
-	if(usr.client != owner || !check_rights(NONE))
-		log_admin("[key_name(usr)] tried to use the admin panel without authorization.")
-		message_admins("[ADMIN_TPMONTY(usr)] tried to use the admin panel without authorization.")
 		return
 
 	if(!CheckAdminHref(href, href_list))
@@ -1765,10 +1768,12 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			to_chat(usr, "<span class='warning'>Target is no longer valid.</span>")
 			return
 
+		var/oldname = H.real_name
+
 		H.fully_replace_character_name(H.real_name, H.species.random_name(H.gender))
 
-		log_admin("[key_name(src)] gave [key_name(H)] a random name.")
-		message_admins("[ADMIN_TPMONTY(usr)] gave a [ADMIN_TPMONTY(H)] random name.")
+		log_admin("[key_name(src)] randomized the name of [oldname] -> [key_name(H)].")
+		message_admins("[ADMIN_TPMONTY(usr)] randomized the name of [oldname] -> [ADMIN_TPMONTY(H)].")
 
 
 	else if(href_list["checkcontents"])

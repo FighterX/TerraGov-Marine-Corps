@@ -384,7 +384,7 @@
 /obj/structure/closet/proc/togglelock(mob/living/user, silent)
 	if(!CHECK_BITFIELD(closet_flags, CLOSET_IS_SECURE))
 		return FALSE
-	if(!user.IsAdvancedToolUser())
+	if(!user.dextrous)
 		if(!silent)
 			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
@@ -471,8 +471,8 @@
 /mob/living/proc/on_closet_dump(datum/source, obj/structure/closet/origin)
 	stun(origin.closet_stun_delay)//Action delay when going out of a closet
 	if(!lying && stunned)
-		visible_message("<span class='warning'>[src] suddenly gets out of [origin]!",
-		"<span class='warning'>You get out of [origin] and get your bearings!")
+		visible_message("<span class='warning'>[src] suddenly gets out of [origin]!</span>",
+		"<span class='warning'>You get out of [origin] and get your bearings!</span>")
 	origin.UnregisterSignal(src, COMSIG_LIVING_DO_RESIST)
 	UnregisterSignal(src, COMSIG_MOVABLE_CLOSET_DUMPED)
 
