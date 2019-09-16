@@ -4,8 +4,8 @@
 	desc = "A gross, oozing alien of some kind."
 	icon = 'icons/Xeno/48x48_Xenos.dmi'
 	icon_state = "Spitter Walking"
-	health = 180
-	maxHealth = 180
+	health = 255
+	maxHealth = 255
 	plasma_stored = 150
 	speed = -0.5
 	pixel_x = -12

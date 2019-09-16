@@ -4,8 +4,8 @@
 	desc = "A strange-looking alien creature. It carries a number of scuttling jointed crablike creatures."
 	icon = 'icons/Xeno/2x2_Xenos.dmi' //They are now like, 2x2
 	icon_state = "Carrier Walking"
-	health = 200
-	maxHealth = 200
+	health = 275
+	maxHealth = 275
 	plasma_stored = 50
 	drag_delay = 6 //pulling a big dead xeno is hard
 	speed = 0

@@ -1032,20 +1032,6 @@ var/list/apc_dmg_distributions = list(
 
 	return ..()
 
-//Need to take damage from crushers, probably too little atm
-/obj/vehicle/multitile/root/cm_transport/Bumped(var/atom/A)
-	..()
-
-	if(istype(A, /mob/living/carbon/xenomorph/crusher))
-
-		var/mob/living/carbon/xenomorph/crusher/C = A
-
-		if(C.charge_speed < CHARGE_SPEED_MAX/(1.1)) //Arbitrary ratio here, might want to apply a linear transformation instead
-			return
-
-		take_damage_type(100, "blunt", C)
-		interior_concussion(1)
-
 //Redistributes damage ratios based off of what things are attached (no armor means the armor doesn't mitigate any damage)
 /obj/vehicle/multitile/root/cm_transport/proc/update_damage_distribs()
 	dmg_distribs = apc_dmg_distributions.Copy() //Assume full installs
