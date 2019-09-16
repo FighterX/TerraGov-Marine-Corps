@@ -25,7 +25,7 @@
 	plasma_gain = 30
 
 	// *** Health *** //
-	max_health = 220
+	max_health = 275
 
 	// *** Evolution *** //
 	upgrade_threshold = 400
@@ -71,7 +71,7 @@
 	plasma_gain = 35
 
 	// *** Health *** //
-	max_health = 240
+	max_health = 315
 
 	// *** Evolution *** //
 	upgrade_threshold = 800
@@ -107,7 +107,7 @@
 	plasma_gain = 40
 
 	// *** Health *** //
-	max_health = 250
+	max_health = 325
 
 	// *** Evolution *** //
 	upgrade_threshold = 1600
@@ -144,7 +144,7 @@
 	plasma_gain = 50
 
 	// *** Health *** //
-	max_health = 255
+	max_health = 330
 
 	// *** Defense *** //
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 35, "energy" = 35, "bomb" = XENO_BOMB_RESIST_0, "bio" = 35, "rad" = 35, "fire" = 35, "acid" = 35)

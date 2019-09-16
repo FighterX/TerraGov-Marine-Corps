@@ -4,8 +4,8 @@
 	desc = "A huge, grotesque xenomorph covered in glowing, oozing acid slime."
 	icon = 'icons/Xeno/2x2_Xenos.dmi'
 	icon_state = "Boiler Walking"
-	health = 200
-	maxHealth = 200
+	health = 275
+	maxHealth = 275
 	plasma_stored = 450
 	pixel_x = -16
 	old_x = -16

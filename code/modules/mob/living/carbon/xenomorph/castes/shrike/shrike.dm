@@ -8,8 +8,8 @@
 	attack_sound = null
 	friendly = "nuzzles"
 	wall_smash = FALSE
-	health = 240
-	maxHealth = 240
+	health = 315
+	maxHealth = 315
 	plasma_stored = 300
 	speed = -0.2
 	pixel_x = -16

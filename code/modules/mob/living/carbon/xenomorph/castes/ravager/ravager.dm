@@ -4,8 +4,8 @@
 	desc = "A huge, nasty red alien with enormous scythed claws."
 	icon = 'icons/Xeno/2x2_Xenos.dmi'
 	icon_state = "Ravager Walking"
-	health = 200
-	maxHealth = 200
+	health = 275
+	maxHealth = 275
 	plasma_stored = 50
 	mob_size = MOB_SIZE_BIG
 	drag_delay = 6 //pulling a big dead xeno is hard
