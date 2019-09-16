@@ -28,7 +28,7 @@
 	plasma_gain = 10
 
 	// *** Health *** //
-	max_health = 300
+	max_health = 375
 
 	// *** Evolution *** //
 	upgrade_threshold = 400
@@ -69,7 +69,7 @@
 	plasma_gain = 15
 
 	// *** Health *** //
-	max_health = 325
+	max_health = 400
 
 	// *** Evolution *** //
 	upgrade_threshold = 800
@@ -100,7 +100,7 @@
 	plasma_gain = 30
 
 	// *** Health *** //
-	max_health = 340
+	max_health = 415
 
 	// *** Evolution *** //
 	upgrade_threshold = 1600
@@ -131,7 +131,7 @@
 	plasma_gain = 30
 
 	// *** Health *** //
-	max_health = 350
+	max_health = 425
 
 	deevolves_to = /mob/living/carbon/xenomorph/warrior
 
