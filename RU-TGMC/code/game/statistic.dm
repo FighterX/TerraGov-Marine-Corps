@@ -1,4 +1,4 @@
-proc/show_statistic(var/client/C, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/proc/show_statistic(var/client/C, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/user = C.mob
 	var/list/data = list() //Fuck this shit i spent 2 hours just to write it
 	data["total_projectiles_fired"] = GLOB.round_statistics.total_projectiles_fired
@@ -28,10 +28,10 @@ proc/show_statistic(var/client/C, ui_key = "main", var/datum/nanoui/ui = null, v
 		data["human_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
 	for(var/mob/i in GLOB.dead_human_list)
 		data["human_list_dead"] += list(list("ckey" = "DEAD", "name" = i.name, "stat" = "DEAD"))
-	src = C.mob
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	var/source = C.mob
+	ui = SSnano.try_update_ui(user, source, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "statistics.tmpl", "Round End Statistics", 360, 800)
+		ui = new(user, source, ui_key, "statistics.tmpl", "Round End Statistics", 360, 800)
 		ui.set_initial_data(data)
 		ui.open()
 
