@@ -331,7 +331,7 @@
 
 
 	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
-
+	show_stats_everybody()
 	announce_medal_awards()
 	announce_round_stats()
 

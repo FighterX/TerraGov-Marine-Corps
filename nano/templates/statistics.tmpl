@@ -1,0 +1,33 @@
+<div itemLabel>
+    <b>Projectiles fired: </b>{{:data.total_projectiles_fired}}<br>
+    <b>Bullets fired: </b>{{:data.total_bullets_fired}}<br>
+    <b>Xenos deaths: </b>{{:data.total_xeno_deaths}}<br>
+    <b>Humans deaths: </b>{{:data.total_human_deaths}}<br>
+    <b>Xenos borned: </b>{{:data.total_xenos_created}}<br>
+    <b>The number of Humans: </b>{{:data.total_humans_created}}<br>
+    <b>Humans was shot: </b>{{:data.total_bullet_hits_on_humans}}<br>
+    <b>Xenos was shot: </b>{{:data.total_bullet_hits_on_xenos}}<br>
+    <b>Total larva bursts: </b>{{:data.total_larva_burst}}<br>
+    <b>Total carrier traps: </b>{{:data.carrier_traps}}<br>
+    <b>Weeds planted: </b>{{:data.weeds_planted}}<br>
+    <b>Weeds destroyed: </b>{{:data.weeds_destroyed}}<br>
+    <b>Grenades thrown: </b>{{:data.grenades_thrown}}<br>
+    <b>Queen screeches: </b>{{:data.queen_screech}}<br>
+    <b>Now pregnant: </b>{{:data.now_pregnant}}<br>
+    <hr>
+    <b>Xenos was:</b><br>
+    {{for data.xeno_list_alive}}
+        {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
+    {{/for}}
+    {{for data.xeno_list_dead}}
+        {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
+    {{/for}}
+    <hr>
+    <b>Marines was:</b><br>
+    {{for data.human_list_alive}}
+        {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
+    {{/for}}
+    {{for data.human_list_dead}}
+        {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
+    {{/for}}
+</div>
