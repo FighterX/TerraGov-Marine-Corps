@@ -876,7 +876,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	accuracy_var_low = CONFIG_GET(number/combat_define/low_proj_variance)
 	accuracy_var_high = CONFIG_GET(number/combat_define/low_proj_variance)
 	accurate_range = CONFIG_GET(number/combat_define/close_shell_range)
-	damage = CONFIG_GET(number/combat_define/med_hit_damage)
+	damage = CONFIG_GET(number/combat_define/lmmed_hit_damage)
 	penetration= CONFIG_GET(number/combat_define/low_armor_penetration)
 	shrapnel_chance = CONFIG_GET(number/combat_define/med_shrapnel_chance)
 
