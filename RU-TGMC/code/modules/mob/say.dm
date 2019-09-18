@@ -20,4 +20,9 @@
 	key_symbol = replacetext(key_symbol, RADIO_KEY_BRAVO_RU, RADIO_KEY_BRAVO)
 	key_symbol = replacetext(key_symbol, RADIO_KEY_CHARLIE_RU, RADIO_KEY_CHARLIE)
 	key_symbol = replacetext(key_symbol, RADIO_KEY_DELTA_RU, RADIO_KEY_DELTA)
+	key_symbol = replacetext(key_symbol, MODE_KEY_R_HAND_RU, MODE_KEY_R_HAND)
+	key_symbol = replacetext(key_symbol, MODE_KEY_L_HAND_RU, MODE_KEY_L_HAND)
+	key_symbol = replacetext(key_symbol, MODE_KEY_INTERCOM_RU, MODE_KEY_INTERCOM)
+	key_symbol = replacetext(key_symbol, MODE_KEY_DEPARTMENT_RU, MODE_KEY_DEPARTMENT)
+	key_symbol = replacetext(key_symbol, MODE_KEY_BINARY_RU, MODE_KEY_BINARY)
 	return key_symbol

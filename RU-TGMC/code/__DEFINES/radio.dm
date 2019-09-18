@@ -7,3 +7,8 @@
 #define RADIO_KEY_BRAVO_RU "è"
 #define RADIO_KEY_CHARLIE_RU "ñ"
 #define RADIO_KEY_DELTA_RU "â"
+#define MODE_KEY_R_HAND_RU "ê"
+#define MODE_KEY_L_HAND_RU "ä"
+#define MODE_KEY_INTERCOM_RU "ø"
+#define MODE_KEY_DEPARTMENT_RU "ð"
+#define MODE_KEY_BINARY_RU "ò"
