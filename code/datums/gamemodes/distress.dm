@@ -116,6 +116,7 @@
 	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
 
 	to_chat(world, "<span class='round_body'>Thus ends the story of the brave men and women of the [SSmapping.configs[SHIP_MAP].map_name] and their struggle on [SSmapping.configs[GROUND_MAP].map_name].</span>")
+	show_stats_everybody()
 	var/sound/xeno_track
 	var/sound/human_track
 	switch(round_finished)
@@ -160,7 +161,6 @@
 		SEND_SOUND(M, ghost_sound)
 
 	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
-	show_stats_everybody()
 	announce_xenomorphs()
 	announce_survivors()
 	announce_medal_awards()
