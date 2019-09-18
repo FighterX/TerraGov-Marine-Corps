@@ -50,14 +50,17 @@
 
 
 /mob/living/carbon/human/death(gibbed)
-	if(stat == DEAD) 
+	if(stat == DEAD)
 		return
+
+	if(!gibbed && src.gender == "male")
+		playsound(src.loc, pick('sound/voice/death.ogg','sound/voice/death1.ogg','sound/voice/death2.ogg','sound/voice/death3.ogg','sound/voice/death4.ogg','sound/voice/death5.ogg','sound/voice/death6.ogg'), 15,0)
 
 	if(pulledby)
 		pulledby.stop_pulling()
 
 	//Handle species-specific deaths.
-	if(species) 
+	if(species)
 		species.handle_death(src, gibbed)
 
 	remove_typing_indicator()
