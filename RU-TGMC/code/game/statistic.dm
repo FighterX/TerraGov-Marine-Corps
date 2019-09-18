@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(dead_xeno_data)
+
 /proc/show_statistic(var/client/C, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/user = C.mob
 	var/list/data = list() //Fuck this shit i spent 2 hours just to write it
@@ -22,12 +24,10 @@
 	data["human_list_dead"] = list()
 	for(var/mob/i in GLOB.alive_xeno_list)
 		data["xeno_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
-	for(var/mob/i in GLOB.dead_xeno_list)
-		data["xeno_list_dead"] += list(list("ckey" = "DEAD", "name" = i.name, "stat" = "DEAD"))
+	for(var/list/i in GLOB.dead_xeno_data)
+		data["xeno_list_dead"] += list(list("ckey" = i["ckey"], "name" = i["name"], "stat" = "DEAD"))
 	for(var/mob/i in GLOB.alive_human_list)
 		data["human_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
-	for(var/mob/i in GLOB.dead_human_list)
-		data["human_list_dead"] += list(list("ckey" = "DEAD", "name" = i.name, "stat" = "DEAD"))
 	var/source = C.mob
 	ui = SSnano.try_update_ui(user, source, ui_key, ui, data, force_open)
 	if (!ui)
