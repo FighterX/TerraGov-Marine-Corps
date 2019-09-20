@@ -223,6 +223,9 @@
 						to_chat(H, "<span class='warning'>You already have a specialist specialization.</span>")
 						return
 					var/p_name = L[1]
+					if(findtext(p_name, "Minigun") && length(GLOB.clients) < 25)
+						to_chat(H, "<span class='warning'>Too small number of marines in this mission to use Minigunner set</span>")
+						return
 					if(findtext(p_name, "Scout Set")) //Makes sure there can only be one Scout kit taken despite the two variants.
 						p_name = "Scout Set"
 					else if(findtext(p_name, "Heavy Armor Set")) //Makes sure there can only be one Heavy kit taken despite the two variants.
