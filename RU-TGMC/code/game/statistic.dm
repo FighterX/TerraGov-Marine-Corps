@@ -1,8 +1,13 @@
 GLOBAL_LIST_EMPTY(dead_xeno_data)
+GLOBAL_LIST_EMPTY(dead_human_data)
 
-/proc/show_statistic(var/client/C, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/proc/show_statistic(var/client/C, var/checked_tab = "general")
+	var/ui_key = "main"
+	var/datum/nanoui/ui = null
+	var/force_open = 1
 	var/mob/user = C.mob
 	var/list/data = list() //Fuck this shit i spent 2 hours just to write it
+	data["current_tab"] = checked_tab
 	data["total_projectiles_fired"] = GLOB.round_statistics.total_projectiles_fired
 	data["total_bullets_fired"] = GLOB.round_statistics.total_bullets_fired
 	data["total_xeno_deaths"] = GLOB.round_statistics.total_xeno_deaths
@@ -27,7 +32,11 @@ GLOBAL_LIST_EMPTY(dead_xeno_data)
 	for(var/list/i in GLOB.dead_xeno_data)
 		data["xeno_list_dead"] += list(list("ckey" = i["ckey"], "name" = i["name"], "stat" = "DEAD"))
 	for(var/mob/i in GLOB.alive_human_list)
-		data["human_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
+		if(i.mind)
+			data["human_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
+	for(var/list/i in GLOB.dead_human_data)
+		data["human_list_dead"] += list(list("ckey" = i["ckey"], "name" = i["name"], "stat" = "DEAD"))
+		to_chat(world, "CKEY = [i["ckey"]], NAME = [i["name"]]")
 	var/source = C.mob
 	ui = SSnano.try_update_ui(user, source, ui_key, ui, data, force_open)
 	if (!ui)
@@ -39,3 +48,17 @@ GLOBAL_LIST_EMPTY(dead_xeno_data)
 	for(var/client/C in GLOB.clients)
 		show_statistic(C)
 
+/client/Topic(href, href_list[])
+	if(href_list["type"] == "stats_tabs")
+		var/client/C = usr.client
+		var/checked_tab = "general"
+		switch(href_list["option"])
+			if("general")
+				checked_tab = "general"
+			if("xenos")
+				checked_tab = "xenos"
+			if("marines")
+				checked_tab = "marines"
+		show_statistic(C, checked_tab)
+	else
+		. = ..()

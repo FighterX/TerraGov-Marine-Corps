@@ -50,6 +50,8 @@
 
 
 /mob/living/carbon/human/death(gibbed)
+	if(mind)
+		GLOB.dead_human_data += list(list("ckey" = ckey, "name" = name))
 	if(stat == DEAD) 
 		return
 
