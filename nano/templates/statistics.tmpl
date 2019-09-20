@@ -1,4 +1,9 @@
 <div itemLabel>
+    {{:helper.link('General', null, {'type' : 'stats_tabs', 'option' : 'general'}, data.current_tab == 'general' ? 'selected' : null)}}
+    {{:helper.link('Xenos', null, {'type' : 'stats_tabs', 'option' : 'xenos'}, data.current_tab == 'xenos' ? 'selected' : null)}}
+    {{:helper.link('Marines', null, {'type' : 'stats_tabs', 'option' : 'marines'}, data.current_tab == 'marines' ? 'selected' : null)}}
+    <br><hr>
+    {{if data.current_tab == "general"}}
     <b>Projectiles fired: </b>{{:data.total_projectiles_fired}}<br>
     <b>Bullets fired: </b>{{:data.total_bullets_fired}}<br>
     <b>Xenos deaths: </b>{{:data.total_xeno_deaths}}<br>
@@ -14,7 +19,8 @@
     <b>Grenades thrown: </b>{{:data.grenades_thrown}}<br>
     <b>Queen screeches: </b>{{:data.queen_screech}}<br>
     <b>Now pregnant: </b>{{:data.now_pregnant}}<br>
-    <hr>
+    {{/if}}
+    {{if data.current_tab == "xenos"}}
     <b>Xenos was:</b><br>
     {{for data.xeno_list_alive}}
         {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
@@ -22,9 +28,14 @@
     {{for data.xeno_list_dead}}
         {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
     {{/for}}
-    <hr>
-    <b>Marines survived:</b><br>
+    {{/if}}
+    {{if data.current_tab == "marines"}}
+    <b>Marines was:</b><br>
     {{for data.human_list_alive}}
         {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
     {{/for}}
+    {{for data.human_list_dead}}
+        {{:value.name}} was played by {{:value.ckey}} ({{:value.stat}})<br>
+    {{/for}}
+    {{/if}}
 </div>
