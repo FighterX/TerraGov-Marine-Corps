@@ -2,11 +2,11 @@ GLOBAL_LIST_EMPTY(dead_xeno_data)
 GLOBAL_LIST_EMPTY(dead_human_data)
 
 /proc/show_statistic(var/client/C, var/checked_tab = "general")
-	var/ui_key = "main"
+	var/ui_key = "main" //constant values
 	var/datum/nanoui/ui = null
 	var/force_open = 1
 	var/mob/user = C.mob
-	var/list/data = list() //Fuck this shit i spent 2 hours just to write it
+	var/list/data = list() //data list below
 	data["current_tab"] = checked_tab
 	data["total_projectiles_fired"] = GLOB.round_statistics.total_projectiles_fired
 	data["total_bullets_fired"] = GLOB.round_statistics.total_bullets_fired
@@ -27,17 +27,16 @@ GLOBAL_LIST_EMPTY(dead_human_data)
 	data["xeno_list_dead"] = list()
 	data["human_list_alive"] = list()
 	data["human_list_dead"] = list()
-	for(var/mob/i in GLOB.alive_xeno_list)
+	for(var/mob/i in GLOB.alive_xeno_list) //for every alive xeno
 		data["xeno_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
-	for(var/list/i in GLOB.dead_xeno_data)
+	for(var/list/i in GLOB.dead_xeno_data) //for every dead xeno
 		data["xeno_list_dead"] += list(list("ckey" = i["ckey"], "name" = i["name"], "stat" = "DEAD"))
-	for(var/mob/i in GLOB.alive_human_list)
+	for(var/mob/i in GLOB.alive_human_list) //for every alive human with mind (checking that human is marine)
 		if(i.mind)
 			data["human_list_alive"] += list(list("ckey" = i.ckey, "name" = i.name, "stat" = "SURVIVED"))
-	for(var/list/i in GLOB.dead_human_data)
+	for(var/list/i in GLOB.dead_human_data) //for every dead human which was with mind
 		data["human_list_dead"] += list(list("ckey" = i["ckey"], "name" = i["name"], "stat" = "DEAD"))
-		to_chat(world, "CKEY = [i["ckey"]], NAME = [i["name"]]")
-	var/source = C.mob
+	var/source = C.mob //making src = player mob for showing it to everyone
 	ui = SSnano.try_update_ui(user, source, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, source, ui_key, "statistics.tmpl", "Round End Statistics", 360, 800)
@@ -49,7 +48,7 @@ GLOBAL_LIST_EMPTY(dead_human_data)
 		show_statistic(C)
 
 /client/Topic(href, href_list[])
-	if(href_list["type"] == "stats_tabs")
+	if(href_list["type"] == "stats_tabs") //just getting checked tab
 		var/client/C = usr.client
 		var/checked_tab = "general"
 		switch(href_list["option"])

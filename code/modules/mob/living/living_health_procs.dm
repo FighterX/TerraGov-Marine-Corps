@@ -146,6 +146,14 @@ mob/living/proc/adjustHalLoss(amount) //This only makes sense for carbon.
 	. = ..()
 	GLOB.alive_human_list += src
 	GLOB.dead_human_list -= src
+	var/list/newlist = list()
+	for(var/list/i in GLOB.dead_human_data)
+		if(findtext(name, i["name"]))
+			continue
+		newlist += list(i)
+
+	GLOB.dead_human_data = newlist
+		
 
 /mob/living/carbon/xenomorph/on_revive()
 	. = ..()
