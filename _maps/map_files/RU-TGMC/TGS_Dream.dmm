@@ -2449,6 +2449,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/numbertwobunks)
 "gK" = (
+/obj/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "garage_railing"
+	},
 /turf/open/floor/mainship,
 /area/mainship/hallways/exoarmor)
 "gL" = (
@@ -4241,13 +4245,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/briefing)
 "kx" = (
-/obj/structure/bed/chair{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/effect/landmark/start/marine/cargotechnician,
 /turf/open/floor/mainship{
-	icon_state = "greencorner";
-	dir = 8
+	dir = 8;
+	icon_state = "green"
 	},
 /area/mainship/squads/req)
 "ky" = (
@@ -4412,12 +4415,21 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "garage_railing"
+	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "kZ" = (
-/turf/open/floor/mainship{
-	icon_state = "cargo"
+/obj/machinery/door/poddoor/railing{
+	dir = 4;
+	id = "garage_railing"
 	},
+/obj/machinery/gear{
+	id = "garage_gear"
+	},
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "la" = (
 /obj/machinery/door_control{
@@ -4499,16 +4511,11 @@
 	},
 /area/mainship/medical/lower_medical)
 "lm" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 8
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "garage_railing"
 	},
-/obj/effect/decal/warning_stripes/thin{
-	dir = 1
-	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "ln" = (
 /turf/open/floor/mainship{
@@ -5325,13 +5332,14 @@
 /turf/closed/wall/mainship,
 /area/mainship/shipboard/firing_range)
 "ny" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 1
+/obj/machinery/power/apc/mainship{
+	dir = 4
 	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
 	},
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "nz" = (
 /turf/open/floor/mainship{
@@ -5356,16 +5364,16 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "nD" = (
-/obj/effect/decal/warning_stripes/thin{
-	dir = 1
+/obj/machinery/door/poddoor/railing{
+	dir = 4;
+	id = "garage_railing"
 	},
-/obj/effect/decal/warning_stripes/thin{
-	dir = 4
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/open/floor/mainship{
-	icon_regular_floor = "cargo_arrow";
-	icon_state = "cargo_arrow"
-	},
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "nE" = (
 /obj/machinery/vehicle_vendor/tank_vendor_ui,
@@ -6717,7 +6725,6 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/landmark/start/marine/cargotechnician,
 /turf/open/floor/mainship{
 	dir = 1;
 	icon_state = "green"
@@ -8889,13 +8896,12 @@
 /turf/open/floor/plating/mainship,
 /area/mainship/engineering/lower_engineering)
 "wz" = (
-/obj/effect/landmark/start/marine/maintenancetech,
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "orange";
-	tag = ""
+/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
+	dir = 8;
+	on = 1
 	},
-/area/mainship/engineering/lower_engineering)
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "wA" = (
 /obj/vehicle/powerloader{
 	dir = 1
@@ -9477,10 +9483,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "green"
-	},
+/turf/open/floor/mainship,
 /area/mainship/squads/req)
 "xW" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -9493,13 +9496,13 @@
 	},
 /area/mainship/engineering/engine_core)
 "xY" = (
-/obj/structure/closet/secure_closet/cargotech,
-/obj/item/storage/belt/utility/full,
+/obj/structure/table/mainship,
+/obj/machinery/door/window/southright,
 /turf/open/floor/mainship{
-	icon_state = "plate";
+	icon_state = "redfull";
 	tag = ""
 	},
-/area/mainship/squads/req)
+/area/mainship/shipboard/firing_range)
 "xZ" = (
 /obj/structure/stairs,
 /turf/open/floor/mainship,
@@ -10126,14 +10129,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
 "zL" = (
-/obj/machinery/power/apc/mainship{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/open/floor/mainship/mono,
+/turf/open/floor/mainship/empty,
 /area/mainship/hallways/exoarmor)
 "zM" = (
 /obj/machinery/power/apc/mainship,
@@ -11862,7 +11858,7 @@
 /area/mainship/shipboard/brig)
 "Do" = (
 /obj/structure/table/mainship,
-/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/southleft,
 /turf/open/floor/mainship{
 	icon_state = "redfull";
 	tag = ""
@@ -12097,12 +12093,10 @@
 /area/mainship/shipboard/brig_cells)
 "DQ" = (
 /obj/structure/table/mainship,
-/obj/machinery/door/window/northright,
-/turf/open/floor/mainship{
-	icon_state = "redfull";
-	tag = ""
-	},
-/area/mainship/shipboard/firing_range)
+/obj/item/tool/pen,
+/obj/structure/paper_bin,
+/turf/open/floor/mainship,
+/area/mainship/squads/req)
 "DR" = (
 /turf/open/floor/mainship,
 /area/mainship/shipboard/brig_cells)
@@ -13457,12 +13451,11 @@
 /turf/open/floor/mainship,
 /area/mainship/hallways/repair_bay)
 "GQ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/door/poddoor/railing{
+	dir = 4;
+	id = "garage_railing"
 	},
-/turf/open/floor/plating/plating_catwalk,
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "GR" = (
 /obj/structure/table/mainship,
@@ -13517,10 +13510,15 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "GX" = (
+/obj/machinery/door/poddoor/railing{
+	dir = 4;
+	id = "garage_railing"
+	},
+/obj/effect/elevator_garage,
 /obj/structure/cable{
-	d1 = 4;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-8"
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
@@ -14215,14 +14213,20 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "IF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
+/obj/machinery/door/poddoor/railing{
+	dir = 4;
+	id = "garage_railing"
 	},
-/turf/open/floor/mainship{
-	dir = 10;
-	icon_state = "green"
+/obj/machinery/gear{
+	id = "garage_gear"
 	},
-/area/mainship/squads/req)
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
 "IG" = (
 /obj/machinery/light,
 /turf/open/floor/mainship,
@@ -14411,7 +14415,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "Jf" = (
-/obj/machinery/light,
+/obj/machinery/computer/vehicle_terminal,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "Jg" = (
@@ -14710,10 +14714,17 @@
 /turf/open/floor/wood,
 /area/mainship/living/tankerbunks)
 "JZ" = (
-/obj/structure/table/mainship,
-/obj/item/tool/pen,
-/turf/open/floor/mainship,
-/area/mainship/squads/req)
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
 "Ka" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -14988,7 +14999,6 @@
 	},
 /area/mainship/living/cryo_cells)
 "KE" = (
-/obj/effect/landmark/start/marine/maintenancetech,
 /turf/open/floor/mainship{
 	dir = 2;
 	icon_state = "orange";
@@ -16648,9 +16658,8 @@
 /turf/open/floor/mainship,
 /area/mainship/engineering/lower_engine_monitoring)
 "Os" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/layer1{
-	dir = 8;
-	on = 1
+/obj/structure/bed/chair{
+	dir = 4
 	},
 /turf/open/floor/mainship{
 	icon_state = "green";
@@ -18051,12 +18060,11 @@
 /area/mainship/hallways/exoarmor)
 "Rr" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/obj/effect/multitile_spawner/cm_armored/tank/decrepit,
-/turf/open/floor/plating/plating_catwalk,
+/turf/open/floor/mainship/mono,
 /area/mainship/hallways/exoarmor)
 "Rs" = (
 /obj/item/storage/firstaid,
@@ -18767,6 +18775,18 @@
 	},
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
+"Te" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
 "Tf" = (
 /obj/structure/table/mainship,
 /obj/effect/landmark/map_item,
@@ -18829,6 +18849,494 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/living/briefing)
+"To" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 8;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
+"Tp" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship,
+/area/mainship/hallways/exoarmor)
+"Tq" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 8
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship{
+	icon_regular_floor = "cargo_arrow";
+	icon_state = "cargo_arrow"
+	},
+/area/mainship/hallways/exoarmor)
+"Tr" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
+"Ts" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull8B"
+	},
+/area/vehicle_interior/apc_1)
+"Tt" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull2"
+	},
+/area/vehicle_interior/apc_1)
+"Tu" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull7B"
+	},
+/area/vehicle_interior/apc_1)
+"Tv" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull8B"
+	},
+/area/vehicle_interior/apc_2)
+"Tw" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull2"
+	},
+/area/vehicle_interior/apc_2)
+"Tx" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull7B"
+	},
+/area/vehicle_interior/apc_2)
+"Ty" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull8B"
+	},
+/area/vehicle_interior/apc_3)
+"Tz" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull2"
+	},
+/area/vehicle_interior/apc_3)
+"TA" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull7B"
+	},
+/area/vehicle_interior/apc_3)
+"TB" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull10"
+	},
+/area/vehicle_interior/apc_1)
+"TC" = (
+/turf/open/space/transit/north/shuttlespace_ns2,
+/area/space)
+"TD" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/bodybags,
+/obj/item/storage/firstaid/adv,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TE" = (
+/obj/machinery/autodoc,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TF" = (
+/obj/machinery/autodoc_console,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TG" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull9"
+	},
+/area/vehicle_interior/apc_1)
+"TH" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull10"
+	},
+/area/vehicle_interior/apc_2)
+"TI" = (
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"TJ" = (
+/obj/structure/vehicle_interior/supply_receiver,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"TK" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull9"
+	},
+/area/vehicle_interior/apc_2)
+"TL" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull10"
+	},
+/area/vehicle_interior/apc_3)
+"TM" = (
+/turf/open/space/transit/north/shuttlespace_ns4,
+/area/space)
+"TN" = (
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"TO" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull9"
+	},
+/area/vehicle_interior/apc_3)
+"TP" = (
+/turf/open/space/transit/north/shuttlespace_ns10,
+/area/space)
+"TQ" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull3"
+	},
+/area/vehicle_interior/apc_1)
+"TR" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TS" = (
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TT" = (
+/turf/open/space/transit/north/shuttlespace_ns1,
+/area/space)
+"TU" = (
+/obj/machinery/vending/MarineMed{
+	req_one_access = null
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TV" = (
+/obj/machinery/vending/MarineMed/Blood{
+	req_access = null;
+	req_one_access = null
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"TW" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull4"
+	},
+/area/vehicle_interior/apc_1)
+"TX" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull3"
+	},
+/area/vehicle_interior/apc_2)
+"TY" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"TZ" = (
+/obj/machinery/vending/marine/cargo_ammo{
+	contraband = list(/obj/item/ammo_magazine/sniper = 0, /obj/item/ammo_magazine/sniper/incendiary = 0, /obj/item/ammo_magazine/sniper/flak = 0, /obj/item/ammo_magazine/rifle/m4ra = 0, /obj/item/ammo_magazine/rifle/incendiary = 1, /obj/item/ammo_magazine/rifle/m41aMK1 = 0, /obj/item/ammo_magazine/rifle/lmg = 0);
+	products = list(/obj/item/storage/large_holster/machete/full = 5, /obj/item/ammo_magazine/pistol = 20, /obj/item/ammo_magazine/pistol/ap = 5, /obj/item/ammo_magazine/pistol/incendiary = 2, /obj/item/ammo_magazine/pistol/extended = 10, /obj/item/ammo_magazine/pistol/m1911 = 0, /obj/item/ammo_magazine/revolver = 20, /obj/item/ammo_magazine/revolver/marksman = 5, /obj/item/ammobox/m39 = 2, /obj/item/ammo_magazine/smg/m39 = 15, /obj/item/ammobox/m39ap = 1, /obj/item/ammo_magazine/smg/m39/ap = 5, /obj/item/ammobox/m39ext = 1, /obj/item/ammo_magazine/smg/m39/extended = 5, /obj/item/ammobox = 2, /obj/item/ammo_magazine/rifle = 15, /obj/item/ammobox/ext = 1, /obj/item/ammo_magazine/rifle/extended = 5, /obj/item/ammobox/ap = 1, /obj/item/ammo_magazine/rifle/ap = 5, /obj/item/ammo_magazine/shotgunbox = 3, /obj/item/ammo_magazine/shotgun = 10, /obj/item/ammo_magazine/shotgunbox/buckshot = 3, /obj/item/ammo_magazine/shotgun/buckshot = 10, /obj/item/ammo_magazine/shotgun/flechette = 15, /obj/item/smartgun_powerpack = 2)
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Ua" = (
+/obj/machinery/vending/marine{
+	contraband = list();
+	desc = "A automated rack hooked up to a small supply of standard-issue weapons.";
+	products = list(/obj/item/weapon/gun/pistol/m4a3 = 10, /obj/item/weapon/gun/revolver/m44 = 5, /obj/item/weapon/gun/smg/m39 = 10, /obj/item/weapon/gun/rifle/m41a = 10, /obj/item/weapon/gun/shotgun/pump = 5, /obj/item/weapon/combat_knife = 10, /obj/item/weapon/throwing_knife = 5, /obj/item/storage/box/m94 = 10, /obj/item/attachable/flashlight = 15, /obj/item/attachable/bayonet = 10)
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Ub" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull4"
+	},
+/area/vehicle_interior/apc_2)
+"Uc" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull3"
+	},
+/area/vehicle_interior/apc_3)
+"Ud" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Ue" = (
+/turf/open/space/transit/north/shuttlespace_ns15,
+/area/space)
+"Uf" = (
+/turf/open/space/transit/north/shuttlespace_ns5,
+/area/space)
+"Ug" = (
+/turf/open/space/transit/north/shuttlespace_ns8,
+/area/space)
+"Uh" = (
+/obj/structure/vehicle_interior/tcomms_hub,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Ui" = (
+/obj/machinery/vehicle_interior/tcomms_receiver,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Uj" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull4"
+	},
+/area/vehicle_interior/apc_3)
+"Uk" = (
+/obj/effect/landmark/multitile_interior_cabin_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"Ul" = (
+/obj/structure/vehicle_interior/cabin_door{
+	icon_state = "door_spark";
+	dir = 4
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"Um" = (
+/obj/effect/landmark/multitile_interior_cabin_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Un" = (
+/obj/structure/vehicle_interior/cabin_door{
+	icon_state = "door_spark";
+	dir = 4
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Uo" = (
+/obj/effect/landmark/multitile_interior_cabin_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Up" = (
+/obj/structure/vehicle_interior/cabin_door{
+	icon_state = "door_spark";
+	dir = 4
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Uq" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1;
+	icon_state = "shuttle_chair"
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"Ur" = (
+/obj/machinery/bodyscanner,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"Us" = (
+/obj/machinery/body_scanconsole,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"Ut" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1;
+	icon_state = "shuttle_chair"
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Uu" = (
+/obj/structure/rack,
+/obj/item/storage/box/m94,
+/obj/item/storage/box/m94,
+/obj/item/storage/box/sentry,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Uv" = (
+/obj/structure/rack,
+/obj/item/storage/box/m94,
+/obj/item/storage/box/explosive_mines,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"Uw" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 1;
+	icon_state = "shuttle_chair"
+	},
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"Ux" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull6"
+	},
+/area/vehicle_interior/apc_1)
+"Uy" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull1"
+	},
+/area/vehicle_interior/apc_1)
+"Uz" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull11"
+	},
+/area/vehicle_interior/apc_1)
+"UA" = (
+/obj/structure/bed/roller,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"UB" = (
+/obj/machinery/iv_drip,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"UC" = (
+/obj/effect/landmark/multitile_interior_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"UD" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull12"
+	},
+/area/vehicle_interior/apc_1)
+"UE" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull5"
+	},
+/area/vehicle_interior/apc_1)
+"UF" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull6"
+	},
+/area/vehicle_interior/apc_2)
+"UG" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull1"
+	},
+/area/vehicle_interior/apc_2)
+"UH" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull11"
+	},
+/area/vehicle_interior/apc_2)
+"UI" = (
+/obj/effect/landmark/multitile_interior_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"UJ" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull12"
+	},
+/area/vehicle_interior/apc_2)
+"UK" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull5"
+	},
+/area/vehicle_interior/apc_2)
+"UL" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull6"
+	},
+/area/vehicle_interior/apc_3)
+"UM" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull1"
+	},
+/area/vehicle_interior/apc_3)
+"UN" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull11"
+	},
+/area/vehicle_interior/apc_3)
+"UO" = (
+/obj/effect/landmark/multitile_interior_exit,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"UP" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull12"
+	},
+/area/vehicle_interior/apc_3)
+"UQ" = (
+/turf/closed/wall/indestructible/vehicle{
+	icon_state = "hull5"
+	},
+/area/vehicle_interior/apc_3)
+"UR" = (
+/obj/structure/vehicle_interior/side_door,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_1)
+"US" = (
+/obj/structure/vehicle_interior/side_door,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_2)
+"UT" = (
+/obj/structure/vehicle_interior/side_door,
+/turf/open/shuttle/dropship,
+/area/vehicle_interior/apc_3)
+"UU" = (
+/obj/machinery/light,
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
+"UV" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship{
+	icon_regular_floor = "cargo_arrow";
+	icon_state = "cargo_arrow"
+	},
+/area/mainship/hallways/exoarmor)
+"UW" = (
+/obj/effect/decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/effect/decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/poddoor/railing{
+	dir = 1;
+	id = "garage_railing"
+	},
+/turf/open/floor/mainship{
+	icon_regular_floor = "cargo_arrow";
+	icon_state = "cargo_arrow"
+	},
+/area/mainship/hallways/exoarmor)
+"UX" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/exoarmor)
 
 (1,1,1) = {"
 aa
@@ -19081,11 +19589,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+TC
+TM
+TM
+TM
+Uf
 "}
 (2,1,1) = {"
 aa
@@ -19337,12 +19845,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ts
+TQ
+TQ
+TQ
+Ux
+Ue
 "}
 (3,1,1) = {"
 aa
@@ -19594,12 +20102,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TR
+TS
+Uq
+Uy
+Ug
 "}
 (4,1,1) = {"
 aa
@@ -19851,12 +20359,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TR
+TS
+Uq
+Uy
+Ue
 "}
 (5,1,1) = {"
 aa
@@ -20108,12 +20616,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TR
+TS
+Uq
+Uy
+TP
 "}
 (6,1,1) = {"
 aa
@@ -20364,13 +20872,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ts
+TB
+TR
+TS
+Uq
+Uz
+Ux
 "}
 (7,1,1) = {"
 aa
@@ -20621,13 +21129,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TD
+TS
+TS
+TS
+UA
+Uy
 "}
 (8,1,1) = {"
 aa
@@ -20878,13 +21386,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TE
+TS
+TS
+TS
+UB
+Uy
 "}
 (9,1,1) = {"
 aa
@@ -21135,13 +21643,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TF
+TS
+TS
+TS
+UC
+UR
 "}
 (10,1,1) = {"
 aa
@@ -21392,13 +21900,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tu
+TG
+TU
+TS
+Ur
+UD
+UE
 "}
 (11,1,1) = {"
 aa
@@ -21650,12 +22158,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tt
+TV
+Uk
+Us
+Uy
+Ug
 "}
 (12,1,1) = {"
 aa
@@ -21907,12 +22415,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tu
+TW
+Ul
+TW
+UE
+Ue
 "}
 (13,1,1) = {"
 aa
@@ -22166,10 +22674,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+TP
+TT
+Ue
+TP
 "}
 (14,1,1) = {"
 aa
@@ -22421,12 +22929,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tv
+TX
+TX
+TX
+UF
+Ue
 "}
 (15,1,1) = {"
 aa
@@ -22678,12 +23186,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TY
+TI
+Ut
+UG
+Ug
 "}
 (16,1,1) = {"
 aa
@@ -22935,12 +23443,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TY
+TI
+Ut
+UG
+Ue
 "}
 (17,1,1) = {"
 aa
@@ -23192,12 +23700,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TY
+TI
+Ut
+UG
+TP
 "}
 (18,1,1) = {"
 aa
@@ -23448,13 +23956,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tv
+TH
+TY
+TI
+Ut
+UH
+UF
 "}
 (19,1,1) = {"
 aa
@@ -23705,13 +24213,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TI
+TI
+TI
+TI
+Ut
+UG
 "}
 (20,1,1) = {"
 aa
@@ -23962,13 +24470,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TJ
+TI
+TI
+TI
+Ut
+UG
 "}
 (21,1,1) = {"
 aa
@@ -24219,13 +24727,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+TI
+TI
+TI
+TI
+UI
+US
 "}
 (22,1,1) = {"
 aa
@@ -24476,13 +24984,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tx
+TK
+TZ
+TI
+Uu
+UJ
+UK
 "}
 (23,1,1) = {"
 aa
@@ -24734,12 +25242,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tw
+Ua
+Um
+Uv
+UG
+Ug
 "}
 (24,1,1) = {"
 aa
@@ -24991,12 +25499,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tx
+Ub
+Un
+Ub
+UK
+Ue
 "}
 (25,1,1) = {"
 aa
@@ -25249,11 +25757,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+TC
+TP
+TT
+Ue
+TP
 "}
 (26,1,1) = {"
 aa
@@ -25505,12 +26013,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ty
+Uc
+Uc
+Uc
+UL
+Ue
 "}
 (27,1,1) = {"
 aa
@@ -25762,12 +26270,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+Ud
+TN
+Uw
+UM
+Ug
 "}
 (28,1,1) = {"
 aa
@@ -26019,12 +26527,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+Ud
+TN
+Uw
+UM
+Ue
 "}
 (29,1,1) = {"
 aa
@@ -26276,12 +26784,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+Ud
+TN
+Uw
+UM
+TP
 "}
 (30,1,1) = {"
 aa
@@ -26532,13 +27040,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ty
+TL
+Ud
+TN
+Uw
+UN
+UL
 "}
 (31,1,1) = {"
 aa
@@ -26789,13 +27297,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+TN
+TN
+TN
+TN
+Uw
+UM
 "}
 (32,1,1) = {"
 aa
@@ -27046,13 +27554,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+TN
+TN
+TN
+TN
+Uw
+UM
 "}
 (33,1,1) = {"
 aa
@@ -27303,13 +27811,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+TN
+TN
+TN
+TN
+UO
+UT
 "}
 (34,1,1) = {"
 aa
@@ -27560,13 +28068,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+TA
+TO
+Uh
+TN
+Uw
+UP
+UQ
 "}
 (35,1,1) = {"
 aa
@@ -27818,12 +28326,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Tz
+Ui
+Uo
+Uw
+UM
+Ug
 "}
 (36,1,1) = {"
 aa
@@ -28075,12 +28583,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+TA
+Uj
+Up
+Uj
+UQ
+Ue
 "}
 (37,1,1) = {"
 aa
@@ -36219,16 +36727,16 @@ II
 II
 II
 II
-II
-II
-II
-II
-II
-II
-II
-II
-II
-II
+lU
+lU
+lU
+lU
+lU
+lU
+lU
+lU
+lU
+lU
 II
 II
 II
@@ -36476,15 +36984,15 @@ II
 lU
 lU
 lU
-lU
-lU
-lU
-lU
-lU
-lU
-lU
-lU
-lU
+md
+lV
+lV
+md
+JD
+md
+lV
+lV
+lV
 lU
 lU
 lU
@@ -36734,13 +37242,13 @@ lU
 md
 JD
 md
-lV
-lV
-md
-JD
-md
-lV
-lV
+lU
+nU
+nU
+nU
+nU
+nU
+lU
 JD
 md
 md
@@ -36992,11 +37500,11 @@ md
 nU
 nU
 nU
-nU
-nU
-nU
-nU
-nU
+UX
+bq
+ny
+bq
+UX
 nU
 nU
 nU
@@ -37249,12 +37757,12 @@ lV
 nU
 bc
 bq
-IX
-bq
-zL
-bq
-IX
-bq
+kZ
+GQ
+GX
+nD
+IF
+Rr
 ik
 sI
 sI
@@ -37506,13 +38014,13 @@ lV
 nU
 bq
 gK
-gK
-gK
-GQ
-gK
-gK
-gK
-bq
+zL
+zL
+zL
+zL
+zL
+Tp
+Jf
 sI
 tn
 uY
@@ -37763,12 +38271,12 @@ JA
 nU
 bq
 gK
-gK
-kZ
-GQ
-kZ
-gK
-lm
+zL
+zL
+zL
+zL
+zL
+Tq
 od
 sI
 vo
@@ -38020,12 +38528,12 @@ md
 nT
 bq
 gK
-kX
-kX
-Rr
-kX
-kX
-ny
+zL
+zL
+zL
+zL
+zL
+UV
 oO
 sI
 tn
@@ -38277,12 +38785,12 @@ JA
 nU
 Je
 gK
-gK
-kZ
-GQ
-kZ
-gK
-nD
+zL
+zL
+zL
+zL
+zL
+UW
 zI
 sI
 sI
@@ -38534,13 +39042,13 @@ lV
 nU
 bq
 gK
-gK
-gK
-GQ
-gK
-gK
-gK
-Jf
+zL
+zL
+zL
+zL
+zL
+Tp
+UU
 sI
 tp
 SO
@@ -38792,11 +39300,11 @@ nU
 ca
 ca
 kY
-bq
-GX
-bq
-IW
-bq
+lm
+JZ
+Te
+To
+Tr
 bq
 sI
 vo
@@ -54241,8 +54749,8 @@ nU
 md
 nU
 jp
-IF
-xY
+kx
+nz
 ae
 xT
 Qe
@@ -54498,8 +55006,8 @@ nU
 lV
 nU
 jq
-Os
-xY
+wz
+nA
 ae
 Gs
 SU
@@ -54755,8 +55263,8 @@ nU
 lV
 nU
 rm
-kx
 xV
+Os
 ae
 Gs
 xU
@@ -54998,7 +55506,7 @@ OH
 wt
 cx
 ae
-JZ
+DQ
 kR
 ak
 kR
@@ -55285,7 +55793,7 @@ Ma
 HG
 HG
 HJ
-Do
+xY
 ti
 ti
 ti
@@ -55542,7 +56050,7 @@ PS
 PT
 PU
 rQ
-DQ
+Do
 ti
 ti
 Ky
@@ -56056,7 +56564,7 @@ pA
 pM
 pM
 rQ
-Do
+xY
 ti
 ti
 OW
@@ -56313,7 +56821,7 @@ pD
 pO
 IQ
 rR
-DQ
+Do
 ti
 ti
 ti
@@ -69152,7 +69660,7 @@ wg
 lg
 ui
 KN
-wz
+wP
 yc
 ut
 CS
