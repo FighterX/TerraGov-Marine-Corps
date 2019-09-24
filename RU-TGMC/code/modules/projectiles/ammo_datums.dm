@@ -17,9 +17,8 @@
 
 /datum/ammo/bullet/minigun/tank/New()
 	..()
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	damage = CONFIG_GET(number/combat_define/lmmed_hit_damage)
-
+	accurate_range = 15
+	damage = 45
 /datum/ammo/bullet/front_cannon		//APC front cannon bullets
 	name = "frontcannon bullet"
 	icon_state = "bullet"
@@ -27,23 +26,23 @@
 
 /datum/ammo/bullet/front_cannon/New()
 	..()
-	accurate_range = CONFIG_GET(number/combat_define/screen_shell_range)
-	damage = CONFIG_GET(number/combat_define/llow_hit_damage)
-	penetration = CONFIG_GET(number/combat_define/low_armor_penetration)
+	accurate_range = 7
+	damage = 20
+	penetration = 20
 
 /datum/ammo/bullet/smartgun/walker
 
 /datum/ammo/bullet/smartgun/walker/New()
 	..()
-	shrapnel_chance = CONFIG_GET(number/combat_define/low_shrapnel_chance)
+	shrapnel_chance = 10
 
 /datum/ammo/bullet/smartgun/walker/ap
 
 /datum/ammo/bullet/smartgun/walker/ap/New()
 	..()
-	penetration = CONFIG_GET(number/combat_define/med_armor_penetration)
+	penetration = 30
 	shrapnel_chance = 0
-	damage = CONFIG_GET(number/combat_define/lmed_hit_damage)
+	damage = 40
 	damage_falloff = CONFIG_GET(number/combat_define/buckshot_damage_falloff)
 
 /datum/ammo/bullet/smartgun/walker/incendiary
@@ -51,16 +50,16 @@
 
 /datum/ammo/bullet/smartgun/walker/incendiary/New()
 	..()
-	damage = CONFIG_GET(number/combat_define/min_hit_damage)
-	penetration = CONFIG_GET(number/combat_define/min_armor_penetration)
+	damage = 15
+	penetration = 5
 
 /datum/ammo/bullet/machinegun/walker
 
 datum/ammo/bullet/machinegun/walker/New()
 	..()
-	accurate_range = CONFIG_GET(number/combat_define/near_shell_range)
-	accuracy = CONFIG_GET(number/combat_define/low_hit_accuracy)
-	damage = CONFIG_GET(number/combat_define/med_hit_damage) + CONFIG_GET(number/combat_define/base_hit_damage)
+	accurate_range = 10
+	accuracy = 10
+	damage = 60
 
 /*
 //================================================
@@ -74,9 +73,9 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/tow/New()
 	..()
-	accuracy = CONFIG_GET(number/combat_define/high_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	max_range = CONFIG_GET(number/combat_define/max_shell_range)
+	accuracy = 30
+	accurate_range = 15
+	max_range = 40
 	damage = CONFIG_GET(number/combat_define/low_hit_damage)
 	penetration= CONFIG_GET(number/combat_define/max_armor_penetration)
 
@@ -102,11 +101,11 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/ltb/New()
 	. = ..()
-	accuracy = CONFIG_GET(number/combat_define/med_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/long_shell_range)
-	max_range = CONFIG_GET(number/combat_define/max_shell_range)
-	penetration = CONFIG_GET(number/combat_define/ltb_armor_penetration)
-	damage = CONFIG_GET(number/combat_define/ltb_hit_damage)
+	accuracy = 15
+	accurate_range = 30
+	max_range = 40
+	penetration = 200
+	damage = 300
 
 /datum/ammo/rocket/ltb/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_turf(M), -1, 3, 5, 6)
@@ -127,10 +126,10 @@ datum/ammo/bullet/machinegun/walker/New()
 	damage_type = BURN
 /datum/ammo/rocket/wp/New()
 	..()
-	accuracy_var_low = CONFIG_GET(number/combat_define/med_proj_variance)
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	damage = CONFIG_GET(number/combat_define/super_hit_damage)
-	max_range = CONFIG_GET(number/combat_define/norm_shell_range)
+	accuracy_var_low = 7
+	accurate_range = 15
+	damage = 120
+	max_range = 20
 
 /datum/ammo/rocket/wp/drop_flame(turf/T, radius = 3) //~Art updated fire.
 	if(!T || !isturf(T))
@@ -159,8 +158,8 @@ datum/ammo/bullet/machinegun/walker/New()
 	flags_ammo_behavior = AMMO_ROCKET
 /datum/ammo/rocket/wp/quad/New()
 	..()
-	damage = CONFIG_GET(number/combat_define/ultra_hit_damage)
-	max_range = CONFIG_GET(number/combat_define/long_shell_range)
+	damage = 150
+	max_range = 30
 
 /datum/ammo/rocket/wp/quad/on_hit_mob(mob/M,obj/item/projectile/P)
 	drop_flame(get_turf(M))
@@ -185,9 +184,9 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/ltb/ap/New()
 	. = ..()
-	accuracy = CONFIG_GET(number/combat_define/max_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	damage = CONFIG_GET(number/combat_define/med_hit_damage)
+	accuracy = 40
+	accurate_range = 15
+	damage = 50
 
 /datum/ammo/rocket/ltb/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_turf(M), 1, 1, 1, 3)
@@ -208,10 +207,10 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/ltb/he/New()
 	. = ..()
-	accuracy = CONFIG_GET(number/combat_define/high_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	penetration = CONFIG_GET(number/combat_define/low_armor_penetration)
-	damage = CONFIG_GET(number/combat_define/high_hit_damage)
+	accuracy = 30
+	accurate_range = 15
+	penetration = 20
+	damage = 70
 
 /datum/ammo/rocket/ltb/he/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_turf(M), -1, -1, 5, 6)
@@ -232,10 +231,10 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/ltb/heat/New()
 	. = ..()
-	accuracy = CONFIG_GET(number/combat_define/high_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/short_shell_range)
-	penetration = CONFIG_GET(number/combat_define/low_armor_penetration)
-	damage = CONFIG_GET(number/combat_define/high_hit_damage)
+	accuracy = 30
+	accurate_range = 15
+	penetration = 20
+	damage = 70
 
 /datum/ammo/rocket/ltb/heat/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_step(get_turf(M), P.dir), -1, 2, 3, 4)
@@ -267,9 +266,9 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/autocannon/New()
 	..()
-	accuracy = CONFIG_GET(number/combat_define/med_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/long_shell_range)
-	max_range = CONFIG_GET(number/combat_define/max_shell_range)
+	accuracy = 15
+	accurate_range = 30
+	max_range = 40
 	damage = CONFIG_GET(number/combat_define/hlow_hit_damage)
 	penetration = CONFIG_GET(number/combat_define/mlow_armor_penetration)
 
@@ -278,7 +277,7 @@ datum/ammo/bullet/machinegun/walker/New()
 	icon_state = "autocannon_scr"
 
 /datum/ammo/rocket/autocannon/scr/on_hit_mob(mob/M, obj/item/projectile/P)
-	staggerstun(M, P, CONFIG_GET(number/combat_define/max_shell_range), 0, 0, 3, 7, 0, 1, 3, 2)
+	staggerstun(M, P, 40, 0, 0, 3, 7, 0, 1, 3, 2)
 
 /datum/ammo/rocket/autocannon/scr/on_hit_obj(obj/O, obj/item/projectile/P)
 	area_stagger_burst(get_turf(P), P, 0, 0, 3, 5, 0, 1, 3, 2)
@@ -299,10 +298,10 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/autocannon/ap/New()
 	..()
-	accuracy = CONFIG_GET(number/combat_define/med_hit_accuracy)
-	accurate_range = CONFIG_GET(number/combat_define/long_shell_range)
-	max_range = CONFIG_GET(number/combat_define/max_shell_range)
-	damage = CONFIG_GET(number/combat_define/lmed_hit_damage)
+	accuracy = 15
+	accurate_range = 30
+	max_range = 40
+	damage = 40
 	penetration = CONFIG_GET(number/combat_define/hmed_armor_penetration)
 
 /datum/ammo/rocket/autocannon/ap/on_hit_mob(mob/M, obj/item/projectile/P)

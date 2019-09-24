@@ -494,7 +494,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"itsok.png"				   = 'code/modules/goonchat/emoji/itsok.png',
 		"pekadeal.png"			   = 'code/modules/goonchat/emoji/pekadeal.png',
 		"syndicate.png"			   = 'code/modules/goonchat/emoji/syndicate.png',
-		"bad2.png"				   = 'code/modules/goonchat/bad2.png',
+		"bad2.png"				   = 'code/modules/goonchat/emoji/bad2.png',
 		"cult.png"				   = 'code/modules/goonchat/emoji/cult.png',
 		"meteor.gif"			   = 'code/modules/goonchat/emoji/meteor.gif',
 		"pekahide.png"			   = 'code/modules/goonchat/emoji/pekahide.png',
