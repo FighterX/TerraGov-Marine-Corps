@@ -304,3 +304,21 @@ Vehicles are placed on the map by a spawner or admin verb
 		if(EAST) return WEST
 		if(NORTH) return SOUTH
 		if(SOUTH) return NORTH
+
+/obj/vehicle/multitile/root/cm_armored/deconstruct()
+	take_damage_type(100, "all")
+	return
+
+/obj/vehicle/multitile/root/cm_transport/deconstruct()
+	take_damage_type(100, "all")
+	return
+
+/obj/vehicle/multitile/hitbox/cm_armored/deconstruct()
+	var/obj/vehicle/multitile/root/cm_armored/C = root
+	C.take_damage_type(100, "all")
+	return
+
+/obj/vehicle/multitile/hitbox/cm_transport/deconstruct()
+	var/obj/vehicle/multitile/root/cm_transport/C = root
+	C.take_damage_type(100, "all")
+	return
