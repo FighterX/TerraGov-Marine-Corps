@@ -60,11 +60,13 @@
 	RegisterSignal(owner, COMSIG_WARRIOR_NECKGRAB, .proc/neck_grab)
 	RegisterSignal(owner, COMSIG_WARRIOR_CTRL_CLICK_ATOM, .proc/lunge)
 
+
 /datum/action/xeno_action/activable/lunge/remove_action(mob/living/L)
-	. = ..()
 	UnregisterSignal(owner, COMSIG_WARRIOR_USED_GRAB)
 	UnregisterSignal(owner, COMSIG_WARRIOR_NECKGRAB)
 	UnregisterSignal(owner, COMSIG_WARRIOR_CTRL_CLICK_ATOM)
+	return ..()
+
 
 /datum/action/xeno_action/activable/lunge/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
@@ -198,7 +200,7 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	var/mob/living/M = A
 	if(X.issamexenohive(M))
-		return M.attack_alien() //harmless nibbling.
+		return M.attack_alien(X) //harmless nibbling.
 
 	GLOB.round_statistics.warrior_punches++
 

@@ -192,11 +192,11 @@
 	switch(marines_per_xeno)
 		if(0)
 			return check_finished() //No more marines.
-		if(0 to 3) //Xenos grow up until they are a third the number of marines.
+		if(0 to 2) //Xenos grow up until they are a half the number of marines.
 			return
-		if(3 to 4)
+		if(2 to 3)
 			HS.stored_larva++
-		if(4 to 5)
+		if(3 to 5)
 			HS.stored_larva += min(2, round(num_humans * 0.25)) //Two, unless there are less than 10 marines.
 		else //If there's more than 5 marines per xenos, then xenos gain larvas to fill the gap.
 			HS.stored_larva += CLAMP(round(num_humans * 0.2), 1, num_humans - num_xenos)
@@ -254,11 +254,11 @@
 				add_larva()
 			return FALSE
 
-	var/victory_options = (num_humans == 0 && num_xenos == 0)						<< 0 // Draw, for all other reasons
-	victory_options |= (!planet_nuked && num_humans == 0 && num_xenos > 0) 			<< 1 // XENO Major (All marines killed)
-	victory_options |= ((marines_evac == CRASH_EVAC_COMPLETED && !planet_nuked) || (marines_evac == CRASH_EVAC_INPROGRESS && !length(GLOB.active_nuke_list)))		<< 2 // XENO Minor (Marines evac'd for over 5 mins without a nuke)
-	victory_options |= (marines_evac == CRASH_EVAC_NONE && planet_nuked)		<< 3 // Marine minor (Planet nuked, some human left on planet)
-	victory_options |= ((marines_evac == CRASH_EVAC_INPROGRESS || marines_evac == CRASH_EVAC_COMPLETED) && planet_nuked) 		<< 4 // Marine Major (Planet nuked, marines evac, or they wiped the xenos out)
+	var/victory_options = (num_humans == 0 && num_xenos == 0) << 0 // Draw, for all other reasons
+	victory_options |= (!planet_nuked && num_humans == 0 && num_xenos > 0) << 1 // XENO Major (All marines killed)
+	victory_options |= (!planet_nuked && (marines_evac == CRASH_EVAC_COMPLETED || marines_evac == CRASH_EVAC_INPROGRESS && !length(GLOB.active_nuke_list)))	<< 2 // XENO Minor (Marines evac'd for over 5 mins without a nuke)
+	victory_options |= (planet_nuked && marines_evac == CRASH_EVAC_NONE) << 3 // Marine minor (Planet nuked, some human left on planet)
+	victory_options |= (planet_nuked && (marines_evac == CRASH_EVAC_INPROGRESS || marines_evac == CRASH_EVAC_COMPLETED)) << 4 // Marine Major (Planet nuked, marines evac, or they wiped the xenos out)
 
 	switch(victory_options)
 		if(CRASH_DRAW)
@@ -306,6 +306,8 @@
 			xeno_track = pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg')
 			human_track = pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg')
 
+	xeno_track = sound(xeno_track)
+	human_track = sound(human_track)
 	human_track.channel = CHANNEL_CINEMATIC
 	xeno_track.channel = CHANNEL_CINEMATIC
 
