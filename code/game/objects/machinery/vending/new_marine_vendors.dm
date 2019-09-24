@@ -193,9 +193,6 @@
 			else
 				to_chat(usr, "<span class='warning'>You can't buy things from this category anymore.</span>")
 				return
-			else
-				to_chat(usr, "<span class='warning'>You can't buy things from this category anymore.</span>")
-				return
 
 		var/type_p = L[3]
 
