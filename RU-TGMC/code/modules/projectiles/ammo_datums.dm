@@ -43,7 +43,7 @@
 	penetration = 30
 	shrapnel_chance = 0
 	damage = 40
-	damage_falloff = CONFIG_GET(number/combat_define/buckshot_damage_falloff)
+	damage_falloff = 5
 
 /datum/ammo/bullet/smartgun/walker/incendiary
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SKIPS_HUMANS|AMMO_INCENDIARY
@@ -76,8 +76,8 @@ datum/ammo/bullet/machinegun/walker/New()
 	accuracy = 30
 	accurate_range = 15
 	max_range = 40
-	damage = CONFIG_GET(number/combat_define/low_hit_damage)
-	penetration= CONFIG_GET(number/combat_define/max_armor_penetration)
+	damage = 30
+	penetration= 80
 
 /datum/ammo/rocket/tow/on_hit_mob(mob/M, obj/item/projectile/P)
 	explosion(get_turf(M), 1, 1, 1, 3)
@@ -269,8 +269,8 @@ datum/ammo/bullet/machinegun/walker/New()
 	accuracy = 15
 	accurate_range = 30
 	max_range = 40
-	damage = CONFIG_GET(number/combat_define/hlow_hit_damage)
-	penetration = CONFIG_GET(number/combat_define/mlow_armor_penetration)
+	damage = 35
+	penetration = 10
 
 /datum/ammo/rocket/autocannon/scr
 	name = "autocannon round"
@@ -302,7 +302,7 @@ datum/ammo/bullet/machinegun/walker/New()
 	accurate_range = 30
 	max_range = 40
 	damage = 40
-	penetration = CONFIG_GET(number/combat_define/hmed_armor_penetration)
+	penetration = 40
 
 /datum/ammo/rocket/autocannon/ap/on_hit_mob(mob/M, obj/item/projectile/P)
 	return
@@ -323,7 +323,7 @@ datum/ammo/bullet/machinegun/walker/New()
 
 /datum/ammo/rocket/autocannon/ap/upp/New()
 	..()
-	damage = CONFIG_GET(number/combat_define/hmed_hit_damage)
+	damage = 55
 
 /datum/ammo/rocket/autocannon/ap/upp/on_hit_mob(mob/M, obj/item/projectile/P)
 	return
