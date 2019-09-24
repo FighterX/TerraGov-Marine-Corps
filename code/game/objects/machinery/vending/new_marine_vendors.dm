@@ -169,9 +169,6 @@
 					to_chat(usr, "<span class='warning'>You already have a specialist specialization.</span>")
 					return
 				var/p_name = L[1]
-				if(findtext(p_name, "Minigun") && length(GLOB.clients) < 25)
-					to_chat(usr, "<span class='warning'>Too small number of marines in this mission to use Minigunner set</span>")
-					return
 				if(findtext(p_name, "Scout Set")) //Makes sure there can only be one Scout kit taken despite the two variants.
 					p_name = "Scout Set"
 				else if(findtext(p_name, "Heavy Armor Set")) //Makes sure there can only be one Heavy kit taken despite the two variants.
@@ -180,10 +177,10 @@
 					to_chat(usr, "<span class='warning'>That set is already taken</span>")
 					return
 
-				if(I.marine_buy_flags & bitf)
-					if(bitf == (MARINE_CAN_BUY_R_POUCH|MARINE_CAN_BUY_L_POUCH))
-						if(I.marine_buy_flags & MARINE_CAN_BUY_R_POUCH)
-							I.marine_buy_flags &= ~MARINE_CAN_BUY_R_POUCH
+			if(I.marine_buy_flags & bitf)
+				if(bitf == (MARINE_CAN_BUY_R_POUCH|MARINE_CAN_BUY_L_POUCH))
+					if(I.marine_buy_flags & MARINE_CAN_BUY_R_POUCH)
+						I.marine_buy_flags &= ~MARINE_CAN_BUY_R_POUCH
 					else
 						I.marine_buy_flags &= ~MARINE_CAN_BUY_L_POUCH
 				else if(bitf == (MARINE_CAN_BUY_ATTACHMENT|MARINE_CAN_BUY_ATTACHMENT2))
@@ -193,6 +190,9 @@
 						I.marine_buy_flags &= ~MARINE_CAN_BUY_ATTACHMENT2
 				else
 					I.marine_buy_flags &= ~bitf
+			else
+				to_chat(usr, "<span class='warning'>You can't buy things from this category anymore.</span>")
+				return
 			else
 				to_chat(usr, "<span class='warning'>You can't buy things from this category anymore.</span>")
 				return
