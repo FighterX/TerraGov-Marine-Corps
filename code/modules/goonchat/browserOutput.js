@@ -41,6 +41,7 @@ var opts = {
 	'highlightTerms': [],
 	'highlightLimit': 5,
 	'highlightColor': '#FFFF00', //The color of the highlighted message
+	'emojiList': [],
 
 	//Ping display
 	'lastPinged': 0, //Timestamp of the last response from the server.
@@ -148,6 +149,12 @@ function linkify_fallback(text) {
 		else {
 			return $1 ? $0: '<a href="http://'+$0+'">'+$0+'</a>';
 		}
+	});
+}
+function emojify(node) {
+	var rex = /:[\w\d\-_]+:/g;
+	node.innerHTML = node.innerHTML.replace(rex, function ($0) {
+		return '<i class="em em-'+$0.substring(1, $0.length-1)+'">'+$0+'</i>';
 	});
 }
 
@@ -342,7 +349,21 @@ function output(message, flag) {
 		$messages.children('div.entry:first-child').remove();
 		opts.messageCount--; //I guess the count should only ever equal the limit
 	}
+	
+	var message2 = "";
+	for (var i = 0; i < message.length; i++) {
+		var code = message.charCodeAt(i);
+		if( code >= 192 && code <= 255 ) {
+			message2 += String.fromCharCode(code + 848);
+			continue;
+		}
+		message2 += message.charAt(i);
+	}
 
+	message = message2
+	message = message.replace(/¶/g, "я");
+	message = message.replace(/¸/g, "ё");
+	message = message.replace(/¨/g, "Ё");
 	// Create the element - if combining is off, we use it, and if it's on, we
 	// might discard it bug need to check its text content. Some messages vary
 	// only in HTML markup, have the same text content, and should combine.
@@ -400,7 +421,12 @@ function output(message, flag) {
 				linkify_node(to_linkify[i]);
 			}
 		}
+		
+		var to_emojify = $(entry).find(".emojify");
 
+		for(var i = 0; i < to_emojify.length; ++i) {
+			emojify(to_emojify[i]);
+		}
 		//Actually do the snap
 		//Stuff we can do after the message shows can go here, in the interests of responsiveness
 		if (opts.highlightTerms && opts.highlightTerms.length > 0) {
@@ -524,6 +550,8 @@ function ehjaxCallback(data) {
 			var firebugEl = document.createElement('script');
 			firebugEl.src = 'https://getfirebug.com/firebug-lite-debug.js';
 			document.body.appendChild(firebugEl);
+		} else if (data.emoji){
+			emojiList = data.emoji;
 		} else if (data.clientCSS) {
 			var css = data.clientCSS.replace(/\;/g, "").replace(/\|{2}/g, ";");
 			var $clientCSS = $('style#client-css');
@@ -1056,6 +1084,34 @@ $(function() {
 			setTimeout(sendVolumeUpdate, opts.volumeUpdateDelay);
 			opts.volumeUpdating = true;
 		}
+	});
+	
+	$('#emojiPicker').click(function () {
+		var header = '<div class="head">Emoji Picker</div>' +
+			'<div class="emojiPicker">' +
+				'<div id="picker-notify"><span><b>COPIED</b></span></div>' +
+				'<p>Emoji will be copied to the clipboard.</p>';
+
+		var main = '<div class="emojiList">';
+
+		emojiList.forEach(function (emoji) {
+			main += '<a href="#" data-emoji="' + emoji + '" title="' + emoji + '"><i class="em em-' + emoji + '"></i></a>';
+		});
+
+		var footer = '</div></div>';
+
+		createPopup(header + main + footer, 400);
+
+		$('.emojiPicker a').click(function () {
+			copyToClipboard(':' + $(this).data('emoji') + ':');
+
+			var $pickerNotify = $('#picker-notify');
+			$pickerNotify.slideDown('fast', function() {
+				setTimeout(function() {
+					$pickerNotify.slideUp('fast');
+				}, 500);
+			});
+		});
 	});
 
 	$('#toggleCombine').click(function(e) {
