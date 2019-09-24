@@ -168,6 +168,9 @@
 				else if(!usr.mind.cm_skills || usr.mind.cm_skills.spec_weapons != SKILL_SPEC_TRAINED)
 					to_chat(usr, "<span class='warning'>You already have a specialist specialization.</span>")
 					return
+				if(findtext(p_name, "Minigun") && length(GLOB.clients) < 25)
+					to_chat(usr, "<span class='warning'>Too small number of marines in this mission to use Minigunner set</span>")
+					return
 				var/p_name = L[1]
 				if(findtext(p_name, "Scout Set")) //Makes sure there can only be one Scout kit taken despite the two variants.
 					p_name = "Scout Set"
