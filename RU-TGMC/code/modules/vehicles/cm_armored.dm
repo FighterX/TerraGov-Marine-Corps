@@ -1155,7 +1155,7 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 //Honestly copies some code from the Xeno files, just handling some special cases
 /obj/vehicle/multitile/root/cm_armored/attack_alien(mob/living/carbon/xenomorph/M, dam_bonus)
 
-	var/damage = rand(M.melee_damage_lower, M.melee_damage_upper) + dam_bonus
+	var/damage = M.melee_damage + dam_bonus
 
 	//Frenzy auras stack in a way, then the raw value is multipled by two to get the additive modifier
 	if(M.frenzy_aura > 0)
