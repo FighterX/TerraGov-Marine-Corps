@@ -1420,6 +1420,4 @@
 #include "RU-TGMC\code\modules\vehicles\tankvendor.dm"
 #include "RU-TGMC\code\modules\vehicles\vehicle_interior.dm"
 #include "RU-TGMC\code\modules\vehicles\vehicle_ui.dm"
-#include "RU-TGMC\code\modules\vehicles\walker.dm"
-#include "RU-TGMC\code\modules\vehicles\walker_vendor.dm"
 // END_INCLUDE

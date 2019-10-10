@@ -157,11 +157,6 @@
 		N.click_action(A, src, params)
 		return
 
-	if(istype(loc, /obj/vehicle/walker))
-		var/obj/vehicle/walker/N = loc
-		N.handle_click(A, src, params)
-		return
-
 	if(restrained())
 		changeNext_move(CLICK_CD_HANDCUFFED)
 		RestrainedClickOn(A)
@@ -199,8 +194,6 @@
 			var/atom/target = locate(/mob/living/carbon) in turf_target
 			if(!target)
 				target = locate(/obj/vehicle/multitile/) in turf_target
-			if(!target)
-				target = locate(/obj/vehicle/walker) in turf_target
 			if(target)
 				A = target
 			
