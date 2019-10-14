@@ -30,6 +30,7 @@
 #define COMSIG_GLOB_NUKE_START "!nuke_start"
 #define COMSIG_GLOB_NUKE_STOP "!nuke_stop"
 #define COMSIG_GLOB_NUKE_EXPLODED "!nuke_exploded"
+#define COMSIG_GLOB_NUKE_DIFFUSED "!nuke_diffused"
 
 //////////////////////////////////////////////////////////////////
 
@@ -310,6 +311,7 @@
 #define COMSIG_XENOABILITY_PSYCHIC_FLING "xenoability_psychic_fling"
 #define COMSIG_XENOABILITY_PSYCHIC_CHOKE "xenoability_psychic_choke"
 #define COMSIG_XENOABILITY_PSYCHIC_CURE "xenoability_psychic_cure"
+#define COMSIG_XENOABILITY_UNRELENTING_FORCE "xenoability_unrelenting_force"
 
 #define COMSIG_XENOABILITY_RAVAGER_CHARGE "xenoability_ravager_charge"
 #define COMSIG_XENOABILITY_RAVAGE "xenoability_ravage"
