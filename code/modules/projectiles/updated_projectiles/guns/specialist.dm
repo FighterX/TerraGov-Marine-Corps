@@ -784,7 +784,7 @@
 	if(!do_after(user, delay, TRUE, src, BUSY_ICON_DANGER)) //slight wind up
 		return
 
-	playsound(loc,'sound/weapons/guns/fire/launcher.ogg', 50, 1)
+	playsound(loc,pick('sound/weapons/guns/fire/launcher.ogg', 'sound/weapons/guns/fire/launcher2.ogg','sound/weapons/guns/fire/launcher3.ogg','sound/weapons/guns/fire/launcher4.ogg','sound/weapons/guns/fire/launcher5.ogg','sound/weapons/guns/fire/launcher6.ogg'), 50, 1)
 	. = ..()
 
 
