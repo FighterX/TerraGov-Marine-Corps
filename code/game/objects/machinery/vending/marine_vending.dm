@@ -115,6 +115,7 @@
 					/obj/item/weapon/gun/revolver/m44 = 15,
 					/obj/item/weapon/gun/smg/m39 = 15,
 					/obj/item/weapon/gun/rifle/m41a = 20,
+					/obj/item/weapon/gun/rifle/lmg = 2,
 					/obj/item/weapon/gun/energy/lasgun/M43 = 10,
 					/obj/item/weapon/gun/shotgun/pump = 10,
 					/obj/item/explosive/mine = 2,
@@ -373,6 +374,7 @@
 					/obj/item/reagent_container/hypospray/autoinjector/oxycodone = 4,
 					/obj/item/reagent_container/hypospray/autoinjector/tricordrazine = 8,
 					/obj/item/reagent_container/hypospray/autoinjector/hypervene = 4,
+					/obj/item/reagent_container/hypospray/autoinjector/hyperzine = 0,
 					/obj/item/storage/pill_bottle/bicaridine = 3,
 					/obj/item/storage/pill_bottle/dexalin = 3,
 					/obj/item/storage/pill_bottle/dylovene = 3,
@@ -392,7 +394,8 @@
 					/obj/item/healthanalyzer = 3,
 					/obj/item/bodybag/cryobag = 2)
 
-	contraband = list(/obj/item/reagent_container/hypospray/autoinjector/sleeptoxin =3)
+	contraband = list(/obj/item/reagent_container/hypospray/autoinjector/sleeptoxin =3,
+					/obj/item/reagent_container/hypospray/autoinjector/hyperzine/expired =3)
 
 
 
@@ -436,7 +439,7 @@
 	wrenchable = FALSE
 
 	products = list(
-						/obj/item/clothing/under/marine/medic = 4,
+						/obj/item/clothing/under/marine/corpsman = 4,
 						/obj/item/clothing/head/helmet/marine/corpsman = 4,
 						/obj/item/storage/backpack/marine/corpsman = 4,
 						/obj/item/storage/backpack/marine/satchel/corpsman = 4,
@@ -617,11 +620,15 @@
 	wrenchable = FALSE
 
 	products = list(
-						/obj/item/attachable/bayonet = 5,
-						/obj/item/attachable/compensator = 2,
-						/obj/item/attachable/extended_barrel = 3,
-						/obj/item/attachable/heavy_barrel = 1,
-						/obj/item/attachable/suppressor = 3,
+						/obj/item/attachable/bayonet = 15,
+						/obj/item/attachable/compensator = 4,
+						/obj/item/attachable/extended_barrel = 8,
+						/obj/item/attachable/heavy_barrel = 2,
+						/obj/item/attachable/suppressor = 8,
+						/obj/item/attachable/widelens = 4,
+						/obj/item/attachable/focuslens = 4,
+						/obj/item/attachable/efflens = 4,
+						/obj/item/attachable/pulselens = 4,
 
 						/obj/item/attachable/flashlight = 6,
 						/obj/item/attachable/magnetic_harness = 3,
@@ -670,7 +677,7 @@
 	product_ads = "If it moves, it's hostile!;How many enemies have you killed today?;Shoot first, perform autopsy later!;Your ammo is right here.;Guns!;Die, scumbag!;Don't shoot me bro!;Shoot them, bro.;Why not have a donut?"
 	products = list(
 					/obj/item/clothing/shoes/marine = 20,
-					/obj/item/clothing/under/marine = 20,
+					/obj/item/clothing/under/marine/standard = 20,
 					/obj/item/storage/backpack/marine/standard = 10,
 					/obj/item/storage/backpack/marine/satchel = 10,
 					/obj/item/clothing/suit/storage/marine = 10,

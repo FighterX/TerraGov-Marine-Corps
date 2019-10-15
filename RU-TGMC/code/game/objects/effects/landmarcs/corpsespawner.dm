@@ -55,7 +55,7 @@
 
 /obj/effect/landmark/corpsespawner/USCMmedic
 	name	=	"USCM Medic"
-	corpseuniform	=	/obj/item/clothing/under/marine/medic
+	corpseuniform	=	/obj/item/clothing/under/marine/corpsman
 	corpsesuit	=	/obj/item/clothing/suit/storage/marine
 	corpseshoes	=	/obj/item/clothing/shoes/marine
 	corpsegloves	=	/obj/item/clothing/gloves/latex
