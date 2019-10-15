@@ -425,7 +425,7 @@
 		reset_attach_status(FALSE)
 		return
 	if(ishuman(user))
-		playsound(loc, (user.gender == MALE ?pick('sound/misc/facehugged_male.ogg','sound/misc/facehugged_male1.ogg','sound/misc/facehugged_male2.ogg') : 'sound/misc/facehugged_female.ogg') , 25, 0)
+		playsound(loc, (user.gender == MALE ?'sound/misc/facehugged_male.ogg' : 'sound/misc/facehugged_female.ogg') , 25, 0)
 	if(!sterile && !issynth(user) && !isIPC(user))
 		if(user.disable_lights(sparks = TRUE, silent = TRUE)) //Knock out the lights so the victim can't be cam tracked/spotted as easily
 			user.visible_message("<span class='danger'>[user]'s lights flicker and short out in a struggle!</span>", "<span class='danger'>Your equipment's lights flicker and short out in a struggle!</span>")
