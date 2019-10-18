@@ -504,7 +504,7 @@
 	if(!check_rights(R_ASAY))
 		return
 
-	msg = noscript(sanitize_ru(msg))
+	msg = noscript(msg)
 
 	if(!msg)
 		return
@@ -535,9 +535,9 @@
 		return
 
 	if(!check_rights(R_ADMIN, FALSE))
-		msg = copytext(sanitize(sanitize_ru(msg)), 1, MAX_MESSAGE_LEN)
+		msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	else
-		msg = noscript(sanitize_ru(msg))
+		msg = noscript(msg)
 
 	if(!msg)
 		return
@@ -583,7 +583,7 @@
 	if(handle_spam_prevention(msg, MUTE_DEADCHAT))
 		return
 
-	msg = noscript(sanitize_ru(msg))
+	msg = noscript(msg)
 
 	if(!msg)
 		return
@@ -868,7 +868,7 @@
 			return
 
 		if(!msg)
-			msg = sanitize_ru(input(src, "Message:", "Private message to Administrator") as message|null)
+			msg = input(src, "Message:", "Private message to Administrator") as message|null
 
 		if(!msg)
 			return
@@ -882,7 +882,7 @@
 			if(holder)
 				to_chat(src, "<span class='warning'>Error: Client not found.</span>")
 				if(msg)
-					to_chat(src, sanitize_ru(msg))
+					to_chat(src, msg)
 				return
 			else if(msg) // you want to continue if there's no message instead of returning now
 				current_ticket.MessageNoRecipient(msg)
@@ -891,7 +891,7 @@
 		//get message text, limit it's length.and clean/escape html
 		if(!msg)
 			msg = input("Message:", "Private message to [key_name(recipient, FALSE, FALSE)]") as message|null
-			msg = trim(sanitize_ru(msg))
+			msg = trim(msg)
 			if(!msg)
 				return
 
