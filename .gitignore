@@ -21,6 +21,7 @@ libBSQL.so
 rust_g
 admin_ranks.txt
 config.txt
+dreamchecker*
 
 
 # ignore config, but not subdirs

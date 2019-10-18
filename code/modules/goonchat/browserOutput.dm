@@ -214,10 +214,10 @@ GLOBAL_VAR_INIT(emojiJson, file2text("code/modules/goonchat/emojiList.json"))
 	var/last_savefile = owner.Import()
 	if(!last_savefile)
 		saveClientCSS("")
-		return 
+		return
 	var/savefile/F = new(last_savefile)
 	READ_FILE(F["CSS"], clientCSS)
-	
+
 	if(length(clientCSS) > UPLOAD_LIMIT)
 		clientCSS = ""
 	clientCSS = sanitize_text(clientCSS, "")

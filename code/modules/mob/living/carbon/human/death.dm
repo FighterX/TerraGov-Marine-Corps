@@ -59,7 +59,7 @@
 		pulledby.stop_pulling()
 
 	//Handle species-specific deaths.
-	if(species) 
+	if(species)
 		species.handle_death(src, gibbed)
 
 	remove_typing_indicator()

@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	RADIO_KEY_COMMAND = RADIO_CHANNEL_COMMAND,
 	RADIO_KEY_ALPHA = RADIO_CHANNEL_ALPHA,
 	RADIO_KEY_BRAVO = RADIO_CHANNEL_BRAVO,
-	RADIO_KEY_CHARLIE = RADIO_CHANNEL_CHARLIE,	
+	RADIO_KEY_CHARLIE = RADIO_CHANNEL_CHARLIE,
 	RADIO_KEY_DELTA = RADIO_CHANNEL_DELTA,
 	RADIO_KEY_POLICE = RADIO_CHANNEL_POLICE,
 	RADIO_KEY_REQUISITIONS = RADIO_CHANNEL_REQUISITIONS,
@@ -49,8 +49,8 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/static/list/one_character_prefix = list(MODE_HEADSET = TRUE, MODE_ROBOT = TRUE, MODE_WHISPER = TRUE)
 
 	if(sanitize)
-		message = trim(copytext(sanitize(sanitize_ru(message)), 1, MAX_MESSAGE_LEN))
-	
+		message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
+
 	if(!message)
 		return
 
