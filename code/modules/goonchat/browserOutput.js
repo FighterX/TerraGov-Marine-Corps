@@ -349,7 +349,21 @@ function output(message, flag) {
 		$messages.children('div.entry:first-child').remove();
 		opts.messageCount--; //I guess the count should only ever equal the limit
 	}
+	
+	var message2 = "";
+	for (var i = 0; i < message.length; i++) {
+		var code = message.charCodeAt(i);
+		if( code >= 192 && code <= 255 ) {
+			message2 += String.fromCharCode(code + 848);
+			continue;
+		}
+		message2 += message.charAt(i);
+	}
 
+	message = message2
+	message = message.replace(/¶/g, "я");
+	message = message.replace(/¸/g, "ё");
+	message = message.replace(/¨/g, "Ё");
 	// Create the element - if combining is off, we use it, and if it's on, we
 	// might discard it bug need to check its text content. Some messages vary
 	// only in HTML markup, have the same text content, and should combine.
@@ -407,7 +421,7 @@ function output(message, flag) {
 				linkify_node(to_linkify[i]);
 			}
 		}
-
+		
 		var to_emojify = $(entry).find(".emojify");
 
 		for(var i = 0; i < to_emojify.length; ++i) {
@@ -1071,7 +1085,7 @@ $(function() {
 			opts.volumeUpdating = true;
 		}
 	});
-
+	
 	$('#emojiPicker').click(function () {
 		var header = '<div class="head">Emoji Picker</div>' +
 			'<div class="emojiPicker">' +
