@@ -5,7 +5,7 @@
 	else if(key == ";")
 		return MODE_HEADSET
 	else if(length(message) > 2 && (key in GLOB.department_radio_prefixes))
-		var/key_symbol = ru_channels(lowertext(copytext(message, 2, 3)))  //Making lowercase english key_symbol from rus with ru_channels
+		var/key_symbol = ru_channels(lowertext_ru(lowertext(copytext(message, 2, 3))))  //Making lowercase english key_symbol from rus with ru_channels
 		return GLOB.department_radio_keys[key_symbol]
 
 
