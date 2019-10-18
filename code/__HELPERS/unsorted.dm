@@ -351,11 +351,6 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 /proc/between(low, middle, high)
 	return max(min(middle, high), low)
 
-
-/proc/arctan(x)
-	return arcsin(x / sqrt(1 + x * x))
-
-
 //returns random gauss number
 /proc/GaussRand(sigma)
 	var/x,y,rsq
