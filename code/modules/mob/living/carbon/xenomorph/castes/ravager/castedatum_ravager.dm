@@ -16,7 +16,7 @@
 	tackle_damage = 55
 
 	// *** Speed *** //
-	speed = -0.5
+	speed = -0.8
 
 	// *** Plasma *** //
 	plasma_max = 150
@@ -34,7 +34,7 @@
 	caste_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 
 	// *** Defense *** //
-	armor = list("melee" = 20, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = XENO_BOMB_RESIST_1, "bio" = 20, "rad" = 20, "fire" = 40, "acid" = 20)
+	armor = list("melee" = 45, "bullet" = 45, "laser" = 45, "energy" = 45, "bomb" = XENO_BOMB_RESIST_1, "bio" = 45, "rad" = 45, "fire" = 45, "acid" = 45)
 
 	fire_resist = 0.5 //0 to 1; lower is better as it is a multiplier.
 
@@ -46,8 +46,6 @@
 		/datum/action/xeno_action/xeno_resting,
 		/datum/action/xeno_action/regurgitate,
 		/datum/action/xeno_action/activable/charge,
-		/datum/action/xeno_action/activable/ravage,
-		/datum/action/xeno_action/second_wind,
 		)
 
 /datum/xeno_caste/ravager/young
@@ -68,7 +66,7 @@
 	tackle_damage = 60
 
 	// *** Speed *** //
-	speed = -0.55
+	speed = -0.9
 
 	// *** Plasma *** //
 	plasma_max = 175
@@ -81,7 +79,7 @@
 	upgrade_threshold = 800
 
 	// *** Defense *** //
-	armor = list("melee" = 25, "bullet" = 25, "laser" = 25, "energy" = 25, "bomb" = XENO_BOMB_RESIST_1, "bio" = 25, "rad" = 25, "fire" = 50, "acid" = 25)
+	armor = list("melee" = 55, "bullet" = 55, "laser" = 55, "energy" = 55, "bomb" = XENO_BOMB_RESIST_2, "bio" = 55, "rad" = 55, "fire" = 55, "acid" = 55)
 
 	fire_resist = 0.5 //0 to 1; lower is better as it is a multiplier.
 
@@ -98,7 +96,7 @@
 	tackle_damage = 65
 
 	// *** Speed *** //
-	speed = -0.58
+	speed = -0.97
 
 	// *** Plasma *** //
 	plasma_max = 190
@@ -111,7 +109,7 @@
 	upgrade_threshold = 1600
 
 	// *** Defense *** //
-	armor = list("melee" = 28, "bullet" = 28, "laser" = 28, "energy" = 28, "bomb" = XENO_BOMB_RESIST_1, "bio" = 28, "rad" = 28, "fire" = 56, "acid" = 28)
+	armor = list("melee" = 58, "bullet" = 58, "laser" = 58, "energy" = 58, "bomb" = XENO_BOMB_RESIST_2, "bio" = 58, "rad" = 58, "fire" = 58, "acid" = 58)
 
 	fire_resist = 0.5 //0 to 1; lower is better as it is a multiplier.
 
@@ -128,7 +126,7 @@
 	tackle_damage = 70
 
 	// *** Speed *** //
-	speed = -0.6
+	speed = -1
 
 	// *** Plasma *** //
 	plasma_max = 200
@@ -141,7 +139,7 @@
 	upgrade_threshold = 1600
 
 	// *** Defense *** //
-	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = XENO_BOMB_RESIST_1, "bio" = 30, "rad" = 30, "fire" = 60, "acid" = 30)
+	armor = list("melee" = 60, "bullet" = 60, "laser" = 60, "energy" = 60, "bomb" = XENO_BOMB_RESIST_2, "bio" = 60, "rad" = 60, "fire" = 60, "acid" = 60)
 
 	fire_resist = 0.5 //0 to 1; lower is better as it is a multiplier.
 
