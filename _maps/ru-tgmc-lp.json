@@ -1,8 +1,0 @@
-{
-    "map_name": "Dream",
-    "map_path": "map_files/RU-TGMC",
-    "map_file": "TGS_Dream.dmm",
-	"traits": [{"Marine Main Ship": true}], 
-    "shuttles": {
-    }
-}

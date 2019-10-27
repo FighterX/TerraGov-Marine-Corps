@@ -1,8 +1,0 @@
-{
-    "map_name": "Theseus",
-    "map_path": "map_files/RU-TGMC",
-    "map_file": "TGS_Theseus.dmm",
-	"traits": [{"Marine Main Ship": true}], 
-    "shuttles": {
-    }
-}
