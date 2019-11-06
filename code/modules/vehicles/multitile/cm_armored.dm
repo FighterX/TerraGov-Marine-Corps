@@ -1,4 +1,3 @@
-/*
 //NOT bitflags, just global constant values
 #define HDPT_PRIMARY "primary"
 #define HDPT_SECDGUN "secondary"
@@ -869,4 +868,4 @@ GLOBAL_LIST_INIT(armorvic_dmg_distributions, list(
 
 
 /obj/vehicle/multitile/root/cm_armored/contents_explosion(severity, target)
-	return */
+	return
