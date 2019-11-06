@@ -290,7 +290,6 @@
 	. = ..()
 	to_chat(world, "<span class='round_header'>|[round_finished]|</span>")
 	to_chat(world, "<span class='round_body'>Thus ends the story of the brave men and women of the TGS Canterbury and their struggle on [SSmapping.configs[GROUND_MAP].map_name].</span>")
-	show_stats_everybody()
 
 	// Music
 	var/sound/xeno_track

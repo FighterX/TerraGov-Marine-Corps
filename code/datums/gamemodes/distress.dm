@@ -117,7 +117,6 @@
 	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
 
 	to_chat(world, "<span class='round_body'>Thus ends the story of the brave men and women of the [SSmapping.configs[SHIP_MAP].map_name] and their struggle on [SSmapping.configs[GROUND_MAP].map_name].</span>")
-	show_stats_everybody()
 	var/sound/xeno_track
 	var/sound/human_track
 	switch(round_finished)

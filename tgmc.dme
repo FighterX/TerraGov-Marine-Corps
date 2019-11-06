@@ -1409,7 +1409,6 @@
 #include "RU-TGMC\code\datums\skills.dm"
 #include "RU-TGMC\code\datums\jobs\job\job.dm"
 #include "RU-TGMC\code\game\almayer.dm"
-#include "RU-TGMC\code\game\statistic.dm"
 #include "RU-TGMC\code\game\area\rhode_island.dm"
 #include "RU-TGMC\code\game\objects\effects\landmarcs\corpsespawner.dm"
 #include "RU-TGMC\code\game\objects\items\manual.dm"
