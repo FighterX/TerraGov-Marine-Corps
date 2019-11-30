@@ -504,7 +504,7 @@
 	if(!check_rights(R_ASAY))
 		return
 
-	msg = noscript(msg)
+	msg = noscript(sanitize_ru(msg))
 
 	if(!msg)
 		return
@@ -535,9 +535,9 @@
 		return
 
 	if(!check_rights(R_ADMIN, FALSE))
-		msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
+		msg = copytext(sanitize(sanitize_ru(msg)), 1, MAX_MESSAGE_LEN)
 	else
-		msg = noscript(msg)
+		msg = noscript(sanitize_ru(msg))
 
 	if(!msg)
 		return
@@ -583,7 +583,7 @@
 	if(handle_spam_prevention(msg, MUTE_DEADCHAT))
 		return
 
-	msg = noscript(msg)
+	msg = noscript(sanitize_ru(msg))
 
 	if(!msg)
 		return
