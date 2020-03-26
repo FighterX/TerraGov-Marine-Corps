@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	var/datum/saymode/saymode = get_saymode(message, talk_key)
 	var/message_mode = get_message_mode(message)
-	var/original_message = sanitize_ru(message)
+	var/original_message = message
 	var/in_critical = InCritical()
 
 	if(one_character_prefix[message_mode])
